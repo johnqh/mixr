@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useInfiniteRecipes } from '../hooks/useRecipes';
 import { RecipeGrid } from '../components/recipe/RecipeGrid';
 import { RecipeFilters } from '../components/recipe/RecipeFilters';
+import { RecipeGenerator } from '../components/recipe/RecipeGenerator';
 import { useAuth } from '../context/AuthContext';
 
 type Tab = 'browse' | 'generate' | 'my-recipes';
@@ -72,18 +73,7 @@ export const HomePage: FC = () => {
         );
 
       case 'generate':
-        return (
-          <div className="text-center py-16">
-            <div className="text-8xl mb-6">✨</div>
-            <h2 className="text-3xl font-bold mb-4">Generate Your Perfect Cocktail</h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
-              Select your mood and let AI create a unique cocktail recipe just for you
-            </p>
-            <div className="inline-block px-6 py-3 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg font-medium">
-              Mood-based generation coming soon!
-            </div>
-          </div>
-        );
+        return <RecipeGenerator />;
 
       case 'my-recipes':
         if (!user) {
