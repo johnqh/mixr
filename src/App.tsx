@@ -10,6 +10,8 @@ import LandingPage from './pages/LandingPage';
 
 // Lazy load pages
 const OnboardingPage = lazy(() => import('./pages/OnboardingPage'));
+const HomePage = lazy(() => import('./pages/HomePage'));
+const RecipeDetailPage = lazy(() => import('./pages/RecipeDetailPage'));
 
 const App: FC = () => {
   return (
@@ -21,12 +23,14 @@ const App: FC = () => {
               <Routes>
                 <Route path="/" element={<LandingPage />} />
 
+                {/* Recipe browsing - public */}
+                <Route path="/recipes" element={<HomePage />} />
+                <Route path="/recipes/:id" element={<RecipeDetailPage />} />
+
                 {/* Protected routes */}
                 <Route element={<ProtectedRoute />}>
                   <Route path="/onboarding" element={<OnboardingPage />} />
                 </Route>
-
-                {/* More routes will be added here */}
               </Routes>
             </Router>
           </AuthProvider>

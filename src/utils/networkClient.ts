@@ -55,7 +55,7 @@ export class AuthenticatedNetworkClient implements NetworkClient {
   ): Promise<NetworkResponse<T>> {
     try {
       // Get Firebase auth token if user is logged in
-      const user = auth.currentUser;
+      const user = auth?.currentUser;
       let token: string | undefined;
 
       if (user) {
