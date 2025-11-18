@@ -3,6 +3,9 @@ import { createSimpleStorage } from '@sudobility/components';
 import { Theme } from '@sudobility/types';
 import { webStorage } from '@sudobility/di_web';
 
+// Re-export Theme for convenience
+export { Theme };
+
 interface ThemeContextType {
   theme: Theme;
   setTheme: (theme: Theme) => void;
