@@ -3,12 +3,16 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 // Check if we should use local or npm version of libraries
-const useLocalLib = process.env.USE_LOCAL_LIB === 'true' || process.env.NODE_ENV === 'development';
+const useLocalLib =
+  process.env.USE_LOCAL_LIB === 'true' || process.env.NODE_ENV === 'development';
 
 export default defineConfig({
   resolve: {
-    dedupe: ['react', 'react-dom', '@tanstack/react-query'],
+    dedupe: ['react', 'react-dom', '@tanstack/react-query', 'react-helmet-async'],
     alias: {
+      // Ensure all packages use the same React instance
+      react: path.resolve(__dirname, 'node_modules/react'),
+      'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
       ...(useLocalLib
         ? {
             '@sudobility/mixr_lib': path.resolve(__dirname, '../mixr_lib'),
@@ -31,73 +35,58 @@ export default defineConfig({
     cssMinify: true,
     reportCompressedSize: false,
     sourcemap: false,
+    chunkSizeWarningLimit: 1100,
     rollupOptions: {
+      // Externalize optional dependencies that may not be installed
+      external: ['@sudobility/subscription_lib'],
       output: {
-        manualChunks: id => {
-          // React Core
-          if (
-            id.includes('node_modules/react/index.js') ||
-            id.includes('node_modules/react-dom/client.js')
-          ) {
-            return 'react-core';
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            // React core - must be first and in single chunk
+            if (
+              id.includes('node_modules/react/') ||
+              id.includes('node_modules/react-dom/') ||
+              id.includes('node_modules/react-is/') ||
+              id.includes('node_modules/scheduler/')
+            ) {
+              return 'vendor-react';
+            }
+            // React Router
+            if (id.includes('node_modules/react-router')) {
+              return 'vendor-router';
+            }
+            // Firebase
+            if (id.includes('firebase')) {
+              return 'vendor-firebase';
+            }
+            // i18n libraries
+            if (id.includes('i18next')) {
+              return 'vendor-i18n';
+            }
+            // TanStack Query
+            if (id.includes('@tanstack')) {
+              return 'vendor-tanstack';
+            }
+            // Radix UI
+            if (id.includes('@radix-ui')) {
+              return 'vendor-radix';
+            }
+            // Icons
+            if (id.includes('@heroicons') || id.includes('lucide-react')) {
+              return 'vendor-icons';
+            }
           }
-
-          // React Router
-          if (id.includes('node_modules/react-router')) {
-            return 'react-router';
-          }
-
-          // Query
-          if (id.includes('node_modules/@tanstack/')) {
-            return 'query';
-          }
-
-          // Firebase
-          if (id.includes('node_modules/firebase/app')) {
-            return 'firebase-app';
-          }
-          if (id.includes('node_modules/firebase/auth')) {
-            return 'firebase-auth';
-          }
-          if (id.includes('node_modules/firebase/')) {
-            return 'firebase-utils';
-          }
-
-          // UI Libraries
-          if (id.includes('node_modules/@radix-ui/')) {
-            return 'radix-ui';
-          }
-          if (id.includes('node_modules/@heroicons/')) {
-            return 'heroicons';
-          }
-          if (id.includes('node_modules/lucide-react')) {
-            return 'lucide';
-          }
-
-          // UI Utils
-          if (
-            id.includes('node_modules/class-variance-authority') ||
-            id.includes('node_modules/clsx') ||
-            id.includes('node_modules/tailwind-merge')
-          ) {
-            return 'ui-utils';
-          }
-
-          // Vendor packages
-          if (id.includes('node_modules/')) {
-            return 'vendor';
-          }
+          // Let Rollup handle other dependencies naturally
         },
       },
     },
-    chunkSizeWarningLimit: 500,
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom'],
+    include: ['react', 'react-dom', 'react-router-dom', 'firebase/app', 'firebase/auth'],
   },
   server: {
     host: true,
-    port: 5174,
+    port: 6173,
     strictPort: false,
   },
 });

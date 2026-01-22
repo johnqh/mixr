@@ -1,9 +1,25 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { StandardPageLayout } from '../components/layout';
 
 const LandingPage: FC = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white dark:from-gray-900 dark:to-gray-800">
-      <div className="container mx-auto px-4 py-16">
+    <StandardPageLayout
+      seo={{
+        title: 'MIXR - Discover the Perfect Cocktail for Your Mood',
+        description: 'Discover amazing cocktails based on your mood. Browse recipes, track your bar inventory, and join our community of cocktail enthusiasts.',
+        keywords: ['cocktails', 'recipes', 'drinks', 'mixology', 'mood-based', 'bartending'],
+      }}
+      topBarVariant="default"
+      showBreadcrumb={false}
+      showFooter={true}
+      footerSticky={false}
+      background="gradient"
+      contentPadding="lg"
+    >
+      <div className="py-8">
         {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
@@ -12,7 +28,10 @@ const LandingPage: FC = () => {
           <p className="text-2xl text-gray-700 dark:text-gray-300 mb-8">
             Discover the perfect cocktail for your mood
           </p>
-          <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 px-8 rounded-full hover:opacity-90 transition-opacity">
+          <button
+            onClick={() => navigate('/recipes')}
+            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 px-8 rounded-full hover:opacity-90 transition-opacity"
+          >
             Get Started
           </button>
         </div>
@@ -86,28 +105,15 @@ const LandingPage: FC = () => {
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
             Join our community of cocktail enthusiasts today
           </p>
-          <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 px-8 rounded-full hover:opacity-90 transition-opacity">
+          <button
+            onClick={() => navigate('/register')}
+            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 px-8 rounded-full hover:opacity-90 transition-opacity"
+          >
             Sign Up Free
           </button>
         </div>
-
-        {/* Footer */}
-        <footer className="mt-20 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-600 dark:text-gray-400">
-          <p>&copy; 2025 MIXR. All rights reserved.</p>
-          <div className="mt-4 space-x-4">
-            <a href="/terms" className="hover:text-purple-600">
-              Terms
-            </a>
-            <a href="/privacy" className="hover:text-purple-600">
-              Privacy
-            </a>
-            <a href="/about" className="hover:text-purple-600">
-              About
-            </a>
-          </div>
-        </footer>
       </div>
-    </div>
+    </StandardPageLayout>
   );
 };
 

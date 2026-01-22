@@ -1,12 +1,12 @@
 import { FC, useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { useInfiniteRecipes } from '../hooks/useRecipes';
 import { useInfiniteUserRecipes } from '../hooks/useUserRecipes';
 import { RecipeGrid } from '../components/recipe/RecipeGrid';
 import { RecipeFilters } from '../components/recipe/RecipeFilters';
 import { RecipeGenerator } from '../components/recipe/RecipeGenerator';
 import { useAuth } from '../context/AuthContext';
+import { StandardPageLayout } from '../components/layout';
 
 type Tab = 'browse' | 'generate' | 'my-recipes';
 
@@ -142,111 +142,81 @@ export const HomePage: FC = () => {
   };
 
   return (
-    <>
-      <Helmet>
-        <title>MIXR - Discover & Create Amazing Cocktails</title>
-        <meta name="description" content="Browse thousands of cocktail recipes or generate your perfect drink based on your mood" />
-      </Helmet>
-
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-        {/* Header */}
-        <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between py-4">
-              <div className="flex items-center gap-3">
-                <span className="text-3xl">🍸</span>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  MIXR
-                </h1>
+    <StandardPageLayout
+      seo={{
+        title: 'MIXR - Discover & Create Amazing Cocktails',
+        description: 'Browse thousands of cocktail recipes or generate your perfect drink based on your mood',
+        keywords: ['cocktails', 'recipes', 'drinks', 'mixology', 'bartending'],
+      }}
+      topBarVariant="app"
+      breadcrumbItems={[
+        { label: 'Home', href: '/' },
+        { label: 'Recipes', current: true },
+      ]}
+      contentPadding="none"
+      maxWidth="full"
+      background="default"
+    >
+      {/* Tabs Section */}
+      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+        <div className="container mx-auto px-4">
+          <div className="flex gap-1">
+            <button
+              onClick={() => setActiveTab('browse')}
+              className={`px-6 py-3 font-medium rounded-t-lg transition-colors ${
+                activeTab === 'browse'
+                  ? 'bg-gray-50 dark:bg-gray-900 text-purple-600 dark:text-purple-400'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400'
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                Browse
               </div>
+            </button>
 
-              <div className="flex items-center gap-4">
-                {user ? (
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm text-gray-600 dark:text-gray-400 hidden sm:block">
-                      {user.email}
-                    </span>
-                    <button
-                      onClick={() => navigate('/settings')}
-                      className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                      aria-label="Settings"
-                    >
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    </button>
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => navigate('/login')}
-                    className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
-                  >
-                    Sign In
-                  </button>
-                )}
+            <button
+              onClick={() => setActiveTab('generate')}
+              className={`px-6 py-3 font-medium rounded-t-lg transition-colors ${
+                activeTab === 'generate'
+                  ? 'bg-gray-50 dark:bg-gray-900 text-purple-600 dark:text-purple-400'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400'
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+                Generate
               </div>
-            </div>
+            </button>
 
-            {/* Tabs */}
-            <div className="flex gap-1 mt-4">
-              <button
-                onClick={() => setActiveTab('browse')}
-                className={`px-6 py-3 font-medium rounded-t-lg transition-colors ${
-                  activeTab === 'browse'
-                    ? 'bg-gray-50 dark:bg-gray-900 text-purple-600 dark:text-purple-400'
-                    : 'text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400'
-                }`}
-              >
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                  Browse
-                </div>
-              </button>
-
-              <button
-                onClick={() => setActiveTab('generate')}
-                className={`px-6 py-3 font-medium rounded-t-lg transition-colors ${
-                  activeTab === 'generate'
-                    ? 'bg-gray-50 dark:bg-gray-900 text-purple-600 dark:text-purple-400'
-                    : 'text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400'
-                }`}
-              >
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                  </svg>
-                  Generate
-                </div>
-              </button>
-
-              <button
-                onClick={() => setActiveTab('my-recipes')}
-                className={`px-6 py-3 font-medium rounded-t-lg transition-colors ${
-                  activeTab === 'my-recipes'
-                    ? 'bg-gray-50 dark:bg-gray-900 text-purple-600 dark:text-purple-400'
-                    : 'text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400'
-                }`}
-              >
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-                  </svg>
-                  My Recipes
-                </div>
-              </button>
-            </div>
+            <button
+              onClick={() => setActiveTab('my-recipes')}
+              className={`px-6 py-3 font-medium rounded-t-lg transition-colors ${
+                activeTab === 'my-recipes'
+                  ? 'bg-gray-50 dark:bg-gray-900 text-purple-600 dark:text-purple-400'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400'
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                </svg>
+                My Recipes
+              </div>
+            </button>
           </div>
         </div>
-
-        {/* Content */}
-        <div className="container mx-auto px-4 py-8">
-          {renderTabContent()}
-        </div>
       </div>
-    </>
+
+      {/* Content */}
+      <div className="container mx-auto px-4 py-8">
+        {renderTabContent()}
+      </div>
+    </StandardPageLayout>
   );
 };
 

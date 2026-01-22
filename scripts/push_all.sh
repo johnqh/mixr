@@ -22,6 +22,7 @@ BASE_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 # Wait times are used for packages that need CI/CD to complete publishing
 # before dependent packages can fetch the new version from npm.
 PROJECTS=(
+    "../mixr_types:60"
     "../mixr_api:0"
     "../mixr_client:60"
     "../mixr_lib:60"

@@ -1,16 +1,16 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import './index.css';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
 
-// Initialize storage and network services BEFORE importing App
-import { initializeStorageService, initializeNetworkService } from '@sudobility/di_web';
-initializeStorageService();
-initializeNetworkService();
+// Initialize all services BEFORE importing App
+import { initializeApp } from "./config/initialize";
+initializeApp();
 
-// Import App AFTER service initialization
-import App from './App';
+// Import App AFTER initialization
+import App from "./App";
 
-createRoot(document.getElementById('root')!).render(
+// Render React app
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <App />
   </StrictMode>

@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { useRecipeById } from '../hooks/useRecipes';
 import { useAuth } from '../context/AuthContext';
 import { useRecipeRatings, useRecipeRatingAggregate, useSubmitRating } from '../hooks/useRatings';
 import { ReviewForm } from '../components/rating/ReviewForm';
 import { ReviewList } from '../components/rating/ReviewList';
 import { AggregateRating } from '../components/rating/AggregateRating';
+import { StandardPageLayout } from '../components/layout';
 
 export const RecipeDetailPage: FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -28,58 +28,72 @@ export const RecipeDetailPage: FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
-      </div>
+      <StandardPageLayout
+        seo={{
+          title: 'Loading... - MIXR',
+          description: 'Loading recipe details',
+        }}
+        topBarVariant="app"
+        showBreadcrumb={false}
+      >
+        <div className="flex items-center justify-center py-16">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+        </div>
+      </StandardPageLayout>
     );
   }
 
   if (error || !recipeData?.data) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-6xl mb-4">😕</div>
-          <h2 className="text-2xl font-bold mb-2">Recipe not found</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            The recipe you're looking for doesn't exist or has been removed.
-          </p>
-          <button
-            onClick={() => navigate('/recipes')}
-            className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
-          >
-            Browse Recipes
-          </button>
+      <StandardPageLayout
+        seo={{
+          title: 'Recipe Not Found - MIXR',
+          description: 'The recipe you are looking for could not be found',
+        }}
+        topBarVariant="app"
+        breadcrumbItems={[
+          { label: 'Home', href: '/' },
+          { label: 'Recipes', href: '/recipes' },
+          { label: 'Not Found', current: true },
+        ]}
+      >
+        <div className="flex items-center justify-center py-16">
+          <div className="text-center">
+            <div className="text-6xl mb-4">😕</div>
+            <h2 className="text-2xl font-bold mb-2">Recipe not found</h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-4">
+              The recipe you're looking for doesn't exist or has been removed.
+            </p>
+            <button
+              onClick={() => navigate('/recipes')}
+              className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+            >
+              Browse Recipes
+            </button>
+          </div>
         </div>
-      </div>
+      </StandardPageLayout>
     );
   }
 
   const recipe = recipeData.data;
 
   return (
-    <>
-      <Helmet>
-        <title>{recipe.name} - MIXR</title>
-        <meta name="description" content={recipe.description || `Learn how to make ${recipe.name}`} />
-      </Helmet>
-
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-        {/* Header */}
-        <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-          <div className="container mx-auto px-4 py-4">
-            <button
-              onClick={() => navigate(-1)}
-              className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back
-            </button>
-          </div>
-        </div>
-
-        <div className="container mx-auto px-4 py-8 max-w-4xl">
+    <StandardPageLayout
+      seo={{
+        title: `${recipe.name} - MIXR`,
+        description: recipe.description || `Learn how to make ${recipe.name}`,
+        keywords: ['cocktail', 'recipe', recipe.name, recipe.mood?.name || ''],
+      }}
+      topBarVariant="app"
+      breadcrumbItems={[
+        { label: 'Home', href: '/' },
+        { label: 'Recipes', href: '/recipes' },
+        { label: recipe.name, current: true },
+      ]}
+      maxWidth="4xl"
+      contentPadding="md"
+    >
           {/* Hero Section */}
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden mb-8">
             {/* Hero Image */}
@@ -243,9 +257,7 @@ export const RecipeDetailPage: FC = () => {
               <ReviewList reviews={ratings} isLoading={loadingRatings} />
             </div>
           </div>
-        </div>
-      </div>
-    </>
+    </StandardPageLayout>
   );
 };
 
