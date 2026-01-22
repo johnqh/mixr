@@ -1,22 +1,22 @@
-import { FC, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { QueryClientProvider } from '@tanstack/react-query';
-import { HelmetProvider } from 'react-helmet-async';
-import { queryClient } from './config/queryConfig';
+import { type ReactNode, lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { SudobilityAppWithFirebaseAuth } from '@sudobility/building_blocks/firebase';
+import i18n from './i18n';
 import { AuthProvider } from './context/AuthContext';
-import { ThemeProvider } from './context/ThemeContext';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import LandingPage from './pages/LandingPage';
 
 // Loading component
-const PageLoader: FC = () => (
-  <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
-    <div className="flex flex-col items-center gap-4">
-      <div className="text-6xl animate-bounce">🍸</div>
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+      <div className="flex flex-col items-center gap-4">
+        <div className="text-6xl animate-bounce">🍸</div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+      </div>
     </div>
-  </div>
-);
+  );
+}
 
 // Lazy load pages
 const LoginPage = lazy(() => import('./pages/LoginPage'));
@@ -27,40 +27,53 @@ const RecipeDetailPage = lazy(() => import('./pages/RecipeDetailPage'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
-const App: FC = () => {
+// App-specific providers
+function AppProviders({ children }: { children: ReactNode }) {
+  return <AuthProvider>{children}</AuthProvider>;
+}
+
+// App routes
+function AppRoutes() {
   return (
-    <HelmetProvider>
-      <ThemeProvider>
-        <QueryClientProvider client={queryClient}>
-          <AuthProvider>
-            <Router>
-              <Suspense fallback={<PageLoader />}>
-                <Routes>
-                  {/* Public routes */}
-                  <Route path="/" element={<LandingPage />} />
-                  <Route path="/login" element={<LoginPage />} />
-                  <Route path="/register" element={<RegisterPage />} />
+    <Suspense fallback={<LoadingFallback />}>
+      <Routes>
+        {/* Public routes */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
 
-                  {/* Recipe browsing - public */}
-                  <Route path="/recipes" element={<HomePage />} />
-                  <Route path="/recipes/:id" element={<RecipeDetailPage />} />
+        {/* Recipe browsing - public */}
+        <Route path="/recipes" element={<HomePage />} />
+        <Route path="/recipes/:id" element={<RecipeDetailPage />} />
 
-                  {/* Protected routes */}
-                  <Route element={<ProtectedRoute />}>
-                    <Route path="/onboarding" element={<OnboardingPage />} />
-                    <Route path="/settings" element={<SettingsPage />} />
-                  </Route>
+        {/* Protected routes */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/onboarding" element={<OnboardingPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+        </Route>
 
-                  {/* 404 - Keep as last route */}
-                  <Route path="*" element={<NotFoundPage />} />
-                </Routes>
-              </Suspense>
-            </Router>
-          </AuthProvider>
-        </QueryClientProvider>
-      </ThemeProvider>
-    </HelmetProvider>
+        {/* 404 - Keep as last route */}
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Suspense>
   );
-};
+}
+
+const baseUrl = import.meta.env.VITE_MIXR_API_URL || 'http://localhost:3000';
+const testMode = import.meta.env.DEV;
+
+function App() {
+  return (
+    <SudobilityAppWithFirebaseAuth
+      i18n={i18n}
+      AppProviders={AppProviders}
+      baseUrl={baseUrl}
+      testMode={testMode}
+      storageKeyPrefix="mixr"
+    >
+      <AppRoutes />
+    </SudobilityAppWithFirebaseAuth>
+  );
+}
 
 export default App;
