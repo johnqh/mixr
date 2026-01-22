@@ -2,6 +2,7 @@ import { FC, useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useInfiniteRecipes } from '../hooks/useRecipes';
+import { useInfiniteUserRecipes } from '../hooks/useUserRecipes';
 import { RecipeGrid } from '../components/recipe/RecipeGrid';
 import { RecipeFilters } from '../components/recipe/RecipeFilters';
 import { RecipeGenerator } from '../components/recipe/RecipeGenerator';
@@ -24,11 +25,25 @@ export const HomePage: FC = () => {
     isFetchingNextPage,
   } = useInfiniteRecipes(20);
 
+  const {
+    data: userRecipesData,
+    isLoading: loadingUserRecipes,
+    error: userRecipesError,
+    hasNextPage: hasNextUserRecipesPage,
+    fetchNextPage: fetchNextUserRecipesPage,
+    isFetchingNextPage: isFetchingNextUserRecipesPage,
+  } = useInfiniteUserRecipes(20);
+
   // Flatten all pages of recipes
   const recipes = useMemo(() => {
     if (!data?.pages) return [];
     return data.pages.flatMap(page => page.data || []);
   }, [data]);
+
+  const userRecipes = useMemo(() => {
+    if (!userRecipesData?.pages) return [];
+    return userRecipesData.pages.flatMap(page => page.data || []);
+  }, [userRecipesData]);
 
   // Filter recipes based on search query
   const filteredRecipes = useMemo(() => {
@@ -86,7 +101,10 @@ export const HomePage: FC = () => {
               <p className="text-gray-600 dark:text-gray-400 mb-8">
                 Track your favorite recipes and the ones you've created
               </p>
-              <button className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium">
+              <button
+                onClick={() => navigate('/login')}
+                className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
+              >
                 Sign In
               </button>
             </div>
@@ -94,15 +112,27 @@ export const HomePage: FC = () => {
         }
 
         return (
-          <div className="text-center py-16">
-            <div className="text-8xl mb-6">📚</div>
-            <h2 className="text-3xl font-bold mb-4">Your Recipe Collection</h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-8">
-              Save and organize your favorite cocktail recipes
-            </p>
-            <div className="inline-block px-6 py-3 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg font-medium">
-              Personal collection coming soon!
-            </div>
+          <div>
+            {loadingUserRecipes ? (
+              <div className="flex justify-center py-12">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+              </div>
+            ) : userRecipesError ? (
+              <div className="text-center py-12">
+                <div className="text-6xl mb-4">😕</div>
+                <h3 className="text-xl font-semibold mb-2">Failed to load your recipes</h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Please try again later
+                </p>
+              </div>
+            ) : (
+              <RecipeGrid
+                recipes={userRecipes}
+                hasNextPage={hasNextUserRecipesPage}
+                isFetchingNextPage={isFetchingNextUserRecipesPage}
+                fetchNextPage={fetchNextUserRecipesPage}
+              />
+            )}
           </div>
         );
 

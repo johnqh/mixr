@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { StarRating } from './StarRating';
-import type { AggregateRating as AggregateRatingType } from '../../types/rating';
+import type { RatingAggregate } from '@sudobility/mixr_client';
 
 interface AggregateRatingProps {
-  aggregate: AggregateRatingType;
+  aggregate: RatingAggregate;
 }
 
 export const AggregateRating: FC<AggregateRatingProps> = ({ aggregate }) => {
@@ -28,7 +28,7 @@ export const AggregateRating: FC<AggregateRatingProps> = ({ aggregate }) => {
         {/* Rating Distribution */}
         <div className="space-y-2">
           {[5, 4, 3, 2, 1].map(stars => {
-            const count = rating_distribution[stars as keyof typeof rating_distribution];
+            const count = rating_distribution[String(stars) as keyof typeof rating_distribution];
             const percentage = total_ratings > 0 ? (count / total_ratings) * 100 : 0;
 
             return (

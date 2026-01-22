@@ -1,81 +1,29 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useRecipeById } from '../hooks/useRecipes';
 import { useAuth } from '../context/AuthContext';
+import { useRecipeRatings, useRecipeRatingAggregate, useSubmitRating } from '../hooks/useRatings';
 import { ReviewForm } from '../components/rating/ReviewForm';
 import { ReviewList } from '../components/rating/ReviewList';
 import { AggregateRating } from '../components/rating/AggregateRating';
-import type { Rating, AggregateRating as AggregateRatingType } from '../types/rating';
 
 export const RecipeDetailPage: FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
-  const { data: recipeData, isLoading, error } = useRecipeById(Number(id));
-  const [isSubmittingRating, setIsSubmittingRating] = useState(false);
+  const recipeId = Number(id);
 
-  // Mock data for demonstration - will be replaced with API calls
-  const mockAggregateRating: AggregateRatingType = {
-    recipe_id: Number(id),
-    average_rating: 4.5,
-    total_ratings: 127,
-    rating_distribution: {
-      5: 78,
-      4: 32,
-      3: 12,
-      2: 3,
-      1: 2,
-    },
-  };
+  const { data: recipeData, isLoading, error } = useRecipeById(recipeId);
+  const { data: ratings = [], isLoading: loadingRatings } = useRecipeRatings(recipeId, {
+    limit: 20,
+    sort: 'newest',
+  });
+  const { data: aggregateRating } = useRecipeRatingAggregate(recipeId);
+  const { mutate: submitRating, isPending: isSubmittingRating } = useSubmitRating(recipeId);
 
-  // Use static dates for mock data to avoid re-render issues
-  const mockReviews: Rating[] = [
-    {
-      id: 1,
-      recipe_id: Number(id),
-      user_id: '1',
-      user_name: 'Sarah Johnson',
-      user_email: 'sarah@example.com',
-      stars: 5,
-      review: 'Absolutely loved this cocktail! The perfect balance of flavors and the presentation was stunning. Will definitely make this again for my next party.',
-      created_at: '2025-01-16T00:00:00.000Z',
-      updated_at: '2025-01-16T00:00:00.000Z',
-    },
-    {
-      id: 2,
-      recipe_id: Number(id),
-      user_id: '2',
-      user_name: 'Mike Chen',
-      user_email: 'mike@example.com',
-      stars: 4,
-      review: 'Great recipe! I made a few adjustments to suit my taste, but the base recipe is solid.',
-      created_at: '2025-01-13T00:00:00.000Z',
-      updated_at: '2025-01-13T00:00:00.000Z',
-    },
-    {
-      id: 3,
-      recipe_id: Number(id),
-      user_id: '3',
-      user_name: 'Emma Davis',
-      user_email: 'emma@example.com',
-      stars: 5,
-      created_at: '2025-01-11T00:00:00.000Z',
-      updated_at: '2025-01-11T00:00:00.000Z',
-    },
-  ];
-
-  const handleSubmitRating = (rating: number, review?: string) => {
-    setIsSubmittingRating(true);
-
-    // TODO: Replace with actual API call when backend is ready
-    console.log('Submitting rating:', { recipeId: id, rating, review });
-
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmittingRating(false);
-      alert('Rating submitted! (This is a demo - backend API not yet implemented)');
-    }, 1500);
+  const handleSubmitRating = (stars: number, review?: string) => {
+    submitRating({ stars, review });
   };
 
   if (isLoading) {
@@ -263,30 +211,13 @@ export const RecipeDetailPage: FC = () => {
               Ratings & Reviews
             </h2>
 
-            {/* Demo Notice */}
-            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
-              <div className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                </svg>
-                <div className="flex-1">
-                  <h3 className="text-sm font-medium text-blue-800 dark:text-blue-400">
-                    Demo Mode
-                  </h3>
-                  <p className="text-sm text-blue-700 dark:text-blue-300 mt-1">
-                    Showing sample ratings and reviews. Backend API endpoints will be implemented soon.
-                  </p>
-                </div>
-              </div>
-            </div>
-
             {/* Aggregate Rating */}
-            <AggregateRating aggregate={mockAggregateRating} />
+            {aggregateRating && <AggregateRating aggregate={aggregateRating} />}
 
             {/* Review Form */}
             {user && (
               <ReviewForm
-                recipeId={Number(id)}
+                recipeId={recipeId}
                 onSubmit={handleSubmitRating}
                 isSubmitting={isSubmittingRating}
               />
@@ -309,7 +240,7 @@ export const RecipeDetailPage: FC = () => {
             {/* Reviews List */}
             <div>
               <h3 className="text-xl font-semibold mb-4">Community Reviews</h3>
-              <ReviewList reviews={mockReviews} />
+              <ReviewList reviews={ratings} isLoading={loadingRatings} />
             </div>
           </div>
         </div>

@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { StarRating } from './StarRating';
-import type { Rating } from '../../types/rating';
+import type { RecipeRating } from '@sudobility/mixr_client';
 
 interface ReviewListProps {
-  reviews: Rating[];
+  reviews: RecipeRating[];
   isLoading?: boolean;
 }
 
