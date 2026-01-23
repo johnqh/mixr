@@ -1,7 +1,7 @@
 {
   "name": "mixr",
   "private": true,
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -37,7 +37,7 @@
     "@sudobility/di": "^1.5.25",
     "@sudobility/di_web": "^0.1.80",
     "@sudobility/entity_client": "^0.0.17",
-    "@sudobility/mixr_client": "^0.1.3",
+    "@sudobility/mixr_client": "^0.1.4",
     "@sudobility/mixr_lib": "file:../mixr_lib",
     "@sudobility/subscription-components": "^1.0.24",
     "@sudobility/subscription_lib": "^0.0.12",
