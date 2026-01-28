@@ -8,7 +8,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
-import { auth } from '../config/firebase';
+import { getFirebaseAuth } from '@sudobility/auth_lib';
 
 interface AuthContextType {
   user: User | null;
@@ -22,6 +22,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
+  const auth = getFirebaseAuth();
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(() => {
     // Initialize loading based on whether Firebase is configured
@@ -40,7 +41,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
 
     return unsubscribe;
-  }, []);
+  }, [auth]);
 
   const signIn = async (email: string, password: string) => {
     if (!auth) throw new Error('Firebase Auth is not configured');

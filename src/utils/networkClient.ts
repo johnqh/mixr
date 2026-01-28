@@ -4,7 +4,7 @@ import {
   NetworkRequestOptions,
   Optional,
 } from '@sudobility/types';
-import { auth } from '../config/firebase';
+import { getFirebaseAuth } from '@sudobility/auth_lib';
 
 /**
  * Authenticated Network Client
@@ -55,6 +55,7 @@ export class AuthenticatedNetworkClient implements NetworkClient {
   ): Promise<NetworkResponse<T>> {
     try {
       // Get Firebase auth token if user is logged in
+      const auth = getFirebaseAuth();
       const user = auth?.currentUser;
       let token: string | undefined;
 
