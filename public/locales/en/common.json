@@ -1,7 +1,52 @@
 {
   "app": {
-    "name": "Mixr",
-    "tagline": "Mix your content"
+    "name": "MIXR",
+    "tagline": "Discover the perfect cocktail for your mood"
+  },
+  "navigation": {
+    "browse": "Browse",
+    "generate": "Generate",
+    "settings": "Settings",
+    "myRecipes": "My Recipes"
+  },
+  "auth": {
+    "login": "Log In",
+    "logout": "Log Out",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signInTitle": "Sign In",
+    "signInWithEmail": "Sign In with Email",
+    "createAccount": "Create Account",
+    "resetPassword": "Reset Password",
+    "continueWithGoogle": "Continue with Google",
+    "continueWithEmail": "Continue with Email",
+    "continueWithApple": "Continue with Apple",
+    "or": "or",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "displayName": "Display Name",
+    "displayNamePlaceholder": "Enter your name (optional)",
+    "forgotPassword": "Forgot password?",
+    "sendResetLink": "Send Reset Link",
+    "resetEmailSent": "Check Your Email",
+    "resetEmailSentDesc": "We've sent a password reset link to your email.",
+    "backToSignIn": "Back to Sign In",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "passwordMismatch": "Passwords don't match",
+    "passwordTooShort": "Password must be at least 6 characters",
+    "loading": "Loading...",
+    "close": "Close"
+  },
+  "footer": {
+    "copyright": "{{year}} {{company}}. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "contact": "Contact"
   },
   "common": {
     "loading": "Loading...",
@@ -14,6 +59,17 @@
     "close": "Close",
     "back": "Back",
     "next": "Next",
-    "submit": "Submit"
+    "submit": "Submit",
+    "search": "Search",
+    "noResults": "No results found"
+  },
+  "talkToFounder": "Talk to Founder",
+  "breadcrumbs": {
+    "home": "Home",
+    "recipes": "Recipes",
+    "settings": "Settings",
+    "login": "Login",
+    "register": "Register",
+    "onboarding": "Setup"
   }
 }

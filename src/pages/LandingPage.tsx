@@ -1,29 +1,27 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { StandardPageLayout } from '../components/layout';
+import { ScreenContainer } from '../components/layout/ScreenContainer';
 
 const LandingPage: FC = () => {
   const navigate = useNavigate();
 
   return (
-    <StandardPageLayout
+    <ScreenContainer
       seo={{
         title: 'MIXR - Discover the Perfect Cocktail for Your Mood',
-        description: 'Discover amazing cocktails based on your mood. Browse recipes, track your bar inventory, and join our community of cocktail enthusiasts.',
+        description:
+          'Discover amazing cocktails based on your mood. Browse recipes, track your bar inventory, and join our community of cocktail enthusiasts.',
         keywords: ['cocktails', 'recipes', 'drinks', 'mixology', 'mood-based', 'bartending'],
       }}
-      topBarVariant="default"
-      showBreadcrumb={false}
+      showBreadcrumbs={false}
       showFooter={true}
-      footerSticky={false}
-      background="gradient"
-      contentPadding="lg"
+      footerVariant="full"
     >
-      <div className="py-8">
+      <div className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-            🍹 MIXR
+            MIXR
           </h1>
           <p className="text-2xl text-gray-700 dark:text-gray-300 mb-8">
             Discover the perfect cocktail for your mood
@@ -57,9 +55,7 @@ const LandingPage: FC = () => {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
             <div className="text-4xl mb-4">⭐</div>
             <h3 className="text-xl font-semibold mb-2">Community Ratings</h3>
-            <p className="text-gray-600 dark:text-gray-400">
-              Rate recipes and see what others love
-            </p>
+            <p className="text-gray-600 dark:text-gray-400">Rate recipes and see what others love</p>
           </div>
         </div>
 
@@ -113,7 +109,7 @@ const LandingPage: FC = () => {
           </button>
         </div>
       </div>
-    </StandardPageLayout>
+    </ScreenContainer>
   );
 };
 

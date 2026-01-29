@@ -6,7 +6,7 @@ import { RecipeGrid } from '../components/recipe/RecipeGrid';
 import { RecipeFilters } from '../components/recipe/RecipeFilters';
 import { RecipeGenerator } from '../components/recipe/RecipeGenerator';
 import { useAuth } from '../context/AuthContext';
-import { StandardPageLayout } from '../components/layout';
+import { ScreenContainer } from '../components/layout/ScreenContainer';
 
 type Tab = 'browse' | 'generate' | 'my-recipes';
 
@@ -16,14 +16,8 @@ export const HomePage: FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>('browse');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const {
-    data,
-    isLoading,
-    error,
-    hasNextPage,
-    fetchNextPage,
-    isFetchingNextPage,
-  } = useInfiniteRecipes(20);
+  const { data, isLoading, error, hasNextPage, fetchNextPage, isFetchingNextPage } =
+    useInfiniteRecipes(20);
 
   const {
     data: userRecipesData,
@@ -74,9 +68,7 @@ export const HomePage: FC = () => {
               <div className="text-center py-12">
                 <div className="text-6xl mb-4">😕</div>
                 <h3 className="text-xl font-semibold mb-2">Failed to load recipes</h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Please try again later
-                </p>
+                <p className="text-gray-600 dark:text-gray-400">Please try again later</p>
               </div>
             ) : (
               <RecipeGrid
@@ -121,9 +113,7 @@ export const HomePage: FC = () => {
               <div className="text-center py-12">
                 <div className="text-6xl mb-4">😕</div>
                 <h3 className="text-xl font-semibold mb-2">Failed to load your recipes</h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Please try again later
-                </p>
+                <p className="text-gray-600 dark:text-gray-400">Please try again later</p>
               </div>
             ) : (
               <RecipeGrid
@@ -142,20 +132,16 @@ export const HomePage: FC = () => {
   };
 
   return (
-    <StandardPageLayout
+    <ScreenContainer
       seo={{
         title: 'MIXR - Discover & Create Amazing Cocktails',
-        description: 'Browse thousands of cocktail recipes or generate your perfect drink based on your mood',
+        description:
+          'Browse thousands of cocktail recipes or generate your perfect drink based on your mood',
         keywords: ['cocktails', 'recipes', 'drinks', 'mixology', 'bartending'],
       }}
-      topBarVariant="app"
-      breadcrumbItems={[
-        { label: 'Home', href: '/' },
-        { label: 'Recipes', current: true },
-      ]}
-      contentPadding="none"
-      maxWidth="full"
-      background="default"
+      showBreadcrumbs={true}
+      showFooter={true}
+      footerVariant="compact"
     >
       {/* Tabs Section */}
       <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
@@ -171,7 +157,12 @@ export const HomePage: FC = () => {
             >
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
                 </svg>
                 Browse
               </div>
@@ -187,7 +178,12 @@ export const HomePage: FC = () => {
             >
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 4v16m8-8H4"
+                  />
                 </svg>
                 Generate
               </div>
@@ -203,7 +199,12 @@ export const HomePage: FC = () => {
             >
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                  />
                 </svg>
                 My Recipes
               </div>
@@ -213,10 +214,8 @@ export const HomePage: FC = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 py-8">
-        {renderTabContent()}
-      </div>
-    </StandardPageLayout>
+      <div className="container mx-auto px-4 py-8">{renderTabContent()}</div>
+    </ScreenContainer>
   );
 };
 

@@ -1,188 +1,113 @@
-import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { AppFooter, AppFooterForHomePage, type FooterLinkSection } from '@sudobility/building_blocks';
+import { SystemStatusIndicator, useNetwork } from '@sudobility/devops-components';
+import { CONSTANTS } from '../../config/constants';
 
 interface FooterProps {
-  isSticky?: boolean;
+  variant?: 'full' | 'compact';
 }
 
-export const Footer: FC<FooterProps> = ({ isSticky = true }) => {
-  const navigate = useNavigate();
-  const currentYear = new Date().getFullYear();
+// Link wrapper for footer
+const LinkWrapper = ({
+  href,
+  children,
+  className,
+}: {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <Link to={href} className={className}>
+    {children}
+  </Link>
+);
 
-  const footerClasses = isSticky
-    ? 'sticky bottom-0 z-40 bg-gray-900 text-white py-4 border-t border-gray-700'
-    : 'relative z-10 bg-gray-900 text-white py-12';
+export function Footer({ variant = 'full' }: FooterProps) {
+  const currentYear = String(new Date().getFullYear());
+  const { isOnline } = useNetwork();
 
-  if (isSticky) {
-    // Compact footer for app pages
+  if (variant === 'compact') {
     return (
-      <footer className={footerClasses}>
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
-            <div className="flex items-center gap-3 text-gray-400 text-sm">
-              <span>
-                &copy; {currentYear}{' '}
-                <button
-                  onClick={() => navigate('/')}
-                  className="text-purple-400 hover:text-purple-300 transition-colors"
-                >
-                  MIXR
-                </button>
-                . All rights reserved.
-              </span>
-            </div>
-            <div className="flex space-x-6 text-sm">
-              <button
-                onClick={() => navigate('/privacy')}
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                Privacy
-              </button>
-              <button
-                onClick={() => navigate('/terms')}
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                Terms
-              </button>
-              <button
-                onClick={() => navigate('/contact')}
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                Contact
-              </button>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <AppFooter
+        version={CONSTANTS.APP_VERSION}
+        copyrightYear={currentYear}
+        companyName={CONSTANTS.COMPANY_NAME}
+        companyUrl="/"
+        statusIndicator={
+          CONSTANTS.STATUS_PAGE_URL
+            ? {
+                statusPageUrl: CONSTANTS.STATUS_PAGE_URL,
+                apiEndpoint: CONSTANTS.STATUS_PAGE_API_URL,
+                refreshInterval: 60000,
+              }
+            : undefined
+        }
+        StatusIndicatorComponent={SystemStatusIndicator}
+        links={[
+          { label: 'Privacy Policy', href: '/privacy' },
+          { label: 'Terms of Service', href: '/terms' },
+        ]}
+        LinkComponent={LinkWrapper}
+        isNetworkOnline={isOnline}
+        sticky
+      />
     );
   }
 
-  // Full footer for landing pages
+  const linkSections: FooterLinkSection[] = [
+    {
+      title: 'Explore',
+      links: [
+        { label: 'Browse Recipes', href: '/recipes' },
+        { label: 'Generate Recipe', href: '/recipes?tab=generate' },
+        { label: 'About', href: '/about' },
+      ],
+    },
+    {
+      title: 'Account',
+      links: [
+        { label: 'Sign In', href: '/login' },
+        { label: 'Register', href: '/register' },
+        { label: 'Settings', href: '/settings' },
+      ],
+    },
+    {
+      title: 'Legal',
+      links: [
+        { label: 'Privacy Policy', href: '/privacy' },
+        { label: 'Terms of Service', href: '/terms' },
+        { label: 'Contact', href: '/contact' },
+      ],
+    },
+  ];
+
   return (
-    <footer className={footerClasses}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
-          <div>
-            <button
-              onClick={() => navigate('/')}
-              className="flex items-center gap-2 text-white hover:opacity-80 transition-opacity mb-4"
-            >
-              <span className="text-2xl">🍸</span>
-              <span className="text-xl font-bold">MIXR</span>
-            </button>
-            <p className="text-gray-400 text-sm">
-              Discover amazing cocktails and create your perfect drink based on your mood.
-            </p>
-          </div>
-
-          {/* Explore */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Explore</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <button
-                  onClick={() => navigate('/recipes')}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Browse Recipes
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigate('/recipes?tab=generate')}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Generate Recipe
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigate('/about')}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  About Us
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Account */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Account</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <button
-                  onClick={() => navigate('/login')}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Sign In
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigate('/register')}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Register
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigate('/settings')}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Settings
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <button
-                  onClick={() => navigate('/privacy')}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Privacy Policy
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigate('/terms')}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Terms of Service
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigate('/contact')}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Contact Support
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-800 pt-8 text-center">
-          <p className="text-gray-400 text-sm">
-            &copy; {currentYear}{' '}
-            <button
-              onClick={() => navigate('/')}
-              className="text-purple-400 hover:text-purple-300 transition-colors"
-            >
-              MIXR
-            </button>
-            . All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
+    <AppFooterForHomePage
+      logo={{
+        src: '/cocktail.png',
+        appName: CONSTANTS.APP_NAME,
+      }}
+      linkSections={linkSections}
+      socialLinks={CONSTANTS.SOCIAL_LINKS}
+      statusIndicator={
+        CONSTANTS.STATUS_PAGE_URL
+          ? {
+              statusPageUrl: CONSTANTS.STATUS_PAGE_URL,
+              apiEndpoint: CONSTANTS.STATUS_PAGE_API_URL,
+              refreshInterval: 60000,
+            }
+          : undefined
+      }
+      StatusIndicatorComponent={SystemStatusIndicator}
+      version={CONSTANTS.APP_VERSION}
+      copyrightYear={currentYear}
+      companyName={CONSTANTS.COMPANY_NAME}
+      description="Discover amazing cocktails and create your perfect drink based on your mood."
+      LinkComponent={LinkWrapper}
+      isNetworkOnline={isOnline}
+      gridColumns={3}
+    />
   );
-};
+}
+
+export default Footer;

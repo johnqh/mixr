@@ -8,7 +8,16 @@ const useLocalLib =
 
 export default defineConfig({
   resolve: {
-    dedupe: ['react', 'react-dom', '@tanstack/react-query', 'react-helmet-async'],
+    dedupe: [
+      'react',
+      'react-dom',
+      '@tanstack/react-query',
+      'react-helmet-async',
+      '@sudobility/components',
+      '@sudobility/building_blocks',
+      '@sudobility/auth-components',
+      '@sudobility/devops-components',
+    ],
     alias: {
       // Ensure all packages use the same React instance
       react: path.resolve(__dirname, 'node_modules/react'),

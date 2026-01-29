@@ -71,7 +71,7 @@ export const StandardPageLayout: FC<StandardPageLayoutProps> = ({
   seo,
 
   // Header
-  topBarVariant = 'default',
+  topBarVariant: _topBarVariant = 'default',
 
   // Breadcrumb
   breadcrumbItems,
@@ -103,7 +103,7 @@ export const StandardPageLayout: FC<StandardPageLayoutProps> = ({
 
       <div className={`min-h-screen flex flex-col ${backgroundClasses[background]} ${className}`}>
         {/* Header Section */}
-        <TopBar variant={topBarVariant} />
+        <TopBar />
 
         {/* Breadcrumb Section */}
         {showBreadcrumb && breadcrumbItems && breadcrumbItems.length > 0 && (
@@ -122,7 +122,7 @@ export const StandardPageLayout: FC<StandardPageLayoutProps> = ({
         </main>
 
         {/* Footer */}
-        {showFooter && <Footer isSticky={footerSticky} />}
+        {showFooter && <Footer variant={footerSticky ? 'compact' : 'full'} />}
       </div>
     </>
   );
