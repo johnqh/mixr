@@ -23,7 +23,6 @@ export async function initializeApp(): Promise<void> {
       appId: import.meta.env.VITE_FIREBASE_APP_ID,
       measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
     },
-    enableFirebaseAuth: true,
     initializeI18n,
     registerServiceWorker,
     initWebVitals,
