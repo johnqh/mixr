@@ -5,6 +5,7 @@ import i18n from './i18n';
 import { AuthProvider } from './context/AuthContext';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import LandingPage from './pages/LandingPage';
+import { AuthProviderWrapper } from './components/providers/AuthProviderWrapper';
 
 // Loading component
 function LoadingFallback() {
@@ -70,6 +71,7 @@ function App() {
       baseUrl={baseUrl}
       testMode={testMode}
       storageKeyPrefix="mixr"
+      AuthProviderWrapper={AuthProviderWrapper}
     >
       <AppRoutes />
     </SudobilityAppWithFirebaseAuth>
