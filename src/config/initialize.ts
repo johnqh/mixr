@@ -4,7 +4,6 @@
  */
 
 import { initializeWebApp } from "@sudobility/di_web";
-import { registerServiceWorker } from "../utils/serviceWorker";
 import { initWebVitals } from "../utils/webVitals";
 import { initializeI18n } from "../i18n";
 
@@ -24,7 +23,7 @@ export async function initializeApp(): Promise<void> {
       measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
     },
     initializeI18n,
-    registerServiceWorker,
+    registerServiceWorker: true,
     initWebVitals,
   });
 }

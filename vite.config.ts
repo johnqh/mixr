@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { serviceWorkerPlugin } from '@sudobility/di_web/vite';
 import path from 'path';
 
 // Check if we should use local or npm version of libraries
@@ -30,7 +31,7 @@ export default defineConfig({
         : {}),
     },
   },
-  plugins: [react()],
+  plugins: [react(), serviceWorkerPlugin()],
   build: {
     target: 'esnext',
     minify: 'terser',
