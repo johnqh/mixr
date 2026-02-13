@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { OnboardingWizard } from '../components/onboarding/OnboardingWizard';
+import { PreferencesSelector } from '../components/onboarding/PreferencesSelector';
 
 const OnboardingPage: FC = () => {
   const navigate = useNavigate();
@@ -13,8 +13,8 @@ const OnboardingPage: FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white dark:from-gray-900 dark:to-gray-800">
-      <OnboardingWizard
+    <div className="min-h-screen">
+      <PreferencesSelector
         initialEquipmentIds={equipmentIds}
         initialIngredientIds={ingredientIds}
         onEquipmentChange={setEquipmentIds}

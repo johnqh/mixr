@@ -41,7 +41,7 @@ export const OnboardingWizard: FC<OnboardingWizardProps> = ({
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <OnboardingProgress currentStep={currentStep} totalSteps={totalSteps} />
+      <OnboardingProgress reviewedCount={currentStep} totalCount={totalSteps} />
 
       {/* Welcome Step */}
       {currentStep === 1 && (
