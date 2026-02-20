@@ -1,4 +1,4 @@
-import { FC, useState, useMemo, useCallback, useEffect } from 'react';
+import { FC, useState, useMemo, useCallback } from 'react';
 import { MasterDetailLayout } from '@sudobility/components';
 import { useEquipment, useEquipmentSubcategories } from '../../hooks/useEquipment';
 import { useIngredients, useIngredientSubcategories } from '../../hooks/useIngredients';
@@ -84,45 +84,49 @@ export const PreferencesSelector: FC<PreferencesSelectorProps> = ({
   ], [equipmentSubcategories, ingredientSubcategories]);
 
   // Initialize returning users: map their existing IDs to subcategories
-  useEffect(() => {
-    if (
-      (initialEquipmentIds.length === 0 && initialIngredientIds.length === 0) ||
-      categoryOrder.length === 0
-    ) return;
+  // Uses render-time state adjustment pattern (React-recommended for derived state)
+  const [initialApplied, setInitialApplied] = useState(false);
 
+  if (
+    !initialApplied &&
+    (initialEquipmentIds.length > 0 || initialIngredientIds.length > 0) &&
+    categoryOrder.length > 0
+  ) {
     const allEquipment = allEquipmentData?.data || [];
     const allIngredients = allIngredientData?.data || [];
-    if (allEquipment.length === 0 && allIngredients.length === 0) return;
 
-    const newSelectionsByCategory = new Map<SubcategoryKey, Set<number>>();
+    if (allEquipment.length > 0 || allIngredients.length > 0) {
+      const newSelectionsByCategory = new Map<SubcategoryKey, Set<number>>();
 
-    for (const item of allEquipment) {
-      if (initialEquipmentIds.includes(item.id)) {
-        const key: SubcategoryKey = `equipment:${item.subcategory}`;
-        if (!newSelectionsByCategory.has(key)) {
-          newSelectionsByCategory.set(key, new Set());
+      for (const item of allEquipment) {
+        if (initialEquipmentIds.includes(item.id)) {
+          const key: SubcategoryKey = `equipment:${item.subcategory}`;
+          if (!newSelectionsByCategory.has(key)) {
+            newSelectionsByCategory.set(key, new Set());
+          }
+          newSelectionsByCategory.get(key)!.add(item.id);
         }
-        newSelectionsByCategory.get(key)!.add(item.id);
+      }
+
+      for (const item of allIngredients) {
+        if (initialIngredientIds.includes(item.id)) {
+          const key: SubcategoryKey = `ingredient:${item.subcategory}`;
+          if (!newSelectionsByCategory.has(key)) {
+            newSelectionsByCategory.set(key, new Set());
+          }
+          newSelectionsByCategory.get(key)!.add(item.id);
+        }
+      }
+
+      if (newSelectionsByCategory.size > 0) {
+        setInitialApplied(true);
+        setSelectionsByCategory(newSelectionsByCategory);
+        setSelectedEquipmentIds(initialEquipmentIds);
+        setSelectedIngredientIds(initialIngredientIds);
+        setShowPresetStep(false);
       }
     }
-
-    for (const item of allIngredients) {
-      if (initialIngredientIds.includes(item.id)) {
-        const key: SubcategoryKey = `ingredient:${item.subcategory}`;
-        if (!newSelectionsByCategory.has(key)) {
-          newSelectionsByCategory.set(key, new Set());
-        }
-        newSelectionsByCategory.get(key)!.add(item.id);
-      }
-    }
-
-    if (newSelectionsByCategory.size > 0) {
-      setSelectionsByCategory(newSelectionsByCategory);
-      setSelectedEquipmentIds(initialEquipmentIds);
-      setSelectedIngredientIds(initialIngredientIds);
-      setShowPresetStep(false);
-    }
-  }, [initialEquipmentIds, initialIngredientIds, allEquipmentData, allIngredientData, categoryOrder]);
+  }
 
   // Derived state
   const reviewedCategories = useMemo(() => {
