@@ -22,8 +22,8 @@
         "@sudobility/di": "^1.5.36",
         "@sudobility/di_web": "^0.1.106",
         "@sudobility/entity_client": "^0.0.20",
-        "@sudobility/mixr_client": "^0.1.7",
-        "@sudobility/mixr_lib": "^0.0.6",
+        "@sudobility/mixr_client": "^0.1.10",
+        "@sudobility/mixr_lib": "^0.0.9",
         "@sudobility/subscription-components": "^1.0.27",
         "@sudobility/subscription_lib": "^0.0.14",
         "@sudobility/types": "^1.9.51",
@@ -510,9 +510,9 @@
 
     "@sudobility/entity_client": ["@sudobility/entity_client@0.0.20", "", { "peerDependencies": { "@sudobility/types": "^1.9.51", "@tanstack/react-query": "^5.0.0", "react": "^18.0.0 || ^19.0.0" } }, "sha512-a1JxGR1TqHZ2wRj7Lpada9MEBxIVhZDfkEkbDoom2KRUp7N4TMR2CKYXhBFYhCyqHbPSlJy4QRFFsK1VcblHhQ=="],
 
-    "@sudobility/mixr_client": ["@sudobility/mixr_client@0.1.7", "", { "peerDependencies": { "@sudobility/di": "^1.5.33", "@sudobility/mixr_types": "^0.0.6", "@sudobility/types": "^1.9.49", "@tanstack/react-query": ">=5.0.0", "react": ">=18.0.0", "zustand": ">=5.0.0" } }, "sha512-iyKVo2/bvS0LQ7KW73/ZVCTz2y9ZjmcZi0F8nzgntIW/KIqkIB0mxcROb6b34axigNaDgY8B7SCZnfdRPEC0Dw=="],
+    "@sudobility/mixr_client": ["@sudobility/mixr_client@0.1.10", "", { "peerDependencies": { "@sudobility/di": "^1.5.36", "@sudobility/mixr_types": "^0.0.8", "@sudobility/types": "^1.9.51", "@tanstack/react-query": ">=5.0.0", "react": ">=18.0.0", "zustand": ">=5.0.0" } }, "sha512-ZZl2Kb9+XOERZTbIx+4XE7Df68dKM8GVXU0c2dsK7pLdvxLQi9vZv65Vx0lDtzslC3WV1SCGw8dkJ8funTEn5A=="],
 
-    "@sudobility/mixr_lib": ["@sudobility/mixr_lib@0.0.6", "", { "peerDependencies": { "@sudobility/di": "^1.5.33", "@sudobility/mixr_types": "^0.0.6", "@sudobility/types": "^1.9.49", "@tanstack/react-query": ">=5.0.0", "react": ">=18.0.0", "zustand": ">=5.0.0" } }, "sha512-y2jN4y7sFbU0ZlDjq5QCeImpU1XDERJncWPST5Bz0W52llUvgZmzkT+NMWVX8H1fV58AnskAE8uqBoboliEl1Q=="],
+    "@sudobility/mixr_lib": ["@sudobility/mixr_lib@0.0.9", "", { "peerDependencies": { "@sudobility/di": "^1.5.36", "@sudobility/mixr_types": "^0.0.8", "@sudobility/types": "^1.9.51", "@tanstack/react-query": ">=5.0.0", "react": ">=18.0.0", "zustand": ">=5.0.0" } }, "sha512-zAwhlq56vbpH/Fyy6tsD/GcnkDKR9Sg+GTKzU5TLqehj+cWoJrbAITe0Xb7rAEqfVSNhwu//uKNDz8fRwcb2RQ=="],
 
     "@sudobility/mixr_types": ["@sudobility/mixr_types@0.0.3", "", { "peerDependencies": { "@sudobility/types": "^1.9.48" } }, "sha512-BS1cbwzimH68xrshoACNzNgxh5pb3feeFELb1zXc+u5lvztAOWQqiSt6b7/z6GvOVeAUbWePqJw0BHs8/Z68JA=="],
 
