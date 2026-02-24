@@ -2,15 +2,22 @@ import { FC } from 'react';
 import { StarRating } from './StarRating';
 import type { RecipeRating } from '@sudobility/mixr_client';
 
+/** Props for the {@link ReviewList} component. */
 interface ReviewListProps {
+  /** Array of user reviews to display. */
   reviews: RecipeRating[];
+  /** Whether the reviews are currently loading (shows skeleton placeholders). */
   isLoading?: boolean;
 }
 
+/**
+ * Displays a list of community reviews with star ratings, user avatars,
+ * and timestamps. Shows skeleton loading states and an empty state prompt.
+ */
 export const ReviewList: FC<ReviewListProps> = ({ reviews, isLoading = false }) => {
   if (isLoading) {
     return (
-      <div className="space-y-4">
+      <div className="space-y-4" role="status" aria-label="Loading reviews">
         {[1, 2, 3].map(i => (
           <div
             key={i}

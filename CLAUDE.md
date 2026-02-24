@@ -91,15 +91,16 @@ public/
 ## Commands
 
 ```bash
-npm run dev          # Start Vite dev server
-npm run dev:local    # Dev with local library aliases (USE_LOCAL_LIB=true)
-npm run build        # Build for production (tsc + vite)
-npm run preview      # Preview production build
-npm run test         # Run Vitest
-npm run lint         # Run ESLint
-npm run lint:fix     # Fix ESLint issues
-npm run typecheck    # TypeScript type check
-npm run format       # Format with Prettier
+bun run dev          # Start Vite dev server
+bun run dev:local    # Dev with local library aliases (USE_LOCAL_LIB=true)
+bun run build        # Build for production (tsc + vite)
+bun run preview      # Preview production build
+bun run test         # Run Vitest
+bun run lint         # Run ESLint
+bun run lint:fix     # Fix ESLint issues
+bun run typecheck    # TypeScript type check
+bun run format       # Format with Prettier
+bun run verify       # Run typecheck + lint + test (use before committing)
 ```
 
 ## Routing

@@ -146,8 +146,11 @@ export const HomePage: FC = () => {
       {/* Tabs Section */}
       <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4">
-          <div className="flex gap-1">
+          <div className="flex gap-1" role="tablist" aria-label="Recipe sections">
             <button
+              role="tab"
+              aria-selected={activeTab === 'browse'}
+              aria-controls="tabpanel-browse"
               onClick={() => setActiveTab('browse')}
               className={`px-6 py-3 font-medium rounded-t-lg transition-colors ${
                 activeTab === 'browse'
@@ -169,6 +172,9 @@ export const HomePage: FC = () => {
             </button>
 
             <button
+              role="tab"
+              aria-selected={activeTab === 'generate'}
+              aria-controls="tabpanel-generate"
               onClick={() => setActiveTab('generate')}
               className={`px-6 py-3 font-medium rounded-t-lg transition-colors ${
                 activeTab === 'generate'
@@ -190,6 +196,9 @@ export const HomePage: FC = () => {
             </button>
 
             <button
+              role="tab"
+              aria-selected={activeTab === 'my-recipes'}
+              aria-controls="tabpanel-my-recipes"
               onClick={() => setActiveTab('my-recipes')}
               className={`px-6 py-3 font-medium rounded-t-lg transition-colors ${
                 activeTab === 'my-recipes'
@@ -214,7 +223,7 @@ export const HomePage: FC = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 py-8">{renderTabContent()}</div>
+      <div id={`tabpanel-${activeTab}`} role="tabpanel" aria-label={`${activeTab} content`} className="container mx-auto px-4 py-8">{renderTabContent()}</div>
     </ScreenContainer>
   );
 };

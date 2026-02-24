@@ -2,12 +2,20 @@ import { FC, useState } from 'react';
 import { StarRating } from './StarRating';
 import { useAuth } from '../../context/AuthContext';
 
+/** Props for the {@link ReviewForm} component. */
 interface ReviewFormProps {
+  /** The recipe being rated (used for form context). */
   recipeId: number;
+  /** Callback fired on form submission with the star count and optional review text. */
   onSubmit: (rating: number, review?: string) => void;
+  /** Whether the form is currently submitting (disables the submit button). */
   isSubmitting?: boolean;
 }
 
+/**
+ * Form component for submitting a star rating and optional written review.
+ * Only renders when the user is authenticated.
+ */
 export const ReviewForm: FC<ReviewFormProps> = ({ recipeId: _recipeId, onSubmit, isSubmitting = false }) => {
   const { user } = useAuth();
   const [rating, setRating] = useState(0);
@@ -34,10 +42,10 @@ export const ReviewForm: FC<ReviewFormProps> = ({ recipeId: _recipeId, onSubmit,
     <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
       <h3 className="text-lg font-semibold mb-4">Rate this recipe</h3>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4" aria-label="Rate this recipe">
         {/* Star Rating */}
         <div>
-          <label className="block text-sm font-medium mb-2">Your Rating</label>
+          <label id="rating-label" className="block text-sm font-medium mb-2">Your Rating</label>
           <StarRating
             rating={rating}
             interactive

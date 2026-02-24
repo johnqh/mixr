@@ -2,10 +2,17 @@ import { FC } from 'react';
 import { StarRating } from './StarRating';
 import type { RatingAggregate } from '@sudobility/mixr_client';
 
+/** Props for the {@link AggregateRating} component. */
 interface AggregateRatingProps {
+  /** Aggregate rating data including average, total count, and distribution. */
   aggregate: RatingAggregate;
 }
 
+/**
+ * Displays the aggregate community rating for a recipe, including
+ * the average score, star visualization, total count, and a bar chart
+ * showing the distribution across 1-5 stars.
+ */
 export const AggregateRating: FC<AggregateRatingProps> = ({ aggregate }) => {
   const { average_rating, total_ratings, rating_distribution } = aggregate;
 

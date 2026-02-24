@@ -1,6 +1,9 @@
 import packageJson from '../../package.json';
 
-// App Constants
+/**
+ * Centralized application constants sourced from environment variables
+ * with sensible defaults. All Vite environment variables use the `VITE_` prefix.
+ */
 export const CONSTANTS = {
   // Branding
   APP_NAME: import.meta.env.VITE_APP_NAME || 'MIXR',
@@ -10,7 +13,7 @@ export const CONSTANTS = {
   SUPPORT_EMAIL: import.meta.env.VITE_SUPPORT_EMAIL || 'support@mixr.app',
 
   // API
-  API_URL: import.meta.env.VITE_MIXR_API_URL || 'http://localhost:3000',
+  API_URL: import.meta.env.VITE_MIXR_API_URL || 'http://localhost:6174',
 
   // Dev Mode
   DEV_MODE: import.meta.env.DEV,

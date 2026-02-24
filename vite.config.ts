@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { serviceWorkerPlugin } from '@sudobility/di_web/vite';
@@ -98,5 +99,11 @@ export default defineConfig({
     host: true,
     port: 6173,
     strictPort: false,
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./src/test/setup.ts'],
+    css: false,
   },
 });

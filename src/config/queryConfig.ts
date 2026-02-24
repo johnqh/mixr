@@ -1,5 +1,12 @@
 import { QueryClient } from '@tanstack/react-query';
 
+/**
+ * Shared TanStack Query client with app-wide defaults.
+ *
+ * - Queries: 5-minute stale time, 10-minute garbage collection, up to 3 retries
+ *   with exponential backoff (skips retries on 4xx client errors).
+ * - Mutations: no automatic retries.
+ */
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

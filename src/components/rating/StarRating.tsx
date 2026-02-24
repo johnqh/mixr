@@ -1,15 +1,27 @@
 import { FC, useState } from 'react';
 
+/** Props for the {@link StarRating} component. */
 interface StarRatingProps {
+  /** Current rating value (can be fractional for display). */
   rating: number;
+  /** Maximum number of stars (default: 5). */
   maxRating?: number;
+  /** Visual size of the stars. */
   size?: 'sm' | 'md' | 'lg';
+  /** Whether the user can click to change the rating. */
   interactive?: boolean;
+  /** Callback fired when the user selects a new rating (requires interactive=true). */
   onChange?: (rating: number) => void;
+  /** Whether to display the rating count alongside the stars. */
   showCount?: boolean;
+  /** Total number of ratings to display when showCount is true. */
   count?: number;
 }
 
+/**
+ * Displays a star rating with optional interactivity.
+ * Supports fractional ratings, hover preview, and accessible star buttons.
+ */
 export const StarRating: FC<StarRatingProps> = ({
   rating,
   maxRating = 5,
@@ -48,7 +60,7 @@ export const StarRating: FC<StarRatingProps> = ({
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2" role="group" aria-label={`Rating: ${rating.toFixed(1)} out of ${maxRating} stars`}>
       <div className="flex items-center gap-0.5">
         {Array.from({ length: maxRating }, (_, index) => {
           const starValue = index + 1;

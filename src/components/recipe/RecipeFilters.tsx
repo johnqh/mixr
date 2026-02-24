@@ -1,18 +1,27 @@
 import { FC } from 'react';
 
+/** Props for the {@link RecipeFilters} component. */
 interface RecipeFiltersProps {
+  /** Current search query string. */
   searchQuery: string;
+  /** Callback fired when the search query changes. */
   onSearchChange: (query: string) => void;
 }
 
+/**
+ * Search filter bar for recipe browsing.
+ * Provides a text input to filter recipes by name, description, or mood.
+ */
 export const RecipeFilters: FC<RecipeFiltersProps> = ({ searchQuery, onSearchChange }) => {
   return (
     <div className="mb-6">
       <div className="flex gap-4">
         {/* Search Input */}
         <div className="flex-1">
+          <label htmlFor="recipe-search" className="sr-only">Search recipes</label>
           <input
-            type="text"
+            id="recipe-search"
+            type="search"
             placeholder="Search recipes..."
             value={searchQuery}
             onChange={e => onSearchChange(e.target.value)}
