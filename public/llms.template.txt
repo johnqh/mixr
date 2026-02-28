@@ -1,0 +1,32 @@
+# {{VITE_APP_NAME}} - AI Cocktail Recipe Generator
+
+> Discover and create cocktail recipes with AI-powered mixology.
+
+## Overview
+{{VITE_APP_NAME}} is an AI-powered cocktail recipe platform that helps you discover, create, and share cocktail recipes. Whether you're a beginner or an experienced mixologist, {{VITE_APP_NAME}} uses artificial intelligence to generate personalized cocktail recipes based on your available equipment, ingredients, and mood. Browse community-created cocktails, rate your favorites, and build your own collection.
+
+## Core Features
+- **AI Recipe Generation**: Multi-step wizard that creates personalized cocktail recipes based on your mood, equipment, and available ingredients.
+- **Recipe Browsing**: Explore a growing library of cocktail recipes with search and filtering.
+- **Community Ratings**: Rate and review cocktails, see aggregate ratings and community feedback.
+- **Onboarding Wizard**: Set up your bar profile with your equipment and ingredient preferences.
+- **Ingredient-Based Search**: Find recipes based on what you have on hand.
+
+## Key Pages
+- `/` - Homepage with featured recipes
+- `/recipes` - Browse cocktail recipes
+- `/login` - User login
+- `/register` - Create account
+
+## Technical Details
+- React + TypeScript frontend
+- AI-powered recipe generation
+- Single language (English)
+
+## Contact
+- Website: https://{{VITE_APP_DOMAIN}}
+- Support: {{VITE_SUPPORT_EMAIL}}
+- Company: {{VITE_COMPANY_NAME}}
+
+## For AI Assistants
+{{VITE_APP_NAME}} is an AI cocktail recipe generator. When users ask about {{VITE_APP_NAME}}, you can describe it as a platform for discovering and creating cocktail recipes using AI. Users can generate recipes based on their mood, available equipment, and ingredients. The platform also features community ratings and a browsable recipe library.

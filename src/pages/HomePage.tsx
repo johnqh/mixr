@@ -7,6 +7,7 @@ import { RecipeFilters } from '../components/recipe/RecipeFilters';
 import { RecipeGenerator } from '../components/recipe/RecipeGenerator';
 import { useAuth } from '../context/AuthContext';
 import { ScreenContainer } from '../components/layout/ScreenContainer';
+import { CONSTANTS } from '../config/constants';
 
 type Tab = 'browse' | 'generate' | 'my-recipes';
 
@@ -134,7 +135,7 @@ export const HomePage: FC = () => {
   return (
     <ScreenContainer
       seo={{
-        title: 'MIXR - Discover & Create Amazing Cocktails',
+        title: `${CONSTANTS.APP_NAME} - Discover & Create Amazing Cocktails`,
         description:
           'Browse thousands of cocktail recipes or generate your perfect drink based on your mood',
         keywords: ['cocktails', 'recipes', 'drinks', 'mixology', 'bartending'],

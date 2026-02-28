@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
+  <url>
+    <loc>https://{{VITE_APP_DOMAIN}}/</loc>
+    <lastmod>{{TODAY}}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Recipes -->
+  <url>
+    <loc>https://{{VITE_APP_DOMAIN}}/recipes</loc>
+    <lastmod>{{TODAY}}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Login -->
+  <url>
+    <loc>https://{{VITE_APP_DOMAIN}}/login</loc>
+    <lastmod>{{TODAY}}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Register -->
+  <url>
+    <loc>https://{{VITE_APP_DOMAIN}}/register</loc>
+    <lastmod>{{TODAY}}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { CONSTANTS } from '../config/constants';
 
 export const NotFoundPage: FC = () => {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ export const NotFoundPage: FC = () => {
   return (
     <>
       <Helmet>
-        <title>404 - Page Not Found | MIXR</title>
+        <title>{`404 - Page Not Found | ${CONSTANTS.APP_NAME}`}</title>
       </Helmet>
 
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">

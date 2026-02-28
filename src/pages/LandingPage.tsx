@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ScreenContainer } from '../components/layout/ScreenContainer';
+import { CONSTANTS } from '../config/constants';
 
 const LandingPage: FC = () => {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ const LandingPage: FC = () => {
   return (
     <ScreenContainer
       seo={{
-        title: 'MIXR - Discover the Perfect Cocktail for Your Mood',
+        title: `${CONSTANTS.APP_NAME} - Discover the Perfect Cocktail for Your Mood`,
         description:
           'Discover amazing cocktails based on your mood. Browse recipes, track your bar inventory, and join our community of cocktail enthusiasts.',
         keywords: ['cocktails', 'recipes', 'drinks', 'mixology', 'mood-based', 'bartending'],
@@ -21,7 +22,7 @@ const LandingPage: FC = () => {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-            MIXR
+            {CONSTANTS.APP_NAME}
           </h1>
           <p className="text-2xl text-gray-700 dark:text-gray-300 mb-8">
             Discover the perfect cocktail for your mood

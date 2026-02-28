@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useAuth } from '../context/AuthContext';
+import { CONSTANTS } from '../config/constants';
 
 export const LoginPage: FC = () => {
   const navigate = useNavigate();
@@ -43,8 +44,8 @@ export const LoginPage: FC = () => {
   return (
     <>
       <Helmet>
-        <title>Sign In - MIXR</title>
-        <meta name="description" content="Sign in to MIXR to generate and save cocktail recipes" />
+        <title>{`Sign In - ${CONSTANTS.APP_NAME}`}</title>
+        <meta name="description" content={`Sign in to ${CONSTANTS.APP_NAME} to generate and save cocktail recipes`} />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-pink-900/20 flex items-center justify-center p-4">
@@ -54,7 +55,7 @@ export const LoginPage: FC = () => {
             <Link to="/" className="inline-flex items-center gap-3">
               <span className="text-5xl">🍸</span>
               <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                MIXR
+                {CONSTANTS.APP_NAME}
               </h1>
             </Link>
             <p className="mt-2 text-gray-600 dark:text-gray-400">

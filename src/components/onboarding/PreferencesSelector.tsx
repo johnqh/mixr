@@ -5,6 +5,7 @@ import { useIngredients, useIngredientSubcategories } from '../../hooks/useIngre
 import { CategoryMasterPanel, SubcategoryKey } from './CategoryMasterPanel';
 import { SubcategoryDetailPanel } from './SubcategoryDetailPanel';
 import { OnboardingProgress } from './OnboardingProgress';
+import { CONSTANTS } from '../../config/constants';
 
 interface PreferencesSelectorProps {
   initialEquipmentIds: number[];
@@ -318,7 +319,7 @@ export const PreferencesSelector: FC<PreferencesSelectorProps> = ({
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Welcome to MIXR!
+            Welcome to {CONSTANTS.APP_NAME}!
           </h1>
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
             Start with an equipment preset, or set up everything manually.

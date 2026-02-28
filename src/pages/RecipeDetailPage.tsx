@@ -7,6 +7,7 @@ import { ReviewForm } from '../components/rating/ReviewForm';
 import { ReviewList } from '../components/rating/ReviewList';
 import { AggregateRating } from '../components/rating/AggregateRating';
 import { ScreenContainer } from '../components/layout/ScreenContainer';
+import { CONSTANTS } from '../config/constants';
 
 export const RecipeDetailPage: FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -30,7 +31,7 @@ export const RecipeDetailPage: FC = () => {
     return (
       <ScreenContainer
         seo={{
-          title: 'Loading... - MIXR',
+          title: `Loading... - ${CONSTANTS.APP_NAME}`,
           description: 'Loading recipe details',
         }}
                 showBreadcrumbs={false}
@@ -47,7 +48,7 @@ export const RecipeDetailPage: FC = () => {
     return (
       <ScreenContainer
         seo={{
-          title: 'Recipe Not Found - MIXR',
+          title: `Recipe Not Found - ${CONSTANTS.APP_NAME}`,
           description: 'The recipe you are looking for could not be found',
         }}
                 showBreadcrumbs={true}
@@ -77,7 +78,7 @@ export const RecipeDetailPage: FC = () => {
   return (
     <ScreenContainer
       seo={{
-        title: `${recipe.name} - MIXR`,
+        title: `${recipe.name} - ${CONSTANTS.APP_NAME}`,
         description: recipe.description || `Learn how to make ${recipe.name}`,
         keywords: ['cocktail', 'recipe', recipe.name, recipe.mood?.name || ''],
       }}

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useTheme, Theme } from '../context/ThemeContext';
 import { ScreenContainer } from '../components/layout/ScreenContainer';
+import { CONSTANTS } from '../config/constants';
 
 export const SettingsPage: FC = () => {
   const navigate = useNavigate();
@@ -26,8 +27,8 @@ export const SettingsPage: FC = () => {
   return (
     <ScreenContainer
       seo={{
-        title: 'Settings - MIXR',
-        description: 'Manage your MIXR account settings',
+        title: `Settings - ${CONSTANTS.APP_NAME}`,
+        description: `Manage your ${CONSTANTS.APP_NAME} account settings`,
       }}
             showBreadcrumbs={true}
       footerVariant="compact"

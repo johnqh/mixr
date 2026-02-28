@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import { OnboardingProgress } from './OnboardingProgress';
 import { EquipmentSelector } from './EquipmentSelector';
 import { IngredientSelector } from './IngredientSelector';
+import { CONSTANTS } from '../../config/constants';
 
 interface OnboardingWizardProps {
   initialEquipmentIds: number[];
@@ -47,7 +48,7 @@ export const OnboardingWizard: FC<OnboardingWizardProps> = ({
       {currentStep === 1 && (
         <div className="max-w-2xl mx-auto text-center">
           <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Welcome to MIXR! 🍹
+            Welcome to {CONSTANTS.APP_NAME}! 🍹
           </h1>
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
             Let's set up your home bar so we can recommend the perfect cocktails for you.
