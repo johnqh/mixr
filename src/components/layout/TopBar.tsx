@@ -1,17 +1,13 @@
 import { useMemo, type ComponentType } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {
-  AppTopBarWithFirebaseAuth,
   type MenuItemConfig,
   type AuthMenuItem,
   type AuthActionProps,
+  type TopBarConfig,
 } from '@sudobility/building_blocks';
 import { AuthAction, useAuthStatus } from '@sudobility/auth-components';
 import { CONSTANTS } from '../../config/constants';
-
-interface TopBarProps {
-  variant?: 'default' | 'transparent';
-}
 
 // Icon components for nav items
 const SearchIcon = ({ className }: { className?: string }) => (
@@ -57,8 +53,8 @@ const MenuSettingsIcon = () => (
   </svg>
 );
 
-// Link wrapper for TopbarNavigation - matches shapeshyft's pattern exactly
-const LinkWrapper = ({
+// Link wrapper for TopbarNavigation
+const linkWrapper = ({
   href,
   children,
   className,
@@ -72,7 +68,10 @@ const LinkWrapper = ({
   </Link>
 );
 
-function TopBar(_props: TopBarProps) {
+/**
+ * Hook returning TopBar configuration for AppPageLayout.
+ */
+export function useTopBarConfig(): TopBarConfig {
   const navigate = useNavigate();
   const { user } = useAuthStatus();
 
@@ -95,7 +94,7 @@ function TopBar(_props: TopBarProps) {
     [isAuthenticated, navigate]
   );
 
-  // Build navigation items - exactly like shapeshyft
+  // Build navigation items
   const menuItems: MenuItemConfig[] = useMemo(() => {
     const items: MenuItemConfig[] = [
       {
@@ -121,23 +120,19 @@ function TopBar(_props: TopBarProps) {
     return items;
   }, []);
 
-  return (
-    <AppTopBarWithFirebaseAuth
-      logo={{
-        src: '/cocktail.png',
-        appName: CONSTANTS.APP_NAME,
-        onClick: () => navigate('/'),
-      }}
-      menuItems={menuItems}
-      hideLanguageSelector
-      LinkComponent={LinkWrapper}
-      AuthActionComponent={AuthAction as ComponentType<AuthActionProps>}
-      onLoginClick={() => navigate('/login')}
-      authenticatedMenuItems={authenticatedMenuItems}
-      sticky
-    />
-  );
+  return {
+    variant: 'firebase',
+    logo: {
+      src: '/cocktail.png',
+      appName: CONSTANTS.APP_NAME,
+      onClick: () => navigate('/'),
+    },
+    menuItems,
+    hideLanguageSelector: true,
+    LinkComponent: linkWrapper,
+    AuthActionComponent: AuthAction as ComponentType<AuthActionProps>,
+    onLoginClick: () => navigate('/login'),
+    authenticatedMenuItems,
+    sticky: true,
+  };
 }
-
-export { TopBar };
-export default TopBar;

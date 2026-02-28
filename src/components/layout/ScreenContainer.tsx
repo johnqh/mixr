@@ -1,10 +1,9 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { LayoutProvider } from '@sudobility/components';
-import { AppBreadcrumbs } from '@sudobility/building_blocks';
-import TopBar from './TopBar';
-import Footer from './Footer';
+import { AppPageLayout } from '@sudobility/building_blocks';
+import { useTopBarConfig } from './TopBar';
+import { useFooterConfig } from './Footer';
 import { useBreadcrumbs } from '../../hooks/useBreadcrumbs';
 import { CONSTANTS } from '../../config/constants';
 
@@ -21,7 +20,7 @@ const DEFAULT_SHARE_CONFIG: ShareConfig = {
 };
 
 // Link wrapper for breadcrumbs
-const LinkWrapper = ({
+const linkWrapper = ({
   href,
   children,
   className,
@@ -58,7 +57,7 @@ export function ScreenContainer({
   children,
   seo,
   footerVariant = 'full',
-  topbarVariant = 'default',
+  topbarVariant: _topbarVariant = 'default',
   showFooter = true,
   showBreadcrumbs = false,
   shareConfig,
@@ -67,8 +66,11 @@ export function ScreenContainer({
   const effectiveShareConfig =
     shareConfig === false ? undefined : (shareConfig ?? DEFAULT_SHARE_CONFIG);
 
+  const topBarConfig = useTopBarConfig();
+  const footerConfig = useFooterConfig(footerVariant);
+
   return (
-    <LayoutProvider mode="standard">
+    <>
       {seo && (
         <Helmet>
           <title>{seo.title}</title>
@@ -82,33 +84,29 @@ export function ScreenContainer({
         </Helmet>
       )}
 
-      <div className="min-h-screen flex flex-col bg-theme-bg-primary">
-        {/* Sticky header containing topbar and breadcrumbs */}
-        <div className="sticky top-0 z-40">
-          <TopBar variant={topbarVariant} />
-
-          {(showBreadcrumbs || effectiveShareConfig) && breadcrumbItems.length > 0 && (
-            <AppBreadcrumbs
-              items={breadcrumbItems}
-              shareConfig={effectiveShareConfig}
-              LinkComponent={LinkWrapper}
-              talkToFounder={
-                CONSTANTS.MEET_FOUNDER_URL
+      <AppPageLayout
+        topBar={topBarConfig}
+        breadcrumbs={
+          (showBreadcrumbs || effectiveShareConfig) && breadcrumbItems.length > 0
+            ? {
+                items: breadcrumbItems,
+                shareConfig: effectiveShareConfig,
+                LinkComponent: linkWrapper,
+                talkToFounder: CONSTANTS.MEET_FOUNDER_URL
                   ? {
                       meetingUrl: CONSTANTS.MEET_FOUNDER_URL,
                       buttonText: 'Talk to Founder',
                     }
-                  : undefined
+                  : undefined,
               }
-            />
-          )}
-        </div>
-
-        <main className="flex-1">{children}</main>
-
-        {showFooter && <Footer variant={footerVariant} />}
-      </div>
-    </LayoutProvider>
+            : undefined
+        }
+        footer={showFooter ? footerConfig : undefined}
+        page={{ maxWidth: 'full', contentPadding: 'none' }}
+      >
+        {children}
+      </AppPageLayout>
+    </>
   );
 }
 

@@ -1,8 +1,10 @@
 import { FC, ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { TopBar } from './TopBar';
-import { Footer } from './Footer';
-import { Breadcrumb, BreadcrumbItem } from './Breadcrumb';
+import { AppPageLayout } from '@sudobility/building_blocks';
+import { useTopBarConfig } from './TopBar';
+import { useFooterConfig } from './Footer';
+import { type BreadcrumbItem } from './Breadcrumb';
 
 interface SEOProps {
   title: string;
@@ -39,33 +41,24 @@ interface StandardPageLayoutProps {
   background?: 'default' | 'white' | 'gradient';
 }
 
-const maxWidthClasses = {
-  sm: 'max-w-sm',
-  md: 'max-w-md',
-  lg: 'max-w-lg',
-  xl: 'max-w-xl',
-  '2xl': 'max-w-2xl',
-  '4xl': 'max-w-4xl',
-  '7xl': 'max-w-7xl',
-  full: 'max-w-full',
-};
-
-const paddingClasses = {
-  none: '',
-  sm: 'px-4 sm:px-6 py-6',
-  md: 'px-4 sm:px-6 lg:px-8 py-8',
-  lg: 'px-4 sm:px-6 lg:px-8 py-12',
-};
-
-const backgroundClasses = {
-  default: 'bg-gray-50 dark:bg-gray-900',
-  white: 'bg-white dark:bg-gray-900',
-  gradient: 'bg-gradient-to-br from-gray-50 to-purple-50 dark:from-gray-900 dark:to-gray-800',
-};
+// Link wrapper for breadcrumbs
+const linkWrapper = ({
+  href,
+  children,
+  className,
+}: {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <Link to={href} className={className}>
+    {children}
+  </Link>
+);
 
 export const StandardPageLayout: FC<StandardPageLayoutProps> = ({
   children,
-  className = '',
+  className: _className = '',
 
   // SEO
   seo,
@@ -88,6 +81,9 @@ export const StandardPageLayout: FC<StandardPageLayoutProps> = ({
   // Background
   background = 'default',
 }) => {
+  const topBarConfig = useTopBarConfig();
+  const footerConfig = useFooterConfig(footerSticky ? 'compact' : 'full');
+
   return (
     <>
       <Helmet>
@@ -101,29 +97,25 @@ export const StandardPageLayout: FC<StandardPageLayoutProps> = ({
         <meta property="og:description" content={seo.description} />
       </Helmet>
 
-      <div className={`min-h-screen flex flex-col ${backgroundClasses[background]} ${className}`}>
-        {/* Header Section */}
-        <TopBar />
-
-        {/* Breadcrumb Section */}
-        {showBreadcrumb && breadcrumbItems && breadcrumbItems.length > 0 && (
-          <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
-              <Breadcrumb items={breadcrumbItems} />
-            </div>
-          </div>
-        )}
-
-        {/* Main Content */}
-        <main id="main-content" className="flex-1 overflow-auto">
-          <div className={`mx-auto ${maxWidthClasses[maxWidth]} ${paddingClasses[contentPadding]}`}>
-            {children}
-          </div>
-        </main>
-
-        {/* Footer */}
-        {showFooter && <Footer variant={footerSticky ? 'compact' : 'full'} />}
-      </div>
+      <AppPageLayout
+        topBar={topBarConfig}
+        breadcrumbs={
+          showBreadcrumb && breadcrumbItems && breadcrumbItems.length > 0
+            ? {
+                items: breadcrumbItems.map((item) => ({
+                  label: item.label,
+                  href: item.href,
+                  current: item.current,
+                })),
+                LinkComponent: linkWrapper,
+              }
+            : undefined
+        }
+        footer={showFooter ? footerConfig : undefined}
+        page={{ maxWidth, contentPadding, background }}
+      >
+        {children}
+      </AppPageLayout>
     </>
   );
 };
