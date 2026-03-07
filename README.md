@@ -1,90 +1,65 @@
-# MIXR - Cocktail Recipe App
+# MIXR
 
-A React-based web application for discovering and generating cocktail recipes based on your mood, equipment, and available ingredients.
-
-## Features
-
-- 🍹 Mood-based recipe generation
-- 📦 Equipment and ingredient inventory management
-- 🔍 Browse and discover recipes
-- ⭐ Rate and review cocktails
-- 🔐 Firebase authentication (Email/Password + Google)
-- 📱 Responsive design
+React web application for the MIXR cocktail recipe platform -- discover and generate cocktail recipes based on your mood, equipment, and available ingredients.
 
 ## Tech Stack
 
-- React 19 + TypeScript
-- Vite
-- React Router v7
-- @tanstack/react-query
-- Firebase Auth
-- Tailwind CSS
-- @sudobility packages (components, design, di, types)
+- React 19, Vite 7, TypeScript
+- Tailwind CSS + Radix UI
+- React Router v7, TanStack React Query v5, Zustand
+- Firebase Auth, i18next
 
-## Getting Started
+## Development
 
-### Prerequisites
-
-- Node.js >= 20.18.0
-- npm >= 8.0.0
-
-### Installation
-
-1. Clone the repository
 ```bash
-git clone git@github.com:johnqh/mixr.git
-cd mixr
+bun run dev          # Start Vite dev server
+bun run dev:local    # Dev with local library aliases (USE_LOCAL_LIB=true)
+bun run build        # Build for production (tsc + vite)
+bun run test         # Run Vitest
+bun run lint         # ESLint check
+bun run typecheck    # TypeScript check
+bun run verify       # Typecheck + lint + test
 ```
 
-2. Install dependencies
+## Environment Variables
+
+Configure in `.env.local`:
+
 ```bash
-npm install
+VITE_MIXR_API_URL=http://localhost:6174
+VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_AUTH_DOMAIN=...
+VITE_FIREBASE_PROJECT_ID=...
+VITE_APP_NAME=MIXR
 ```
 
-3. Set up environment variables
-```bash
-cp .env.example .env
-# Edit .env with your Firebase and API configuration
-```
+## Routes
 
-4. Start development server
-```bash
-npm run dev
-```
+| Path | Page | Auth |
+|------|------|------|
+| `/` | Landing | No |
+| `/login` | Login | No |
+| `/register` | Register | No |
+| `/recipes` | Home (Browse/Generate/My Recipes) | Generate requires auth |
+| `/recipes/:id` | Recipe Detail | No |
+| `/onboarding` | Preferences Setup | Yes |
+| `/settings` | Account Settings | Yes |
 
-### Available Scripts
+## Features
 
-- `npm run dev` - Start development server
-- `npm run dev:local` - Start development server with local libraries
-- `npm run build` - Build for production
-- `npm run lint` - Run ESLint
-- `npm run lint:fix` - Fix ESLint errors
-- `npm run format` - Format code with Prettier
-- `npm run test` - Run tests
-- `npm run test:coverage` - Run tests with coverage
+- Mood-based recipe generation via multi-step wizard
+- Equipment and ingredient preference management
+- Infinite scroll recipe browsing
+- Star ratings and reviews
+- Firebase auth (email/password + Google)
+- Responsive design with Tailwind CSS
 
-## Project Structure
+## Related Packages
 
-```
-mixr/
-├── src/
-│   ├── components/     # Reusable UI components
-│   ├── pages/          # Route pages
-│   ├── context/        # React Context providers
-│   ├── hooks/          # Custom React hooks
-│   ├── config/         # Configuration files
-│   ├── utils/          # Utility functions
-│   ├── types/          # TypeScript types
-│   ├── App.tsx         # Root component
-│   └── main.tsx        # Entry point
-├── public/             # Static assets
-├── plans/              # Technical design documents
-└── ...config files
-```
-
-## Documentation
-
-See `/plans/APP.md` for comprehensive technical design and implementation plan.
+- `@sudobility/mixr_client` -- API client and hooks
+- `@sudobility/mixr_lib` -- business logic and utilities
+- `@sudobility/mixr_types` -- shared type definitions
+- `mixr_api` -- backend API server
 
 ## License
 
