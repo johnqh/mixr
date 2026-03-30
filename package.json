@@ -1,7 +1,7 @@
 {
   "name": "mixr",
   "private": true,
-  "version": "0.1.43",
+  "version": "0.1.44",
   "license": "BUSL-1.1",
   "type": "module",
   "scripts": {
@@ -35,12 +35,12 @@
     "@radix-ui/react-tooltip": "^1.2.8",
     "@sudobility/auth-components": "^1.0.10",
     "@sudobility/auth_lib": "^0.0.64",
-    "@sudobility/building_blocks": "^0.0.178",
+    "@sudobility/building_blocks": "^0.0.179",
     "@sudobility/components": "^5.0.35",
     "@sudobility/design": "^1.1.24",
     "@sudobility/devops-components": "^2.0.19",
     "@sudobility/di": "^1.5.50",
-    "@sudobility/di_web": "^0.1.143",
+    "@sudobility/di_web": "^0.1.144",
     "@sudobility/entity_client": "^0.0.33",
     "@sudobility/mixr_client": "^0.1.23",
     "@sudobility/mixr_lib": "^0.0.23",
