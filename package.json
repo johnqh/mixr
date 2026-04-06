@@ -1,7 +1,7 @@
 {
   "name": "mixr",
   "private": true,
-  "version": "0.1.53",
+  "version": "0.1.54",
   "license": "BUSL-1.1",
   "type": "module",
   "scripts": {
@@ -36,7 +36,7 @@
     "@sudobility/auth-components": "^1.0.10",
     "@sudobility/auth_lib": "^0.0.66",
     "@sudobility/building_blocks": "^0.0.190",
-    "@sudobility/components": "^5.0.41",
+    "@sudobility/components": "^5.0.42",
     "@sudobility/design": "^1.1.25",
     "@sudobility/devops-components": "^2.0.19",
     "@sudobility/di": "^1.5.52",
