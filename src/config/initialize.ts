@@ -3,9 +3,9 @@
  * @description Single entry point for all DI singletons and service initializations
  */
 
-import { initializeWebApp } from "@sudobility/di_web";
-import { initWebVitals } from "../utils/webVitals";
-import { initializeI18n } from "../i18n";
+import { initializeWebApp } from '@sudobility/di_web';
+import { initWebVitals } from '../utils/webVitals';
+import { initializeI18n } from '../i18n';
 
 /**
  * Initialize all app services and singletons.

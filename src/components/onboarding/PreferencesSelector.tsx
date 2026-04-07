@@ -27,8 +27,13 @@ const PRESET_KITS = {
     icon: '🏠',
     description: 'Everything for a well-stocked home bar',
     equipment: [
-      'Cocktail Shaker', 'Jigger', 'Bar Spoon', 'Strainer', 'Muddler',
-      'Mixing Glass', 'Citrus Juicer',
+      'Cocktail Shaker',
+      'Jigger',
+      'Bar Spoon',
+      'Strainer',
+      'Muddler',
+      'Mixing Glass',
+      'Citrus Juicer',
     ],
   },
   pro: {
@@ -36,8 +41,15 @@ const PRESET_KITS = {
     icon: '⭐',
     description: 'Complete professional bar setup',
     equipment: [
-      'Cocktail Shaker', 'Jigger', 'Bar Spoon', 'Strainer', 'Muddler',
-      'Mixing Glass', 'Citrus Juicer', 'Channel Knife', 'Fine Strainer',
+      'Cocktail Shaker',
+      'Jigger',
+      'Bar Spoon',
+      'Strainer',
+      'Muddler',
+      'Mixing Glass',
+      'Citrus Juicer',
+      'Channel Knife',
+      'Fine Strainer',
       'Ice Crusher',
     ],
   },
@@ -56,9 +68,12 @@ export const PreferencesSelector: FC<PreferencesSelectorProps> = ({
   const [showPresetStep, setShowPresetStep] = useState(true);
   const [activeCategory, setActiveCategory] = useState<SubcategoryKey>('equipment:essential');
   const [selectedEquipmentIds, setSelectedEquipmentIds] = useState<number[]>(initialEquipmentIds);
-  const [selectedIngredientIds, setSelectedIngredientIds] = useState<number[]>(initialIngredientIds);
+  const [selectedIngredientIds, setSelectedIngredientIds] =
+    useState<number[]>(initialIngredientIds);
   const [noneCategories, setNoneCategories] = useState<Set<SubcategoryKey>>(new Set());
-  const [selectionsByCategory, setSelectionsByCategory] = useState<Map<SubcategoryKey, Set<number>>>(new Map());
+  const [selectionsByCategory, setSelectionsByCategory] = useState<
+    Map<SubcategoryKey, Set<number>>
+  >(new Map());
   const [mobileView, setMobileView] = useState<'navigation' | 'content'>('navigation');
 
   // Fetch subcategories
@@ -79,10 +94,13 @@ export const PreferencesSelector: FC<PreferencesSelectorProps> = ({
     return INGREDIENT_ORDER.filter(s => subs.includes(s));
   }, [ingredSubData]);
 
-  const categoryOrder = useMemo<SubcategoryKey[]>(() => [
-    ...equipmentSubcategories.map(s => `equipment:${s}` as SubcategoryKey),
-    ...ingredientSubcategories.map(s => `ingredient:${s}` as SubcategoryKey),
-  ], [equipmentSubcategories, ingredientSubcategories]);
+  const categoryOrder = useMemo<SubcategoryKey[]>(
+    () => [
+      ...equipmentSubcategories.map(s => `equipment:${s}` as SubcategoryKey),
+      ...ingredientSubcategories.map(s => `ingredient:${s}` as SubcategoryKey),
+    ],
+    [equipmentSubcategories, ingredientSubcategories]
+  );
 
   // Initialize returning users: map their existing IDs to subcategories
   /* eslint-disable react-hooks/set-state-in-effect -- Intentional one-time initialization from async data */
@@ -90,7 +108,8 @@ export const PreferencesSelector: FC<PreferencesSelectorProps> = ({
     if (
       (initialEquipmentIds.length === 0 && initialIngredientIds.length === 0) ||
       categoryOrder.length === 0
-    ) return;
+    )
+      return;
 
     const allEquipment = allEquipmentData?.data || [];
     const allIngredients = allIngredientData?.data || [];
@@ -124,14 +143,21 @@ export const PreferencesSelector: FC<PreferencesSelectorProps> = ({
       setSelectedIngredientIds(initialIngredientIds);
       setShowPresetStep(false);
     }
-  }, [initialEquipmentIds, initialIngredientIds, allEquipmentData, allIngredientData, categoryOrder]);
+  }, [
+    initialEquipmentIds,
+    initialIngredientIds,
+    allEquipmentData,
+    allIngredientData,
+    categoryOrder,
+  ]);
   /* eslint-enable react-hooks/set-state-in-effect */
 
   // Derived state
   const reviewedCategories = useMemo(() => {
     const reviewed = new Set<SubcategoryKey>();
     for (const key of categoryOrder) {
-      const hasSelections = selectionsByCategory.has(key) && selectionsByCategory.get(key)!.size > 0;
+      const hasSelections =
+        selectionsByCategory.has(key) && selectionsByCategory.get(key)!.size > 0;
       if (hasSelections || noneCategories.has(key)) {
         reviewed.add(key);
       }
@@ -139,7 +165,8 @@ export const PreferencesSelector: FC<PreferencesSelectorProps> = ({
     return reviewed;
   }, [categoryOrder, selectionsByCategory, noneCategories]);
 
-  const allCategoriesReviewed = categoryOrder.length > 0 && reviewedCategories.size === categoryOrder.length;
+  const allCategoriesReviewed =
+    categoryOrder.length > 0 && reviewedCategories.size === categoryOrder.length;
 
   const selectionCounts = useMemo(() => {
     const counts = new Map<SubcategoryKey, number>();
@@ -155,7 +182,9 @@ export const PreferencesSelector: FC<PreferencesSelectorProps> = ({
   }, [selectionsByCategory, noneCategories]);
 
   const currentIndex = categoryOrder.indexOf(activeCategory);
-  const hasUnreviewedAhead = categoryOrder.slice(currentIndex + 1).some(k => !reviewedCategories.has(k));
+  const hasUnreviewedAhead = categoryOrder
+    .slice(currentIndex + 1)
+    .some(k => !reviewedCategories.has(k));
   const buttonLabel = allCategoriesReviewed && !hasUnreviewedAhead ? 'Finish' : 'Next';
 
   // Current subcategory has selection or none
@@ -163,102 +192,111 @@ export const PreferencesSelector: FC<PreferencesSelectorProps> = ({
   const isNextDisabled = !currentHasSelection;
 
   // Handlers
-  const handleToggleEquipment = useCallback((id: number, subcategoryKey: SubcategoryKey) => {
-    setSelectedEquipmentIds(prev => {
-      const next = prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id];
-      onEquipmentChange(next);
-      return next;
-    });
-    setSelectionsByCategory(prev => {
-      const next = new Map(prev);
-      const current = new Set(next.get(subcategoryKey) || []);
-      if (current.has(id)) {
-        current.delete(id);
-      } else {
-        current.add(id);
-      }
-      if (current.size === 0) {
+  const handleToggleEquipment = useCallback(
+    (id: number, subcategoryKey: SubcategoryKey) => {
+      setSelectedEquipmentIds(prev => {
+        const next = prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id];
+        onEquipmentChange(next);
+        return next;
+      });
+      setSelectionsByCategory(prev => {
+        const next = new Map(prev);
+        const current = new Set(next.get(subcategoryKey) || []);
+        if (current.has(id)) {
+          current.delete(id);
+        } else {
+          current.add(id);
+        }
+        if (current.size === 0) {
+          next.delete(subcategoryKey);
+        } else {
+          next.set(subcategoryKey, current);
+        }
+        return next;
+      });
+      // Deselect "None" when selecting a real item
+      setNoneCategories(prev => {
+        if (!prev.has(subcategoryKey)) return prev;
+        const next = new Set(prev);
         next.delete(subcategoryKey);
-      } else {
-        next.set(subcategoryKey, current);
-      }
-      return next;
-    });
-    // Deselect "None" when selecting a real item
-    setNoneCategories(prev => {
-      if (!prev.has(subcategoryKey)) return prev;
-      const next = new Set(prev);
-      next.delete(subcategoryKey);
-      return next;
-    });
-  }, [onEquipmentChange]);
+        return next;
+      });
+    },
+    [onEquipmentChange]
+  );
 
-  const handleToggleIngredient = useCallback((id: number, subcategoryKey: SubcategoryKey) => {
-    setSelectedIngredientIds(prev => {
-      const next = prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id];
-      onIngredientChange(next);
-      return next;
-    });
-    setSelectionsByCategory(prev => {
-      const next = new Map(prev);
-      const current = new Set(next.get(subcategoryKey) || []);
-      if (current.has(id)) {
-        current.delete(id);
-      } else {
-        current.add(id);
-      }
-      if (current.size === 0) {
+  const handleToggleIngredient = useCallback(
+    (id: number, subcategoryKey: SubcategoryKey) => {
+      setSelectedIngredientIds(prev => {
+        const next = prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id];
+        onIngredientChange(next);
+        return next;
+      });
+      setSelectionsByCategory(prev => {
+        const next = new Map(prev);
+        const current = new Set(next.get(subcategoryKey) || []);
+        if (current.has(id)) {
+          current.delete(id);
+        } else {
+          current.add(id);
+        }
+        if (current.size === 0) {
+          next.delete(subcategoryKey);
+        } else {
+          next.set(subcategoryKey, current);
+        }
+        return next;
+      });
+      setNoneCategories(prev => {
+        if (!prev.has(subcategoryKey)) return prev;
+        const next = new Set(prev);
         next.delete(subcategoryKey);
-      } else {
-        next.set(subcategoryKey, current);
-      }
-      return next;
-    });
-    setNoneCategories(prev => {
-      if (!prev.has(subcategoryKey)) return prev;
-      const next = new Set(prev);
-      next.delete(subcategoryKey);
-      return next;
-    });
-  }, [onIngredientChange]);
+        return next;
+      });
+    },
+    [onIngredientChange]
+  );
 
-  const handleToggleNone = useCallback((subcategoryKey: SubcategoryKey) => {
-    const [type] = subcategoryKey.split(':');
-    const isEquipment = type === 'equipment';
+  const handleToggleNone = useCallback(
+    (subcategoryKey: SubcategoryKey) => {
+      const [type] = subcategoryKey.split(':');
+      const isEquipment = type === 'equipment';
 
-    setNoneCategories(prev => {
-      const next = new Set(prev);
-      if (next.has(subcategoryKey)) {
+      setNoneCategories(prev => {
+        const next = new Set(prev);
+        if (next.has(subcategoryKey)) {
+          next.delete(subcategoryKey);
+        } else {
+          next.add(subcategoryKey);
+        }
+        return next;
+      });
+
+      // Clear real selections in this subcategory when selecting "None"
+      setSelectionsByCategory(prev => {
+        const idsToRemove = prev.get(subcategoryKey);
+        if (!idsToRemove || idsToRemove.size === 0) return prev;
+        const next = new Map(prev);
         next.delete(subcategoryKey);
-      } else {
-        next.add(subcategoryKey);
-      }
-      return next;
-    });
 
-    // Clear real selections in this subcategory when selecting "None"
-    setSelectionsByCategory(prev => {
-      const idsToRemove = prev.get(subcategoryKey);
-      if (!idsToRemove || idsToRemove.size === 0) return prev;
-      const next = new Map(prev);
-      next.delete(subcategoryKey);
-
-      if (isEquipment) {
-        setSelectedEquipmentIds(prevIds => {
-          const filtered = prevIds.filter(id => !idsToRemove.has(id));
-          onEquipmentChange(filtered);
-          return filtered;
-        });
-      } else {
-        setSelectedIngredientIds(prevIds => {
-          const filtered = prevIds.filter(id => !idsToRemove.has(id));
-          onIngredientChange(filtered);
-          return filtered;
-        });
-      }
-      return next;
-    });
-  }, [onEquipmentChange, onIngredientChange]);
+        if (isEquipment) {
+          setSelectedEquipmentIds(prevIds => {
+            const filtered = prevIds.filter(id => !idsToRemove.has(id));
+            onEquipmentChange(filtered);
+            return filtered;
+          });
+        } else {
+          setSelectedIngredientIds(prevIds => {
+            const filtered = prevIds.filter(id => !idsToRemove.has(id));
+            onIngredientChange(filtered);
+            return filtered;
+          });
+        }
+        return next;
+      });
+    },
+    [onEquipmentChange, onIngredientChange]
+  );
 
   const handleNext = useCallback(() => {
     if (buttonLabel === 'Finish') {
@@ -280,30 +318,33 @@ export const PreferencesSelector: FC<PreferencesSelectorProps> = ({
     setMobileView('content');
   }, []);
 
-  const handlePresetSelect = useCallback((presetKey: keyof typeof PRESET_KITS) => {
-    const allEquipment = allEquipmentData?.data || [];
-    const preset = PRESET_KITS[presetKey];
-    const presetItems = allEquipment.filter(item => preset.equipment.includes(item.name));
-    const presetIds = presetItems.map(item => item.id);
+  const handlePresetSelect = useCallback(
+    (presetKey: keyof typeof PRESET_KITS) => {
+      const allEquipment = allEquipmentData?.data || [];
+      const preset = PRESET_KITS[presetKey];
+      const presetItems = allEquipment.filter(item => preset.equipment.includes(item.name));
+      const presetIds = presetItems.map(item => item.id);
 
-    setSelectedEquipmentIds(presetIds);
-    onEquipmentChange(presetIds);
+      setSelectedEquipmentIds(presetIds);
+      onEquipmentChange(presetIds);
 
-    // Map preset IDs to subcategories
-    const newSelections = new Map<SubcategoryKey, Set<number>>();
-    for (const item of presetItems) {
-      const key: SubcategoryKey = `equipment:${item.subcategory}`;
-      if (!newSelections.has(key)) {
-        newSelections.set(key, new Set());
+      // Map preset IDs to subcategories
+      const newSelections = new Map<SubcategoryKey, Set<number>>();
+      for (const item of presetItems) {
+        const key: SubcategoryKey = `equipment:${item.subcategory}`;
+        if (!newSelections.has(key)) {
+          newSelections.set(key, new Set());
+        }
+        newSelections.get(key)!.add(item.id);
       }
-      newSelections.get(key)!.add(item.id);
-    }
-    setSelectionsByCategory(newSelections);
+      setSelectionsByCategory(newSelections);
 
-    setShowPresetStep(false);
-    setActiveCategory('equipment:essential');
-    setMobileView('content');
-  }, [allEquipmentData, onEquipmentChange]);
+      setShowPresetStep(false);
+      setActiveCategory('equipment:essential');
+      setMobileView('content');
+    },
+    [allEquipmentData, onEquipmentChange]
+  );
 
   const handleSkipPreset = useCallback(() => {
     setShowPresetStep(false);

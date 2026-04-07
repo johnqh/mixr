@@ -68,7 +68,9 @@ export function createAuthErrorTexts(): AuthErrorTexts {
     'auth/network-request-failed': getFirebaseErrorMessage('auth/network-request-failed'),
     'auth/popup-closed-by-user': getFirebaseErrorMessage('auth/popup-closed-by-user'),
     'auth/popup-blocked': getFirebaseErrorMessage('auth/popup-blocked'),
-    'auth/account-exists-with-different-credential': getFirebaseErrorMessage('auth/account-exists-with-different-credential'),
+    'auth/account-exists-with-different-credential': getFirebaseErrorMessage(
+      'auth/account-exists-with-different-credential'
+    ),
     'auth/operation-not-allowed': getFirebaseErrorMessage('auth/operation-not-allowed'),
     default: getFirebaseErrorMessage(''),
   };

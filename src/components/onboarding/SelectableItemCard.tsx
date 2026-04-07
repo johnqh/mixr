@@ -25,9 +25,7 @@ export const SelectableItemCard: FC<SelectableItemCardProps> = ({
     >
       <div className="text-3xl mb-2">{icon}</div>
       <div className="text-sm font-medium">{name}</div>
-      {isSelected && (
-        <div className="mt-2 text-purple-600 dark:text-purple-400">✓</div>
-      )}
+      {isSelected && <div className="mt-2 text-purple-600 dark:text-purple-400">✓</div>}
     </button>
   );
 };

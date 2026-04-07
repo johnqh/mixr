@@ -1,26 +1,26 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import Backend from "i18next-http-backend";
-import LanguageDetector from "i18next-browser-languagedetector";
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import Backend from 'i18next-http-backend';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 // Supported languages
-const supportedLngs = ["en"];
+const supportedLngs = ['en'];
 
 // Detect language from URL path first, then localStorage
 const detectLanguageFromPath = (): string => {
-  if (typeof window === "undefined") {
-    return "en";
+  if (typeof window === 'undefined') {
+    return 'en';
   }
 
   // Check URL path first
-  const pathLang = window.location.pathname.split("/")[1];
+  const pathLang = window.location.pathname.split('/')[1];
   if (pathLang && supportedLngs.includes(pathLang)) {
     return pathLang;
   }
 
   // Fall back to localStorage
   try {
-    const stored = localStorage.getItem("language");
+    const stored = localStorage.getItem('language');
     if (stored && supportedLngs.includes(stored)) {
       return stored;
     }
@@ -28,7 +28,7 @@ const detectLanguageFromPath = (): string => {
     // localStorage may throw in Safari private browsing
   }
 
-  return "en";
+  return 'en';
 };
 
 /**
@@ -42,7 +42,7 @@ export function initializeI18n(): void {
     .use(initReactI18next)
     .init({
       lng: detectLanguageFromPath(),
-      fallbackLng: "en",
+      fallbackLng: 'en',
       supportedLngs,
       initImmediate: false,
       debug: false,
@@ -57,19 +57,19 @@ export function initializeI18n(): void {
       },
 
       detection: {
-        order: ["path", "localStorage", "navigator"],
-        caches: ["localStorage"],
-        lookupLocalStorage: "language",
+        order: ['path', 'localStorage', 'navigator'],
+        caches: ['localStorage'],
+        lookupLocalStorage: 'language',
         lookupFromPathIndex: 0,
       },
 
-      load: "languageOnly",
+      load: 'languageOnly',
       preload: [],
       cleanCode: false,
       lowerCaseLng: false,
 
-      defaultNS: "common",
-      ns: ["common"],
+      defaultNS: 'common',
+      ns: ['common'],
     });
 }
 

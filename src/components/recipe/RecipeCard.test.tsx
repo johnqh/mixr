@@ -28,7 +28,9 @@ describe('RecipeCard', () => {
 
   it('renders the recipe description', () => {
     render(<RecipeCard recipe={mockRecipe} onClick={vi.fn()} />);
-    expect(screen.getByText('A refreshing Cuban classic with rum, mint, and lime')).toBeInTheDocument();
+    expect(
+      screen.getByText('A refreshing Cuban classic with rum, mint, and lime')
+    ).toBeInTheDocument();
   });
 
   it('renders ingredient and step counts', () => {

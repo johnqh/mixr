@@ -11,9 +11,9 @@ export const IngredientSelector: FC<IngredientSelectorProps> = ({
   selectedIds,
   onSelectionChange,
 }) => {
-  const [selectedSubcategory, setSelectedSubcategory] = useState<
-    IngredientSubcategory | undefined
-  >('spirit');
+  const [selectedSubcategory, setSelectedSubcategory] = useState<IngredientSubcategory | undefined>(
+    'spirit'
+  );
   const { data: ingredientsData, isLoading } = useIngredients(selectedSubcategory);
   const { data: subcategoriesData } = useIngredientSubcategories();
 

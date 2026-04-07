@@ -102,7 +102,7 @@ export const StandardPageLayout: FC<StandardPageLayoutProps> = ({
         breadcrumbs={
           showBreadcrumb && breadcrumbItems && breadcrumbItems.length > 0
             ? {
-                items: breadcrumbItems.map((item) => ({
+                items: breadcrumbItems.map(item => ({
                   label: item.label,
                   href: item.href,
                   current: item.current,

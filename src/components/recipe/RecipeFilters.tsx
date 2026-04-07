@@ -18,7 +18,9 @@ export const RecipeFilters: FC<RecipeFiltersProps> = ({ searchQuery, onSearchCha
       <div className="flex gap-4">
         {/* Search Input */}
         <div className="flex-1">
-          <label htmlFor="recipe-search" className="sr-only">Search recipes</label>
+          <label htmlFor="recipe-search" className="sr-only">
+            Search recipes
+          </label>
           <input
             id="recipe-search"
             type="search"

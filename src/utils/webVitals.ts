@@ -15,4 +15,4 @@ export {
   type MetricName,
   type WebVitalMetric,
   type WebVitalReportCallback,
-} from "@sudobility/components";
+} from '@sudobility/components';

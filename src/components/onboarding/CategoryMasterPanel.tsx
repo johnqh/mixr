@@ -14,9 +14,7 @@ interface CategoryMasterPanelProps {
 }
 
 function formatSubcategoryLabel(subcategory: string): string {
-  return subcategory
-    .replace(/_/g, ' ')
-    .replace(/\b\w/g, c => c.toUpperCase());
+  return subcategory.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 }
 
 function getDescription(

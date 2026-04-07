@@ -6,10 +6,7 @@ import {
   getFirebaseErrorMessage,
   initializeFirebaseAuth,
 } from '@sudobility/auth_lib';
-import {
-  createAuthTexts,
-  createAuthErrorTexts,
-} from '../../config/auth-config';
+import { createAuthTexts, createAuthErrorTexts } from '../../config/auth-config';
 
 interface AuthProviderWrapperProps {
   children: ReactNode;
@@ -33,9 +30,7 @@ export function AuthProviderWrapper({ children }: AuthProviderWrapperProps) {
 
   // If Firebase is not configured, render children without auth
   if (!auth) {
-    console.warn(
-      '[AuthProviderWrapper] No auth instance - Firebase not configured',
-    );
+    console.warn('[AuthProviderWrapper] No auth instance - Firebase not configured');
     return <>{children}</>;
   }
 

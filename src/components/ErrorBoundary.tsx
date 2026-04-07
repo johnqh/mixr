@@ -62,10 +62,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
       }
 
       return (
-        <div
-          role="alert"
-          className="min-h-[400px] flex items-center justify-center p-8"
-        >
+        <div role="alert" className="min-h-[400px] flex items-center justify-center p-8">
           <div className="text-center max-w-md">
             <div className="text-6xl mb-4" aria-hidden="true">
               &#x26A0;&#xFE0F;

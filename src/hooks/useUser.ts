@@ -37,7 +37,7 @@ export function useUpdateUser() {
       const response = await mixrClient.updateCurrentUser(request);
       return response.data;
     },
-    onSuccess: (user) => {
+    onSuccess: user => {
       queryClient.setQueryData(userQueryKeys.currentUser, user);
     },
   });
@@ -72,7 +72,7 @@ export function useUpdateUserPreferences() {
       const response = await mixrClient.updateUserPreferences(preferences);
       return response.data;
     },
-    onSuccess: (preferences) => {
+    onSuccess: preferences => {
       queryClient.setQueryData(userQueryKeys.preferences, preferences);
     },
   });

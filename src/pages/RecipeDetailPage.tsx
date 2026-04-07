@@ -6,7 +6,8 @@ import { useRecipeRatings, useRecipeRatingAggregate, useSubmitRating } from '../
 import { ReviewForm } from '../components/rating/ReviewForm';
 import { ReviewList } from '../components/rating/ReviewList';
 import { AggregateRating } from '../components/rating/AggregateRating';
-import { ScreenContainer } from '../components/layout/ScreenContainer';
+import { Helmet } from 'react-helmet-async';
+import { Section } from '@sudobility/components';
 import { CONSTANTS } from '../config/constants';
 
 export const RecipeDetailPage: FC = () => {
@@ -29,32 +30,18 @@ export const RecipeDetailPage: FC = () => {
 
   if (isLoading) {
     return (
-      <ScreenContainer
-        seo={{
-          title: `Loading... - ${CONSTANTS.APP_NAME}`,
-          description: 'Loading recipe details',
-        }}
-                showBreadcrumbs={false}
-        footerVariant="compact"
-      >
-        <div className="flex items-center justify-center py-16">
+      <Section spacing="xl">
+        <div className="flex items-center justify-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
         </div>
-      </ScreenContainer>
+      </Section>
     );
   }
 
   if (error || !recipeData?.data) {
     return (
-      <ScreenContainer
-        seo={{
-          title: `Recipe Not Found - ${CONSTANTS.APP_NAME}`,
-          description: 'The recipe you are looking for could not be found',
-        }}
-                showBreadcrumbs={true}
-        footerVariant="compact"
-      >
-        <div className="flex items-center justify-center py-16">
+      <Section spacing="xl">
+        <div className="flex items-center justify-center">
           <div className="text-center">
             <div className="text-6xl mb-4">😕</div>
             <h2 className="text-2xl font-bold mb-2">Recipe not found</h2>
@@ -69,22 +56,25 @@ export const RecipeDetailPage: FC = () => {
             </button>
           </div>
         </div>
-      </ScreenContainer>
+      </Section>
     );
   }
 
   const recipe = recipeData.data;
 
   return (
-    <ScreenContainer
-      seo={{
-        title: `${recipe.name} - ${CONSTANTS.APP_NAME}`,
-        description: recipe.description || `Learn how to make ${recipe.name}`,
-        keywords: ['cocktail', 'recipe', recipe.name, recipe.mood?.name || ''],
-      }}
-            showBreadcrumbs={true}
-      footerVariant="compact"
-    >
+    <>
+      <Helmet>
+        <title>{`${recipe.name} - ${CONSTANTS.APP_NAME}`}</title>
+        <meta
+          name="description"
+          content={recipe.description || `Learn how to make ${recipe.name}`}
+        />
+        <meta
+          name="keywords"
+          content={['cocktail', 'recipe', recipe.name, recipe.mood?.name || ''].join(', ')}
+        />
+      </Helmet>
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Hero Section */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden mb-8">
@@ -310,7 +300,7 @@ export const RecipeDetailPage: FC = () => {
           </div>
         </div>
       </div>
-    </ScreenContainer>
+    </>
   );
 };
 

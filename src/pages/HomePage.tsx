@@ -6,7 +6,7 @@ import { RecipeGrid } from '../components/recipe/RecipeGrid';
 import { RecipeFilters } from '../components/recipe/RecipeFilters';
 import { RecipeGenerator } from '../components/recipe/RecipeGenerator';
 import { useAuth } from '../context/AuthContext';
-import { ScreenContainer } from '../components/layout/ScreenContainer';
+import { Helmet } from 'react-helmet-async';
 import { CONSTANTS } from '../config/constants';
 
 type Tab = 'browse' | 'generate' | 'my-recipes';
@@ -133,17 +133,15 @@ export const HomePage: FC = () => {
   };
 
   return (
-    <ScreenContainer
-      seo={{
-        title: `${CONSTANTS.APP_NAME} - Discover & Create Amazing Cocktails`,
-        description:
-          'Browse thousands of cocktail recipes or generate your perfect drink based on your mood',
-        keywords: ['cocktails', 'recipes', 'drinks', 'mixology', 'bartending'],
-      }}
-      showBreadcrumbs={true}
-      showFooter={true}
-      footerVariant="compact"
-    >
+    <>
+      <Helmet>
+        <title>{`${CONSTANTS.APP_NAME} - Discover & Create Amazing Cocktails`}</title>
+        <meta
+          name="description"
+          content="Browse thousands of cocktail recipes or generate your perfect drink based on your mood"
+        />
+        <meta name="keywords" content="cocktails, recipes, drinks, mixology, bartending" />
+      </Helmet>
       {/* Tabs Section */}
       <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4">
@@ -224,8 +222,15 @@ export const HomePage: FC = () => {
       </div>
 
       {/* Content */}
-      <div id={`tabpanel-${activeTab}`} role="tabpanel" aria-label={`${activeTab} content`} className="container mx-auto px-4 py-8">{renderTabContent()}</div>
-    </ScreenContainer>
+      <div
+        id={`tabpanel-${activeTab}`}
+        role="tabpanel"
+        aria-label={`${activeTab} content`}
+        className="container mx-auto px-4 py-8"
+      >
+        {renderTabContent()}
+      </div>
+    </>
   );
 };
 

@@ -16,7 +16,11 @@ interface ReviewFormProps {
  * Form component for submitting a star rating and optional written review.
  * Only renders when the user is authenticated.
  */
-export const ReviewForm: FC<ReviewFormProps> = ({ recipeId: _recipeId, onSubmit, isSubmitting = false }) => {
+export const ReviewForm: FC<ReviewFormProps> = ({
+  recipeId: _recipeId,
+  onSubmit,
+  isSubmitting = false,
+}) => {
   const { user } = useAuth();
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState('');
@@ -45,13 +49,10 @@ export const ReviewForm: FC<ReviewFormProps> = ({ recipeId: _recipeId, onSubmit,
       <form onSubmit={handleSubmit} className="space-y-4" aria-label="Rate this recipe">
         {/* Star Rating */}
         <div>
-          <label id="rating-label" className="block text-sm font-medium mb-2">Your Rating</label>
-          <StarRating
-            rating={rating}
-            interactive
-            onChange={setRating}
-            size="lg"
-          />
+          <label id="rating-label" className="block text-sm font-medium mb-2">
+            Your Rating
+          </label>
+          <StarRating rating={rating} interactive onChange={setRating} size="lg" />
           {rating === 0 && (
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
               Click to rate this recipe

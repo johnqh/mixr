@@ -12,35 +12,27 @@ const mockMoods: Mood[] = [
 
 describe('MoodSelector', () => {
   it('renders all moods', () => {
-    render(
-      <MoodSelector moods={mockMoods} selectedMoodId={null} onMoodSelect={vi.fn()} />
-    );
+    render(<MoodSelector moods={mockMoods} selectedMoodId={null} onMoodSelect={vi.fn()} />);
     expect(screen.getByText('Happy')).toBeInTheDocument();
     expect(screen.getByText('Relaxed')).toBeInTheDocument();
     expect(screen.getByText('Adventurous')).toBeInTheDocument();
   });
 
   it('renders mood emojis', () => {
-    render(
-      <MoodSelector moods={mockMoods} selectedMoodId={null} onMoodSelect={vi.fn()} />
-    );
+    render(<MoodSelector moods={mockMoods} selectedMoodId={null} onMoodSelect={vi.fn()} />);
     expect(screen.getByText('😊')).toBeInTheDocument();
     expect(screen.getByText('😌')).toBeInTheDocument();
   });
 
   it('renders the heading', () => {
-    render(
-      <MoodSelector moods={mockMoods} selectedMoodId={null} onMoodSelect={vi.fn()} />
-    );
+    render(<MoodSelector moods={mockMoods} selectedMoodId={null} onMoodSelect={vi.fn()} />);
     expect(screen.getByText('How are you feeling?')).toBeInTheDocument();
   });
 
   it('calls onMoodSelect when a mood is clicked', async () => {
     const user = userEvent.setup();
     const onMoodSelect = vi.fn();
-    render(
-      <MoodSelector moods={mockMoods} selectedMoodId={null} onMoodSelect={onMoodSelect} />
-    );
+    render(<MoodSelector moods={mockMoods} selectedMoodId={null} onMoodSelect={onMoodSelect} />);
 
     await user.click(screen.getByText('Relaxed'));
     expect(onMoodSelect).toHaveBeenCalledWith(2);

@@ -1,13 +1,13 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 import {
   ThemeProvider as SharedThemeProvider,
   useTheme as useSharedTheme,
   Theme,
   FontSize,
-} from "@sudobility/components";
+} from '@sudobility/components';
 
 // Re-export Theme and FontSize for consumers
-export { Theme, FontSize } from "@sudobility/components";
+export { Theme, FontSize } from '@sudobility/components';
 
 export const useTheme = useSharedTheme;
 

@@ -11,7 +11,13 @@ import { CONSTANTS } from '../../config/constants';
 
 // Icon components for nav items
 const SearchIcon = ({ className }: { className?: string }) => (
-  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+  <svg
+    className={className}
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+  >
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -21,7 +27,13 @@ const SearchIcon = ({ className }: { className?: string }) => (
 );
 
 const SparklesIcon = ({ className }: { className?: string }) => (
-  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+  <svg
+    className={className}
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+  >
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -31,7 +43,13 @@ const SparklesIcon = ({ className }: { className?: string }) => (
 );
 
 const Cog6ToothIcon = ({ className }: { className?: string }) => (
-  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+  <svg
+    className={className}
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+  >
     <path
       strokeLinecap="round"
       strokeLinejoin="round"

@@ -19,10 +19,7 @@ export const ReviewList: FC<ReviewListProps> = ({ reviews, isLoading = false }) 
     return (
       <div className="space-y-4" role="status" aria-label="Loading reviews">
         {[1, 2, 3].map(i => (
-          <div
-            key={i}
-            className="bg-white dark:bg-gray-800 rounded-lg p-6 animate-pulse"
-          >
+          <div key={i} className="bg-white dark:bg-gray-800 rounded-lg p-6 animate-pulse">
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
               <div className="flex-1 space-y-3">

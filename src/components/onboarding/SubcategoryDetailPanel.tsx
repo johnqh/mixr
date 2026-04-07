@@ -19,9 +19,7 @@ interface SubcategoryDetailPanelProps {
 }
 
 function formatSubcategoryLabel(subcategory: string): string {
-  return subcategory
-    .replace(/_/g, ' ')
-    .replace(/\b\w/g, c => c.toUpperCase());
+  return subcategory.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 }
 
 export const SubcategoryDetailPanel: FC<SubcategoryDetailPanelProps> = ({
@@ -46,17 +44,13 @@ export const SubcategoryDetailPanel: FC<SubcategoryDetailPanelProps> = ({
     !isEquipment ? (subcategory as IngredientSubcategory) : undefined
   );
 
-  const items = isEquipment
-    ? (equipmentData?.data || [])
-    : (ingredientData?.data || []);
+  const items = isEquipment ? equipmentData?.data || [] : ingredientData?.data || [];
   const isLoading = isEquipment ? equipmentLoading : ingredientLoading;
 
   const selectedIds = isEquipment ? selectedEquipmentIds : selectedIngredientIds;
   const isNoneSelected = noneCategories.has(activeCategory);
 
-  const currentCategorySelectedCount = items.filter(item =>
-    selectedIds.includes(item.id)
-  ).length;
+  const currentCategorySelectedCount = items.filter(item => selectedIds.includes(item.id)).length;
 
   if (isLoading) {
     return (
@@ -69,9 +63,7 @@ export const SubcategoryDetailPanel: FC<SubcategoryDetailPanelProps> = ({
   return (
     <div className="flex flex-col h-full">
       <div className="flex-1">
-        <h3 className="text-lg font-semibold mb-4">
-          {formatSubcategoryLabel(subcategory)}
-        </h3>
+        <h3 className="text-lg font-semibold mb-4">{formatSubcategoryLabel(subcategory)}</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {/* None card */}
           <SelectableItemCard
@@ -103,9 +95,7 @@ export const SubcategoryDetailPanel: FC<SubcategoryDetailPanelProps> = ({
       {/* Bottom bar */}
       <div className="mt-8 pt-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between">
         <span className="text-sm text-gray-600 dark:text-gray-400">
-          {isNoneSelected
-            ? 'None selected'
-            : `${currentCategorySelectedCount} selected`}
+          {isNoneSelected ? 'None selected' : `${currentCategorySelectedCount} selected`}
         </span>
         <button
           onClick={onNext}

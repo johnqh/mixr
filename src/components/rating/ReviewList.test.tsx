@@ -45,7 +45,9 @@ describe('ReviewList', () => {
   it('shows empty state when no reviews', () => {
     render(<ReviewList reviews={[]} />);
     expect(screen.getByText('No reviews yet')).toBeInTheDocument();
-    expect(screen.getByText('Be the first to share your experience with this recipe!')).toBeInTheDocument();
+    expect(
+      screen.getByText('Be the first to share your experience with this recipe!')
+    ).toBeInTheDocument();
   });
 
   it('shows loading skeleton when isLoading is true', () => {

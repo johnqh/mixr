@@ -1,10 +1,11 @@
 import { type ReactNode, lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import { SudobilityAppWithFirebaseAuth } from '@sudobility/building_blocks/firebase';
 import i18n from './i18n';
 import { AuthProvider } from './context/AuthContext';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import { ScreenContainer } from './components/layout/ScreenContainer';
 import LandingPage from './pages/LandingPage';
 import { AuthProviderWrapper } from './components/providers/AuthProviderWrapper';
 
@@ -17,8 +18,13 @@ function LoadingFallback() {
       aria-label="Loading page"
     >
       <div className="flex flex-col items-center gap-4">
-        <div className="text-6xl animate-bounce" aria-hidden="true">🍸</div>
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600" aria-hidden="true"></div>
+        <div className="text-6xl animate-bounce" aria-hidden="true">
+          🍸
+        </div>
+        <div
+          className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"
+          aria-hidden="true"
+        ></div>
         <span className="sr-only">Loading...</span>
       </div>
     </div>
@@ -39,29 +45,46 @@ function AppProviders({ children }: { children: ReactNode }) {
   return <AuthProvider>{children}</AuthProvider>;
 }
 
+/**
+ * Route-level layout wrapping all pages in ScreenContainer.
+ * ScreenContainer provides PageConfigProvider so child pages
+ * can use useSetPageConfig for layout overrides.
+ */
+function ScreenContainerLayout() {
+  return (
+    <ScreenContainer>
+      <Suspense fallback={<LoadingFallback />}>
+        <Outlet />
+      </Suspense>
+    </ScreenContainer>
+  );
+}
+
 /** App routes wrapped with error boundary and suspense. */
 function AppRoutes() {
   return (
     <ErrorBoundary>
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
-          {/* Public routes */}
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-
-          {/* Recipe browsing - public */}
-          <Route path="/recipes" element={<HomePage />} />
-          <Route path="/recipes/:id" element={<RecipeDetailPage />} />
-
-          {/* Protected routes */}
-          <Route element={<ProtectedRoute />}>
-            <Route path="/onboarding" element={<OnboardingPage />} />
-            <Route path="/settings" element={<SettingsPage />} />
+          <Route element={<ScreenContainerLayout />}>
+            {/* Public routes */}
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/recipes" element={<HomePage />} />
+            <Route path="/recipes/:id" element={<RecipeDetailPage />} />
+            {/* Protected routes */}
+            <Route element={<ProtectedRoute />}>
+              <Route path="/settings" element={<SettingsPage />} />
+            </Route>
+            {/* 404 */}
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
 
-          {/* 404 - Keep as last route */}
-          <Route path="*" element={<NotFoundPage />} />
+          {/* Full-screen pages outside layout */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/onboarding" element={<OnboardingPage />} />
+          </Route>
         </Routes>
       </Suspense>
     </ErrorBoundary>

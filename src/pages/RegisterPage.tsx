@@ -58,7 +58,10 @@ export const RegisterPage: FC = () => {
     <>
       <Helmet>
         <title>{`Sign Up - ${CONSTANTS.APP_NAME}`}</title>
-        <meta name="description" content={`Create a ${CONSTANTS.APP_NAME} account to start generating personalized cocktail recipes`} />
+        <meta
+          name="description"
+          content={`Create a ${CONSTANTS.APP_NAME} account to start generating personalized cocktail recipes`}
+        />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-pink-900/20 flex items-center justify-center p-4">
@@ -80,7 +83,10 @@ export const RegisterPage: FC = () => {
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
             {/* Error Message */}
             {error && (
-              <div role="alert" className="mb-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
+              <div
+                role="alert"
+                className="mb-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4"
+              >
                 <p className="text-sm text-red-800 dark:text-red-400">{error}</p>
               </div>
             )}

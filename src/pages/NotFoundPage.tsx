@@ -25,7 +25,8 @@ export const NotFoundPage: FC = () => {
 
           {/* Message */}
           <p className="text-gray-600 dark:text-gray-400 mb-8">
-            Oops! The cocktail you're looking for seems to have been mixed up. This page doesn't exist.
+            Oops! The cocktail you're looking for seems to have been mixed up. This page doesn't
+            exist.
           </p>
 
           {/* Actions */}
@@ -46,26 +47,15 @@ export const NotFoundPage: FC = () => {
 
           {/* Quick Links */}
           <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-              Or try one of these:
-            </p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Or try one of these:</p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <Link
-                to="/"
-                className="text-purple-600 dark:text-purple-400 hover:underline"
-              >
+              <Link to="/" className="text-purple-600 dark:text-purple-400 hover:underline">
                 Home
               </Link>
-              <Link
-                to="/recipes"
-                className="text-purple-600 dark:text-purple-400 hover:underline"
-              >
+              <Link to="/recipes" className="text-purple-600 dark:text-purple-400 hover:underline">
                 Browse Recipes
               </Link>
-              <Link
-                to="/login"
-                className="text-purple-600 dark:text-purple-400 hover:underline"
-              >
+              <Link to="/login" className="text-purple-600 dark:text-purple-400 hover:underline">
                 Sign In
               </Link>
             </div>

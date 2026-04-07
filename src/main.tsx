@@ -1,20 +1,20 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
 
 // Initialize all services BEFORE importing App
-import { initializeApp } from "./config/initialize";
+import { initializeApp } from './config/initialize';
 
 // Wait for initialization to complete before rendering
 initializeApp().then(async () => {
   // Import App AFTER initialization completes
-  const { default: App } = await import("./App");
+  const { default: App } = await import('./App');
 
   // Render React app
-  const root = document.getElementById("root")!;
+  const root = document.getElementById('root')!;
   createRoot(root).render(
     <StrictMode>
       <App />
-    </StrictMode>,
+    </StrictMode>
   );
 });

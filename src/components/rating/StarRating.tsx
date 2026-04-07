@@ -60,7 +60,11 @@ export const StarRating: FC<StarRatingProps> = ({
   };
 
   return (
-    <div className="flex items-center gap-2" role="group" aria-label={`Rating: ${rating.toFixed(1)} out of ${maxRating} stars`}>
+    <div
+      className="flex items-center gap-2"
+      role="group"
+      aria-label={`Rating: ${rating.toFixed(1)} out of ${maxRating} stars`}
+    >
       <div className="flex items-center gap-0.5">
         {Array.from({ length: maxRating }, (_, index) => {
           const starValue = index + 1;
@@ -124,9 +128,7 @@ export const StarRating: FC<StarRatingProps> = ({
       <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
         <span className="font-semibold">{rating.toFixed(1)}</span>
         {showCount && count !== undefined && (
-          <span className="text-gray-500 dark:text-gray-500">
-            ({count.toLocaleString()})
-          </span>
+          <span className="text-gray-500 dark:text-gray-500">({count.toLocaleString()})</span>
         )}
       </div>
     </div>

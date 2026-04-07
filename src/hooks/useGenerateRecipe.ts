@@ -31,7 +31,7 @@ export function useGenerateRecipe() {
 
       return recipe;
     },
-    onSuccess: (recipe) => {
+    onSuccess: recipe => {
       // Invalidate recipe lists to include the new recipe
       queryClient.invalidateQueries({ queryKey: ['recipes'] });
 

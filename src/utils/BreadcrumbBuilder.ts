@@ -83,7 +83,10 @@ export class BreadcrumbBuilder {
   /**
    * Builds a complete breadcrumb trail for a given path
    */
-  public getBreadcrumbs(path: string | undefined, dynamicTitles?: Record<string, string>): BreadcrumbPath[] {
+  public getBreadcrumbs(
+    path: string | undefined,
+    dynamicTitles?: Record<string, string>
+  ): BreadcrumbPath[] {
     if (!path) return [];
 
     let cleanPath = path;
@@ -129,7 +132,10 @@ export class BreadcrumbBuilder {
   /**
    * Get breadcrumbs formatted for the AppBreadcrumbs component
    */
-  public getBreadcrumbItems(path: string, dynamicTitles?: Record<string, string>): BreadcrumbItem[] {
+  public getBreadcrumbItems(
+    path: string,
+    dynamicTitles?: Record<string, string>
+  ): BreadcrumbItem[] {
     const breadcrumbs = this.getBreadcrumbs(path, dynamicTitles);
 
     return breadcrumbs.map((breadcrumb, index) => ({

@@ -14,9 +14,7 @@ export const OnboardingProgress: FC<OnboardingProgressProps> = ({ reviewedCount,
         <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
           {reviewedCount} of {totalCount} categories reviewed
         </span>
-        <span className="text-sm text-gray-500 dark:text-gray-400">
-          {percentage}% Complete
-        </span>
+        <span className="text-sm text-gray-500 dark:text-gray-400">{percentage}% Complete</span>
       </div>
       <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
         <div
