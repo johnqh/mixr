@@ -96,6 +96,5 @@ export function useFooterConfig(variant: 'full' | 'compact'): FooterConfig {
     description: 'Discover amazing cocktails and create your perfect drink based on your mood.',
     LinkComponent: linkWrapper,
     isNetworkOnline: isOnline,
-    gridColumns: 3,
   };
 }
