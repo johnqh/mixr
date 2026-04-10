@@ -1,7 +1,7 @@
 {
   "name": "mixr",
   "private": true,
-  "version": "0.1.67",
+  "version": "0.1.68",
   "license": "BUSL-1.1",
   "type": "module",
   "scripts": {
@@ -20,7 +20,7 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "verify": "bun run typecheck && bun run lint && bun run test",
-    "localize": "SCRIPT=$(mktemp) && curl -fsSL https://raw.githubusercontent.com/johnqh/workflows/main/scripts/localize_batch.cjs -o $SCRIPT && node $SCRIPT ./public/locales https://api.whisperly.dev/api/v1/translate/jie9cytr/mixr --batch-limit 15 && rm -f $SCRIPT && prettier . --write",
+    "localize": "SCRIPT=$(mktemp) && curl -fsSL https://raw.githubusercontent.com/johnqh/workflows/main/scripts/localize_batch.cjs -o $SCRIPT && node $SCRIPT ./public/locales https://api.whisperly.dev/api/v1/translate/jie9cytr/mixr --word-limit 40 && rm -f $SCRIPT && prettier . --write",
     "localized": "node scripts/localization_verify.cjs"
   },
   "dependencies": {
@@ -35,9 +35,9 @@
     "@radix-ui/react-tooltip": "^1.2.8",
     "@sudobility/auth-components": "^1.0.10",
     "@sudobility/auth_lib": "^0.0.68",
-    "@sudobility/building_blocks": "^0.0.208",
-    "@sudobility/components": "^5.0.54",
-    "@sudobility/design": "^1.1.27",
+    "@sudobility/building_blocks": "^0.0.209",
+    "@sudobility/components": "^5.0.55",
+    "@sudobility/design": "^1.1.28",
     "@sudobility/devops-components": "^2.0.19",
     "@sudobility/di": "^1.5.52",
     "@sudobility/di_web": "^0.1.163",
