@@ -1,0 +1,31 @@
+{
+  "seo": {
+    "title": "Navegue por Receitas de Coquetéis e Gere Bebidas | {{appName}}",
+    "description": "Explore receitas de coquetéis da comunidade ou gere sua bebida perfeita com IA. Pesquise por humor, ingredientes ou estilo.",
+    "keywords": [
+      "navegue por receitas de coquetéis",
+      "gerar coquetel",
+      "Gerador de bebidas de IA",
+      "pesquisa de coquetel",
+      "receitas de bebidas"
+    ]
+  },
+  "tabs": {
+    "browse": "Navegar",
+    "generate": "Gerar",
+    "myRecipes": "Minhas Receitas"
+  },
+  "browse": {
+    "searchPlaceholder": "Pesquise coquetéis por nome, descrição ou humor...",
+    "noResults": "Nenhum coquetel encontrado correspondendo à sua pesquisa.",
+    "error": "Falha ao carregar receitas. Tente novamente.",
+    "loading": "Carregando receitas..."
+  },
+  "myRecipes": {
+    "loginPrompt": "Faça login para ver suas receitas geradas",
+    "loginButton": "Entrar",
+    "empty": "Você ainda não gerou nenhuma receita.",
+    "generateButton": "Gere sua primeira receita",
+    "error": "Falha ao carregar suas receitas."
+  }
+}

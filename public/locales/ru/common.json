@@ -1,0 +1,75 @@
+{
+  "app": {
+    "name": "MIXR",
+    "tagline": "Найдите идеальный коктейль для своего настроения"
+  },
+  "navigation": {
+    "browse": "Просмотр",
+    "generate": "Создать",
+    "settings": "Настройки",
+    "myRecipes": "Мои рецепты"
+  },
+  "auth": {
+    "login": "Войти",
+    "logout": "Выйти",
+    "signIn": "Войти",
+    "signUp": "Зарегистрироваться",
+    "signInTitle": "Войти",
+    "signInWithEmail": "Войти с помощью электронной почты",
+    "createAccount": "Создать учетную запись",
+    "resetPassword": "Сброс пароля",
+    "continueWithGoogle": "Продолжить с Google",
+    "continueWithEmail": "Продолжить с электронной почтой",
+    "continueWithApple": "Продолжить с Apple",
+    "or": "или",
+    "email": "Электронная почта",
+    "emailPlaceholder": "Введите свой электронный адрес",
+    "password": "Пароль",
+    "passwordPlaceholder": "Введите свой пароль",
+    "confirmPassword": "Подтвердите пароль",
+    "confirmPasswordPlaceholder": "Подтвердите пароль",
+    "displayName": "Имя для отображения",
+    "displayNamePlaceholder": "Введите свое имя (необязательно)",
+    "forgotPassword": "Забыли пароль?",
+    "sendResetLink": "Отправить ссылку на сброс",
+    "resetEmailSent": "Проверьте свой электронный адрес",
+    "resetEmailSentDesc": "Мы отправили ссылку для сброса пароля на вашу электронную почту.",
+    "backToSignIn": "Вернуться на страницу входа",
+    "noAccount": "У вас нет аккаунта?",
+    "haveAccount": "У вас уже есть аккаунт?",
+    "passwordMismatch": "Пароли не совпадают",
+    "passwordTooShort": "Пароль должен содержать не менее 6 символов",
+    "loading": "Загрузка...",
+    "close": "Закрыть"
+  },
+  "footer": {
+    "copyright": "{{year}} {{company}}. Все права защищены.",
+    "privacyPolicy": "Политика конфиденциальности",
+    "termsOfService": "Условия использования",
+    "contact": "Контакт"
+  },
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Произошла ошибка",
+    "retry": "Повторить",
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "close": "Закрыть",
+    "back": "Назад",
+    "next": "Следующий",
+    "submit": "Отправить",
+    "search": "Поиск",
+    "noResults": "Результаты не найдены"
+  },
+  "talkToFounder": "Поговорите с основателем",
+  "breadcrumbs": {
+    "home": "Главная",
+    "recipes": "Рецепты",
+    "settings": "Настройки",
+    "login": "Войти",
+    "register": "Зарегистрироваться",
+    "onboarding": "Настройка"
+  }
+}

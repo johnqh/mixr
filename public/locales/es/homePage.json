@@ -1,0 +1,31 @@
+{
+  "seo": {
+    "title": "Explora recetas de cócteles y genera bebidas | {{appName}}",
+    "description": "Explora recetas de cócteles de la comunidad o crea tu bebida perfecta con IA. Busca por estado de ánimo, ingredientes o estilo.",
+    "keywords": [
+      "explora recetas de cócteles",
+      "generar cóctel",
+      "Generador de bebidas de IA",
+      "búsqueda de cóctel",
+      "recetas de bebidas"
+    ]
+  },
+  "tabs": {
+    "browse": "Examinar",
+    "generate": "Generar",
+    "myRecipes": "Mis Recetas"
+  },
+  "browse": {
+    "searchPlaceholder": "Busca cócteles por nombre, descripción o estado de ánimo...",
+    "noResults": "No se encontraron cócteles que coincidan con su búsqueda.",
+    "error": "No se pudieron cargar las recetas. Inténtalo de nuevo.",
+    "loading": "Cargando recetas..."
+  },
+  "myRecipes": {
+    "loginPrompt": "Inicie sesión para ver sus recetas generadas",
+    "loginButton": "Iniciar sesión",
+    "empty": "Aún no has generado ninguna receta.",
+    "generateButton": "Genera tu primera receta",
+    "error": "No se pudieron cargar sus recetas."
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "seo": {
+    "title": "{{appName}} - AI Cocktail Recipe Generator | Mood-Based Drinks",
+    "description": "Discover and create cocktail recipes with AI-powered mixology. Get personalized drink recommendations based on your mood, ingredients, and equipment.",
+    "keywords": [
+      "AI cocktail generator",
+      "cocktail recipe app",
+      "mood-based drinks",
+      "mixology app",
+      "personalized cocktails"
+    ]
+  },
+  "hero": {
+    "tagline": "Discover the perfect cocktail for your mood",
+    "cta": "Get Started"
+  },
+  "features": {
+    "mood": {
+      "title": "Mood-Based Recipes",
+      "description": "Select your mood and get personalized cocktail recommendations"
+    },
+    "inventory": {
+      "title": "Your Inventory",
+      "description": "Track your equipment and ingredients for perfect matches"
+    },
+    "ratings": {
+      "title": "Community Ratings",
+      "description": "Rate recipes and see what others love"
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "step1": {
+      "title": "Set Up Your Bar",
+      "description": "Tell us what equipment and ingredients you have"
+    },
+    "step2": {
+      "title": "Choose Your Mood",
+      "description": "Select how you're feeling today"
+    },
+    "step3": {
+      "title": "Get Mixing!",
+      "description": "Follow the recipe and enjoy your perfect cocktail"
+    }
+  },
+  "cta": {
+    "title": "Ready to Start Mixing?",
+    "description": "Join our community of cocktail enthusiasts today",
+    "button": "Sign Up Free"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "app": {
+    "name": "MIXR",
+    "tagline": "Upptäck den perfekta cocktailen för din stämning"
+  },
+  "navigation": {
+    "browse": "Bläddra",
+    "generate": "Generera",
+    "settings": "Inställningar",
+    "myRecipes": "Mina Recept"
+  },
+  "auth": {
+    "login": "Logga in",
+    "logout": "Logga ut",
+    "signIn": "Logga in",
+    "signUp": "Registrera dig",
+    "signInTitle": "Logga in",
+    "signInWithEmail": "Logga in med e-post",
+    "createAccount": "Skapa konto",
+    "resetPassword": "Återställ lösenord",
+    "continueWithGoogle": "Fortsätt med Google",
+    "continueWithEmail": "Fortsätt med e-post",
+    "continueWithApple": "Fortsätt med Apple",
+    "or": "eller",
+    "email": "E-post",
+    "emailPlaceholder": "Ange din e-post",
+    "password": "Lösenord",
+    "passwordPlaceholder": "Ange ditt lösenord",
+    "confirmPassword": "Bekräfta lösenord",
+    "confirmPasswordPlaceholder": "Bekräfta ditt lösenord",
+    "displayName": "Visningsnamn",
+    "displayNamePlaceholder": "Ange ditt namn (valfritt)",
+    "forgotPassword": "Glömt lösenordet?",
+    "sendResetLink": "Skicka återställningslänk",
+    "resetEmailSent": "Kontrollera din e-post",
+    "resetEmailSentDesc": "Vi har skickat en länk för att återställa lösenordet till din e-post.",
+    "backToSignIn": "Tillbaka till Logga in",
+    "noAccount": "Har du inget konto?",
+    "haveAccount": "Har du redan ett konto?",
+    "passwordMismatch": "Lösenorden matchar inte",
+    "passwordTooShort": "Lösenordet måste vara minst 6 tecken",
+    "loading": "Läser in...",
+    "close": "Stäng"
+  },
+  "footer": {
+    "copyright": "{{year}} {{company}}. Alla rättigheter förbehållna.",
+    "privacyPolicy": "Integritetspolicy",
+    "termsOfService": "Villkor för tjänsten",
+    "contact": "Kontakt"
+  },
+  "common": {
+    "loading": "Läser in...",
+    "error": "Ett fel uppstod",
+    "retry": "Försök igen",
+    "cancel": "Avbryta",
+    "save": "Spara",
+    "delete": "Ta bort",
+    "edit": "Redigera",
+    "close": "Stäng",
+    "back": "Tillbaka",
+    "next": "Nästa",
+    "submit": "Skicka",
+    "search": "Sök",
+    "noResults": "Inga resultat hittades"
+  },
+  "talkToFounder": "Prata med grundaren",
+  "breadcrumbs": {
+    "home": "Hem",
+    "recipes": "Recept",
+    "settings": "Inställningar",
+    "login": "Logga in",
+    "register": "Registrera",
+    "onboarding": "Inställning"
+  }
+}

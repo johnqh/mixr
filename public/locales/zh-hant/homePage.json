@@ -1,0 +1,25 @@
+{
+  "seo": {
+    "title": "瀏覽雞尾酒食譜並生成飲品 | {{appName}}",
+    "description": "瀏覽社群調酒食譜，或使用 AI 創造屬於你的完美飲品。依心情、材料或風格搜尋。",
+    "keywords": ["瀏覽雞尾酒食譜", "生成雞尾酒", "AI飲品生成器", "雞尾酒搜尋", "飲料配方"]
+  },
+  "tabs": {
+    "browse": "瀏覽",
+    "generate": "產生",
+    "myRecipes": "我的食譜"
+  },
+  "browse": {
+    "searchPlaceholder": "按名稱、描述或情緒搜尋雞尾酒...",
+    "noResults": "未找到與您的搜尋匹配的雞尾酒。",
+    "error": "載入食譜失敗。請重試。",
+    "loading": "正在加載食譜..."
+  },
+  "myRecipes": {
+    "loginPrompt": "登入以查看您生成的食譜",
+    "loginButton": "登入",
+    "empty": "您還沒有生成任何食譜。",
+    "generateButton": "生成您的第一個食譜",
+    "error": "無法加載您的食譜。"
+  }
+}

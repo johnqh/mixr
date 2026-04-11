@@ -1,0 +1,51 @@
+{
+  "seo": {
+    "title": "{{appName}} - Gerador de Receitas de Coquetéis com IA | Bebidas com base no humor",
+    "description": "Descubra e crie receitas de coquetéis com mixologia potencializada por IA. Receba recomendações personalizadas de bebidas com base no seu humor, ingredientes e equipamento.",
+    "keywords": [
+      "gerador de coquetéis de IA",
+      "aplicativo de receitas de coquetel",
+      "bebidas baseadas no humor",
+      "aplicativo de mixologia",
+      "coquetéis personalizados"
+    ]
+  },
+  "hero": {
+    "tagline": "Descubra o coquetel perfeito para o seu humor",
+    "cta": "Começar"
+  },
+  "features": {
+    "mood": {
+      "title": "Receitas baseadas no humor",
+      "description": "Selecione seu humor e receba recomendações personalizadas de coquetéis"
+    },
+    "inventory": {
+      "title": "Seu inventário",
+      "description": "Rastreie seus equipamentos e ingredientes para correspondências perfeitas"
+    },
+    "ratings": {
+      "title": "Avaliações da Comunidade",
+      "description": "Avalie receitas e veja o que os outros gostam"
+    }
+  },
+  "howItWorks": {
+    "title": "Como funciona",
+    "step1": {
+      "title": "Configure sua barra",
+      "description": "Diga-nos quais equipamentos e ingredientes você tem"
+    },
+    "step2": {
+      "title": "Escolha seu humor",
+      "description": "Selecione como você está se sentindo hoje"
+    },
+    "step3": {
+      "title": "Misture!",
+      "description": "Siga a receita e aproveite seu coquetel perfeito"
+    }
+  },
+  "cta": {
+    "title": "Pronto para começar a misturar?",
+    "description": "Junte-se à nossa comunidade de entusiastas de coquetéis hoje",
+    "button": "Inscreva-se grátis"
+  }
+}

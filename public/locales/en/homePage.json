@@ -1,0 +1,31 @@
+{
+  "seo": {
+    "title": "Browse Cocktail Recipes & Generate Drinks | {{appName}}",
+    "description": "Browse community cocktail recipes or generate your perfect drink with AI. Search by mood, ingredients, or style.",
+    "keywords": [
+      "browse cocktail recipes",
+      "generate cocktail",
+      "AI drink generator",
+      "cocktail search",
+      "drink recipes"
+    ]
+  },
+  "tabs": {
+    "browse": "Browse",
+    "generate": "Generate",
+    "myRecipes": "My Recipes"
+  },
+  "browse": {
+    "searchPlaceholder": "Search cocktails by name, description, or mood...",
+    "noResults": "No cocktails found matching your search.",
+    "error": "Failed to load recipes. Please try again.",
+    "loading": "Loading recipes..."
+  },
+  "myRecipes": {
+    "loginPrompt": "Sign in to see your generated recipes",
+    "loginButton": "Sign In",
+    "empty": "You haven't generated any recipes yet.",
+    "generateButton": "Generate Your First Recipe",
+    "error": "Failed to load your recipes."
+  }
+}

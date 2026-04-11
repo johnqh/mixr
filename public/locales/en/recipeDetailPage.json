@@ -1,0 +1,24 @@
+{
+  "seo": {
+    "descriptionFallback": "Learn how to make {{name}}",
+    "keywords": "cocktail recipe, how to make, mixology, drink recipe"
+  },
+  "notFound": {
+    "title": "Recipe not found",
+    "description": "The recipe you're looking for doesn't exist or has been removed.",
+    "browseButton": "Browse Recipes"
+  },
+  "recipe": {
+    "ingredients": "Ingredients",
+    "instructions": "Instructions",
+    "mood": "Mood",
+    "equipment": "Equipment Needed",
+    "backToRecipes": "Back to Recipes"
+  },
+  "ratings": {
+    "title": "Ratings & Reviews",
+    "noRatings": "No ratings yet. Be the first to rate this recipe!",
+    "loginToRate": "Sign in to rate this recipe",
+    "submitReview": "Submit Review"
+  }
+}

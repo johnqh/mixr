@@ -69,7 +69,16 @@ export function initializeI18n(): void {
       lowerCaseLng: false,
 
       defaultNS: 'common',
-      ns: ['common'],
+      ns: [
+        'common',
+        'landingPage',
+        'homePage',
+        'recipeDetailPage',
+        'loginPage',
+        'registerPage',
+        'settingsPage',
+        'notFoundPage',
+      ],
     });
 }
 

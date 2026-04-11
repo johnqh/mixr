@@ -35,15 +35,15 @@ VITE_APP_NAME=MIXR
 
 ## Routes
 
-| Path | Page | Auth |
-|------|------|------|
-| `/` | Landing | No |
-| `/login` | Login | No |
-| `/register` | Register | No |
-| `/recipes` | Home (Browse/Generate/My Recipes) | Generate requires auth |
-| `/recipes/:id` | Recipe Detail | No |
-| `/onboarding` | Preferences Setup | Yes |
-| `/settings` | Account Settings | Yes |
+| Path           | Page                              | Auth                   |
+| -------------- | --------------------------------- | ---------------------- |
+| `/`            | Landing                           | No                     |
+| `/login`       | Login                             | No                     |
+| `/register`    | Register                          | No                     |
+| `/recipes`     | Home (Browse/Generate/My Recipes) | Generate requires auth |
+| `/recipes/:id` | Recipe Detail                     | No                     |
+| `/onboarding`  | Preferences Setup                 | Yes                    |
+| `/settings`    | Account Settings                  | Yes                    |
 
 ## Features
 

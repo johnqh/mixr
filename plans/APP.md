@@ -1,4 +1,5 @@
 # MIXR - Cocktail Recipe React App
+
 ## Technical Design & Implementation Plan
 
 **Version:** 1.0
@@ -31,6 +32,7 @@
 MIXR is a React-based web application for discovering and generating cocktail recipes based on user preferences, available equipment, ingredients, and mood. The app provides a personalized cocktail experience with community ratings and reviews.
 
 ### Key Features
+
 - Visual mood-based recipe generation
 - Equipment and ingredient inventory management
 - Community recipe browsing and discovery
@@ -39,6 +41,7 @@ MIXR is a React-based web application for discovering and generating cocktail re
 - Responsive design following mail_box patterns
 
 ### Technology Stack
+
 - **Frontend Framework:** React 19 + TypeScript
 - **Build Tool:** Vite
 - **Routing:** React Router v7
@@ -59,6 +62,7 @@ MIXR is a React-based web application for discovering and generating cocktail re
 ### Functional Requirements
 
 #### 1. Onboarding Flow
+
 - Multi-step onboarding for new users
 - Equipment selection with preset options
 - Ingredient selection organized by subcategories
@@ -66,6 +70,7 @@ MIXR is a React-based web application for discovering and generating cocktail re
 - Visual icons for equipment and ingredients
 
 #### 2. Recipe Generation
+
 - Visual mood selection (emoji + description)
 - Generate recipes based on:
   - User's available equipment
@@ -74,6 +79,7 @@ MIXR is a React-based web application for discovering and generating cocktail re
 - Generated recipes automatically available to all users
 
 #### 3. Recipe Browsing
+
 - Browse all recipes (anonymous users allowed)
 - Filter by mood, rating, ingredients, equipment
 - Search by recipe name
@@ -81,6 +87,7 @@ MIXR is a React-based web application for discovering and generating cocktail re
 - Recipe cards with image, name, mood, rating
 
 #### 4. Recipe Details
+
 - Full recipe view with:
   - Name, description, image
   - Mood indicator
@@ -91,6 +98,7 @@ MIXR is a React-based web application for discovering and generating cocktail re
   - Individual reviews with user names
 
 #### 5. Rating & Reviews
+
 - Requires authentication
 - 1-5 star rating
 - Optional text review
@@ -98,6 +106,7 @@ MIXR is a React-based web application for discovering and generating cocktail re
 - Display user name with review
 
 #### 6. User Profile & Settings
+
 - Manage equipment inventory
 - Manage ingredient inventory
 - Update profile information
@@ -270,6 +279,7 @@ mixr/
 ## UX Design Specifications
 
 ### Design Principles
+
 1. **Simplicity First:** Minimize cognitive load, clear visual hierarchy
 2. **Mobile-First:** Design for mobile, enhance for desktop
 3. **Visual Delight:** Use emoji, icons, and images to make the experience fun
@@ -277,32 +287,38 @@ mixr/
 5. **Performance:** Fast loading, smooth transitions, responsive interactions
 
 ### Color Palette (from @sudobility/design)
+
 - Use existing gradient classes from mail_box
 - Primary brand colors
 - Mood-specific accent colors
 
 ### Typography
+
 - Follow mail_box typography scale
 - Use system fonts for performance
 
 ### Key User Flows
 
 #### 1. First-Time User Flow
+
 ```
 Landing Page → Sign Up → Onboarding (Equipment → Ingredients) → Home
 ```
 
 #### 2. Recipe Generation Flow
+
 ```
 Home → Generate Tab → Mood Selection → Loading → Recipe Detail → Rate
 ```
 
 #### 3. Recipe Browsing Flow
+
 ```
 Home → Browse Recipes → Filter/Search → Recipe Detail → Rate (if logged in)
 ```
 
 #### 4. Settings Update Flow
+
 ```
 Home → Settings → Equipment/Ingredients Management → Save
 ```
@@ -310,6 +326,7 @@ Home → Settings → Equipment/Ingredients Management → Save
 ### Screen Specifications
 
 #### Landing Page
+
 - **Hero Section:** App name, tagline, CTA ("Get Started" / "Sign Up")
 - **Features Section:** 3-4 key features with icons
 - **How It Works:** 3-step visual guide
@@ -317,6 +334,7 @@ Home → Settings → Equipment/Ingredients Management → Save
 - **Footer:** Links to Terms, Privacy, About
 
 #### Onboarding Page
+
 - **Progress Indicator:** Step 1 of 3, 2 of 3, etc.
 - **Step 1 - Equipment:**
   - Title: "What equipment do you have?"
@@ -333,6 +351,7 @@ Home → Settings → Equipment/Ingredients Management → Save
   - "Start Exploring" button
 
 #### Home Page
+
 - **Top Bar:** Logo, Search, User Menu
 - **Tabs:** "Discover", "Generate", "My Recipes"
 - **Discover Tab:**
@@ -347,6 +366,7 @@ Home → Settings → Equipment/Ingredients Management → Save
   - List of user-rated recipes
 
 #### Recipe Detail Page
+
 - **Hero Image:** Large recipe photo
 - **Header:** Recipe name, mood emoji, rating (stars + count)
 - **Metadata Bar:** Difficulty, Prep Time, Glass Type
@@ -361,6 +381,7 @@ Home → Settings → Equipment/Ingredients Management → Save
   - "Share" button
 
 #### Generate Page
+
 - **Title:** "How are you feeling?"
 - **Mood Grid:** Large cards with emoji, name, description
 - **Selected Mood:** Highlighted card
@@ -369,6 +390,7 @@ Home → Settings → Equipment/Ingredients Management → Save
 - **Result:** Navigate to Recipe Detail Page
 
 #### Settings Page
+
 - **Tabs:** "Profile", "Equipment", "Ingredients"
 - **Profile Tab:**
   - Display name
@@ -388,6 +410,7 @@ Home → Settings → Equipment/Ingredients Management → Save
 ### Frontend Types (Extended from mixr_client)
 
 #### User Profile
+
 ```typescript
 interface UserProfile {
   id: string;
@@ -400,6 +423,7 @@ interface UserProfile {
 ```
 
 #### User Equipment
+
 ```typescript
 interface UserEquipment {
   userId: string;
@@ -409,6 +433,7 @@ interface UserEquipment {
 ```
 
 #### User Ingredients
+
 ```typescript
 interface UserIngredients {
   userId: string;
@@ -418,6 +443,7 @@ interface UserIngredients {
 ```
 
 #### Recipe Rating
+
 ```typescript
 interface RecipeRating {
   id: number;
@@ -435,6 +461,7 @@ interface RecipeRating {
 ```
 
 #### Recipe with Ratings (Extended)
+
 ```typescript
 interface RecipeWithRatings extends Recipe {
   averageRating: number | null;
@@ -444,6 +471,7 @@ interface RecipeWithRatings extends Recipe {
 ```
 
 ### Existing Types from mixr_client
+
 - `Equipment`
 - `EquipmentSubcategory`
 - `Ingredient`
@@ -463,7 +491,9 @@ interface RecipeWithRatings extends Recipe {
 The backend (mixr_api) needs to implement the following endpoints:
 
 #### Authentication Middleware
+
 All authenticated endpoints must:
+
 1. Accept `Authorization: Bearer <firebase-token>` header
 2. Verify Firebase token
 3. Extract user ID from token
@@ -472,6 +502,7 @@ All authenticated endpoints must:
 #### User Endpoints
 
 **Create User Profile**
+
 ```
 POST /api/users
 Headers: Authorization: Bearer <firebase-token>
@@ -493,6 +524,7 @@ Response: {
 ```
 
 **Get Current User Profile**
+
 ```
 GET /api/users/me
 Headers: Authorization: Bearer <firebase-token>
@@ -510,6 +542,7 @@ Response: {
 ```
 
 **Update User Profile**
+
 ```
 PATCH /api/users/me
 Headers: Authorization: Bearer <firebase-token>
@@ -527,6 +560,7 @@ Response: {
 ```
 
 **Get User Equipment**
+
 ```
 GET /api/users/me/equipment
 Headers: Authorization: Bearer <firebase-token>
@@ -550,6 +584,7 @@ Response: {
 ```
 
 **Update User Equipment**
+
 ```
 PUT /api/users/me/equipment
 Headers: Authorization: Bearer <firebase-token>
@@ -567,6 +602,7 @@ Response: {
 ```
 
 **Get User Ingredients**
+
 ```
 GET /api/users/me/ingredients
 Headers: Authorization: Bearer <firebase-token>
@@ -590,6 +626,7 @@ Response: {
 ```
 
 **Update User Ingredients**
+
 ```
 PUT /api/users/me/ingredients
 Headers: Authorization: Bearer <firebase-token>
@@ -609,6 +646,7 @@ Response: {
 #### Rating & Review Endpoints
 
 **Create Rating**
+
 ```
 POST /api/recipes/:recipeId/ratings
 Headers: Authorization: Bearer <firebase-token>
@@ -635,6 +673,7 @@ Response: {
 ```
 
 **Update Rating**
+
 ```
 PATCH /api/recipes/:recipeId/ratings/:ratingId
 Headers: Authorization: Bearer <firebase-token>
@@ -654,6 +693,7 @@ Response: {
 ```
 
 **Delete Rating**
+
 ```
 DELETE /api/recipes/:recipeId/ratings/:ratingId
 Headers: Authorization: Bearer <firebase-token>
@@ -663,6 +703,7 @@ Response: {
 ```
 
 **Get Recipe Ratings**
+
 ```
 GET /api/recipes/:recipeId/ratings?limit=20&offset=0
 Response: {
@@ -688,6 +729,7 @@ Response: {
 ```
 
 **Get User's Ratings**
+
 ```
 GET /api/users/me/ratings
 Headers: Authorization: Bearer <firebase-token>
@@ -716,6 +758,7 @@ Response: {
 #### Enhanced Recipe Endpoints
 
 **Get Recipes with Ratings**
+
 ```
 GET /api/recipes?limit=20&offset=0
 Headers: Authorization: Bearer <firebase-token> (optional)
@@ -747,6 +790,7 @@ Response: {
 ```
 
 **Generate Recipe (Enhanced)**
+
 ```
 POST /api/recipes/generate
 Headers: Authorization: Bearer <firebase-token> (optional, but recommended)
@@ -771,6 +815,7 @@ Response: {
 ### Frontend API Client Setup
 
 #### MixrClient Initialization
+
 ```typescript
 // src/config/mixrClient.ts
 import { MixrClient } from '@sudobility/mixr_client';
@@ -783,6 +828,7 @@ export const mixrClient = new MixrClient(baseUrl, networkClient);
 ```
 
 #### Network Client with Firebase Token
+
 ```typescript
 // src/utils/networkClient.ts
 import { NetworkClient, NetworkResponse } from '@sudobility/types';
@@ -869,6 +915,7 @@ export class AuthenticatedNetworkClient implements NetworkClient {
 ## Component Hierarchy
 
 ### Component Tree
+
 ```
 App
 ├── AuthContext.Provider
@@ -936,17 +983,20 @@ App
 ### Key Component Specifications
 
 #### RecipeCard
+
 ```typescript
 interface RecipeCardProps {
   recipe: RecipeWithRatings;
   onClick: () => void;
 }
 ```
+
 - Displays recipe image, name, mood emoji, rating
 - Clickable to navigate to detail page
 - Responsive card layout
 
 #### MoodCard
+
 ```typescript
 interface MoodCardProps {
   mood: Mood;
@@ -954,11 +1004,13 @@ interface MoodCardProps {
   onSelect: (mood: Mood) => void;
 }
 ```
+
 - Large emoji display
 - Mood name and description
 - Visual selection state
 
 #### RatingForm
+
 ```typescript
 interface RatingFormProps {
   recipeId: number;
@@ -966,18 +1018,21 @@ interface RatingFormProps {
   onSuccess: () => void;
 }
 ```
+
 - Star rating input (1-5)
 - Optional text review textarea
 - Submit button
 - Edit mode if existing rating
 
 #### EquipmentSelector
+
 ```typescript
 interface EquipmentSelectorProps {
   selectedIds: number[];
   onSelectionChange: (ids: number[]) => void;
 }
 ```
+
 - Grid of equipment with icons
 - Toggle selection
 - Preset options
@@ -988,6 +1043,7 @@ interface EquipmentSelectorProps {
 ## Routing Structure
 
 ### Route Configuration
+
 ```typescript
 // src/App.tsx
 <Routes>
@@ -1016,6 +1072,7 @@ interface EquipmentSelectorProps {
 ```
 
 ### Navigation Flow
+
 1. Landing → Sign Up → Onboarding → Home
 2. Home → Generate → Recipe Detail
 3. Home → Recipe Card → Recipe Detail → Rate
@@ -1026,6 +1083,7 @@ interface EquipmentSelectorProps {
 ## State Management
 
 ### React Query Configuration
+
 ```typescript
 // src/config/queryConfig.ts
 import { QueryClient } from '@tanstack/react-query';
@@ -1051,6 +1109,7 @@ export const queryClient = new QueryClient({
 ```
 
 ### Query Keys
+
 ```typescript
 // src/hooks/queryKeys.ts
 export const queryKeys = {
@@ -1086,6 +1145,7 @@ export const queryKeys = {
 ### Custom Hooks
 
 #### useRecipes
+
 ```typescript
 // src/hooks/useRecipes.ts
 import { useQuery } from '@tanstack/react-query';
@@ -1108,6 +1168,7 @@ export function useRecipeById(id: number) {
 ```
 
 #### useUserProfile
+
 ```typescript
 // src/hooks/useUserProfile.ts
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
@@ -1126,8 +1187,7 @@ export function useUpdateUserProfile() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (data: { displayName: string }) =>
-      apiClient.updateUserProfile(data),
+    mutationFn: (data: { displayName: string }) => apiClient.updateUserProfile(data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: queryKeys.userProfile });
     },
@@ -1136,6 +1196,7 @@ export function useUpdateUserProfile() {
 ```
 
 #### useRatings
+
 ```typescript
 // src/hooks/useRatings.ts
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
@@ -1153,19 +1214,23 @@ export function useCreateRating() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: ({ recipeId, rating, review }: {
+    mutationFn: ({
+      recipeId,
+      rating,
+      review,
+    }: {
       recipeId: number;
       rating: number;
       review?: string;
     }) => apiClient.createRating(recipeId, rating, review),
-    onSuccess: (data) => {
+    onSuccess: data => {
       // Invalidate recipe ratings query
       queryClient.invalidateQueries({
-        queryKey: queryKeys.recipeRatings(data.recipeId)
+        queryKey: queryKeys.recipeRatings(data.recipeId),
       });
       // Invalidate recipe detail to update average rating
       queryClient.invalidateQueries({
-        queryKey: queryKeys.recipeById(data.recipeId)
+        queryKey: queryKeys.recipeById(data.recipeId),
       });
     },
   });
@@ -1175,6 +1240,7 @@ export function useCreateRating() {
 ### Context API Usage
 
 #### AuthContext
+
 ```typescript
 // src/context/AuthContext.tsx
 import { createContext, useContext, useEffect, useState } from 'react';
@@ -1258,6 +1324,7 @@ export function useAuth() {
 ## Authentication & Authorization
 
 ### Firebase Configuration
+
 ```typescript
 // src/config/firebase.ts
 import { initializeApp } from 'firebase/app';
@@ -1277,6 +1344,7 @@ export const auth = getAuth(app);
 ```
 
 ### Protected Route Component
+
 ```typescript
 // src/components/auth/ProtectedRoute.tsx
 import { Navigate, Outlet } from 'react-router-dom';
@@ -1298,6 +1366,7 @@ export function ProtectedRoute() {
 ```
 
 ### Token Management
+
 ```typescript
 // src/utils/tokenHelpers.ts
 import { getAuth } from 'firebase/auth';
@@ -1342,9 +1411,11 @@ export async function refreshFirebaseToken(): Promise<string | null> {
 ## Implementation Phases
 
 ### Phase 1: Project Setup & Infrastructure (Week 1)
+
 **Goal:** Set up project foundation and development environment
 
 **Tasks:**
+
 1. **Initialize Project**
    - Create React + Vite + TypeScript project
    - Copy and adapt configuration files from mail_box:
@@ -1386,6 +1457,7 @@ export async function refreshFirebaseToken(): Promise<string | null> {
    - Create API client utilities
 
 **Deliverables:**
+
 - Working development environment
 - Firebase auth configured
 - API client ready
@@ -1394,9 +1466,11 @@ export async function refreshFirebaseToken(): Promise<string | null> {
 ---
 
 ### Phase 2: Core Layout & Navigation (Week 1-2)
+
 **Goal:** Build reusable layout components and navigation
 
 **Tasks:**
+
 1. **Create Layout Components**
    - `Header.tsx` - Top navigation with logo, search, user menu
    - `Footer.tsx` - Footer with links
@@ -1420,6 +1494,7 @@ export async function refreshFirebaseToken(): Promise<string | null> {
    - Implement navigation hooks
 
 **Deliverables:**
+
 - Reusable layout components
 - Theme system working
 - Navigation functional
@@ -1428,9 +1503,11 @@ export async function refreshFirebaseToken(): Promise<string | null> {
 ---
 
 ### Phase 3: Authentication (Week 2)
+
 **Goal:** Implement user authentication flow
 
 **Tasks:**
+
 1. **Create Auth Components**
    - `LoginForm.tsx` - Email/password + Google login
    - `SignupForm.tsx` - Email/password + Google signup
@@ -1453,6 +1530,7 @@ export async function refreshFirebaseToken(): Promise<string | null> {
    - Password reset functionality
 
 **Deliverables:**
+
 - Working login/signup
 - User authentication flow
 - User profile management
@@ -1461,9 +1539,11 @@ export async function refreshFirebaseToken(): Promise<string | null> {
 ---
 
 ### Phase 4: Onboarding Flow (Week 2-3)
+
 **Goal:** Build multi-step onboarding for new users
 
 **Tasks:**
+
 1. **Create Onboarding Components**
    - `OnboardingWizard.tsx` - Multi-step wizard
    - `OnboardingProgress.tsx` - Progress indicator
@@ -1490,6 +1570,7 @@ export async function refreshFirebaseToken(): Promise<string | null> {
    - Redirect to home after completion
 
 **Deliverables:**
+
 - Working onboarding flow
 - Equipment and ingredient selection
 - Data saved to backend
@@ -1498,9 +1579,11 @@ export async function refreshFirebaseToken(): Promise<string | null> {
 ---
 
 ### Phase 5: Recipe Browsing & Discovery (Week 3-4)
+
 **Goal:** Build recipe browsing and discovery features
 
 **Tasks:**
+
 1. **Create Recipe Components**
    - `RecipeCard.tsx` - Recipe card with image, name, mood, rating
    - `RecipeGrid.tsx` - Grid layout with infinite scroll
@@ -1530,6 +1613,7 @@ export async function refreshFirebaseToken(): Promise<string | null> {
    - Error handling and loading states
 
 **Deliverables:**
+
 - Recipe browsing functional
 - Filtering and search working
 - Recipe detail page complete
@@ -1538,9 +1622,11 @@ export async function refreshFirebaseToken(): Promise<string | null> {
 ---
 
 ### Phase 6: Mood Selection & Recipe Generation (Week 4)
+
 **Goal:** Build mood-based recipe generation
 
 **Tasks:**
+
 1. **Create Mood Components**
    - `MoodSelector.tsx` - Mood selection grid
    - `MoodCard.tsx` - Large mood card with emoji
@@ -1564,6 +1650,7 @@ export async function refreshFirebaseToken(): Promise<string | null> {
    - Quick generation
 
 **Deliverables:**
+
 - Mood selection interface
 - Recipe generation working
 - Smooth UX with loading states
@@ -1572,9 +1659,11 @@ export async function refreshFirebaseToken(): Promise<string | null> {
 ---
 
 ### Phase 7: Rating & Review System (Week 5)
+
 **Goal:** Implement rating and review functionality
 
 **Tasks:**
+
 1. **Create Rating Components**
    - `RatingForm.tsx` - Star rating + text review form
    - `RatingDisplay.tsx` - Aggregate rating display
@@ -1600,6 +1689,7 @@ export async function refreshFirebaseToken(): Promise<string | null> {
    - Sync with backend
 
 **Deliverables:**
+
 - Rating system functional
 - Reviews displayed correctly
 - Optimistic UI updates
@@ -1608,9 +1698,11 @@ export async function refreshFirebaseToken(): Promise<string | null> {
 ---
 
 ### Phase 8: Settings & Profile Management (Week 5-6)
+
 **Goal:** Build user settings and inventory management
 
 **Tasks:**
+
 1. **Create Settings Components**
    - `SettingsPage.tsx` - Settings page with tabs
    - `ProfileTab.tsx` - Profile information
@@ -1636,6 +1728,7 @@ export async function refreshFirebaseToken(): Promise<string | null> {
    - Password reset link
 
 **Deliverables:**
+
 - Settings page complete
 - Equipment/ingredient management functional
 - Profile editing working
@@ -1644,9 +1737,11 @@ export async function refreshFirebaseToken(): Promise<string | null> {
 ---
 
 ### Phase 9: Landing Page & Marketing (Week 6)
+
 **Goal:** Create compelling landing page
 
 **Tasks:**
+
 1. **Design Landing Page**
    - Hero section with CTA
    - Features section
@@ -1672,6 +1767,7 @@ export async function refreshFirebaseToken(): Promise<string | null> {
    - Cookie Policy (if needed)
 
 **Deliverables:**
+
 - Professional landing page
 - SEO optimized
 - Legal pages complete
@@ -1680,9 +1776,11 @@ export async function refreshFirebaseToken(): Promise<string | null> {
 ---
 
 ### Phase 10: Polish & Optimization (Week 7)
+
 **Goal:** Refine UX, fix bugs, optimize performance
 
 **Tasks:**
+
 1. **UX Refinement**
    - Smooth transitions and animations
    - Loading states for all async operations
@@ -1707,6 +1805,7 @@ export async function refreshFirebaseToken(): Promise<string | null> {
    - Mobile browser testing
 
 **Deliverables:**
+
 - Polished UX
 - Optimized performance
 - Accessible to all users
@@ -1715,9 +1814,11 @@ export async function refreshFirebaseToken(): Promise<string | null> {
 ---
 
 ### Phase 11: Testing (Week 7-8)
+
 **Goal:** Comprehensive testing coverage
 
 **Tasks:**
+
 1. **Unit Testing**
    - Test utility functions
    - Test custom hooks
@@ -1739,16 +1840,19 @@ export async function refreshFirebaseToken(): Promise<string | null> {
    - Test recipe browsing and rating
 
 **Deliverables:**
-- >80% test coverage
+
+- > 80% test coverage
 - All critical flows tested
 - E2E tests for key features
 
 ---
 
 ### Phase 12: Deployment & Launch (Week 8)
+
 **Goal:** Deploy to production
 
 **Tasks:**
+
 1. **Production Build**
    - Configure environment variables
    - Build for production
@@ -1771,6 +1875,7 @@ export async function refreshFirebaseToken(): Promise<string | null> {
    - Full launch
 
 **Deliverables:**
+
 - App deployed to production
 - Monitoring in place
 - Launch complete
@@ -1780,6 +1885,7 @@ export async function refreshFirebaseToken(): Promise<string | null> {
 ## Configuration & Setup
 
 ### Environment Variables
+
 ```env
 # .env.example
 VITE_FIREBASE_API_KEY=your_firebase_api_key
@@ -1794,6 +1900,7 @@ VITE_APP_NAME=MIXR
 ```
 
 ### package.json Dependencies
+
 ```json
 {
   "name": "mixr",
@@ -1870,6 +1977,7 @@ VITE_APP_NAME=MIXR
 ```
 
 ### tsconfig.json
+
 ```json
 {
   "compilerOptions": {
@@ -1900,24 +2008,28 @@ VITE_APP_NAME=MIXR
 ## Testing Strategy
 
 ### Unit Testing
+
 - Test utility functions (validators, formatters, helpers)
 - Test custom hooks (useAuth, useUserProfile, useRecipes)
 - Test API client methods
 - Coverage goal: >80%
 
 ### Component Testing
+
 - Test UI components in isolation
 - Test user interactions (clicks, inputs)
 - Test conditional rendering
 - Test error states
 
 ### Integration Testing
+
 - Test authentication flow end-to-end
 - Test onboarding flow
 - Test recipe generation flow
 - Test rating submission flow
 
 ### E2E Testing
+
 - Critical user journeys:
   - New user signup → onboarding → recipe generation
   - Browse recipes → view detail → rate recipe
@@ -1925,6 +2037,7 @@ VITE_APP_NAME=MIXR
 - Use Playwright or Cypress
 
 ### Testing Tools
+
 - **Unit/Component:** Vitest + Testing Library
 - **E2E:** Playwright
 - **Coverage:** Vitest coverage (c8)
@@ -1934,6 +2047,7 @@ VITE_APP_NAME=MIXR
 ## Deployment Considerations
 
 ### Hosting Options
+
 1. **Vercel** (Recommended)
    - Automatic deployments from Git
    - Edge network (fast globally)
@@ -1951,18 +2065,21 @@ VITE_APP_NAME=MIXR
    - Integrated with other Firebase services
 
 ### CI/CD Pipeline
+
 - Automated tests on PR
 - Automated builds on merge to main
 - Deploy preview for PRs
 - Production deployment on release
 
 ### Monitoring & Analytics
+
 - **Error Tracking:** Sentry
 - **Analytics:** Google Analytics or Plausible
 - **Performance:** Web Vitals, Lighthouse CI
 - **Uptime:** UptimeRobot or similar
 
 ### Security Considerations
+
 - HTTPS only
 - Secure environment variables
 - Firebase security rules
@@ -1970,6 +2087,7 @@ VITE_APP_NAME=MIXR
 - CORS configuration for API
 
 ### Performance Goals
+
 - First Contentful Paint (FCP): < 1.5s
 - Largest Contentful Paint (LCP): < 2.5s
 - Time to Interactive (TTI): < 3.5s
@@ -1997,6 +2115,7 @@ This technical design document provides a comprehensive plan for building the MI
 The architecture follows proven patterns from the mail_box reference project while adapting them for the cocktail recipe domain. The app uses modern technologies (React 19, Vite, TypeScript) and integrates with the existing mixr_lib and mixr_client libraries.
 
 Key technical decisions:
+
 - Firebase Auth for authentication
 - mixr_api backend for all data storage (not Firestore)
 - React Query for server state management
@@ -2010,6 +2129,7 @@ The result will be a polished, performant, and delightful cocktail recipe applic
 ---
 
 **Next Steps:**
+
 1. Review and approve this plan
 2. Set up Firebase project
 3. Initialize React project with configurations

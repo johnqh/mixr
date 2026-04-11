@@ -1,0 +1,75 @@
+{
+  "app": {
+    "name": "MIXR",
+    "tagline": "Descubra o coquetel perfeito para o seu humor"
+  },
+  "navigation": {
+    "browse": "Navegar",
+    "generate": "Gerar",
+    "settings": "Configurações",
+    "myRecipes": "Minhas Receitas"
+  },
+  "auth": {
+    "login": "Entrar",
+    "logout": "Sair",
+    "signIn": "Entrar",
+    "signUp": "Inscrever-se",
+    "signInTitle": "Entrar",
+    "signInWithEmail": "Entrar com e-mail",
+    "createAccount": "Criar conta",
+    "resetPassword": "Redefinir senha",
+    "continueWithGoogle": "Continuar com o Google",
+    "continueWithEmail": "Continuar com o e-mail",
+    "continueWithApple": "Continuar com Apple",
+    "or": "ou",
+    "email": "E-mail",
+    "emailPlaceholder": "Insira seu e-mail",
+    "password": "Senha",
+    "passwordPlaceholder": "Insira sua senha",
+    "confirmPassword": "Confirmar senha",
+    "confirmPasswordPlaceholder": "Confirme sua senha",
+    "displayName": "Nome para exibição",
+    "displayNamePlaceholder": "Digite seu nome (opcional)",
+    "forgotPassword": "Esqueceu a senha?",
+    "sendResetLink": "Enviar link de redefinição",
+    "resetEmailSent": "Verifique seu e-mail",
+    "resetEmailSentDesc": "Enviamos um link para redefinir a senha para o seu e-mail.",
+    "backToSignIn": "Voltar para Entrar",
+    "noAccount": "Não tem uma conta?",
+    "haveAccount": "Já tem uma conta?",
+    "passwordMismatch": "As senhas não coincidem",
+    "passwordTooShort": "A senha deve ter pelo menos 6 caracteres",
+    "loading": "Carregando...",
+    "close": "Fechar"
+  },
+  "footer": {
+    "copyright": "{{year}} {{company}}. Todos os direitos reservados.",
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Serviço",
+    "contact": "Contato"
+  },
+  "common": {
+    "loading": "Carregando...",
+    "error": "Ocorreu um erro",
+    "retry": "Tentar novamente",
+    "cancel": "Cancelar",
+    "save": "Salvar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "close": "Fechar",
+    "back": "Voltar",
+    "next": "Próximo",
+    "submit": "Enviar",
+    "search": "Pesquisar",
+    "noResults": "Nenhum resultado encontrado"
+  },
+  "talkToFounder": "Fale com o fundador",
+  "breadcrumbs": {
+    "home": "Início",
+    "recipes": "Receitas",
+    "settings": "Configurações",
+    "login": "Entrar",
+    "register": "Registrar",
+    "onboarding": "Configuração"
+  }
+}

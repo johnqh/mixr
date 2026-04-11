@@ -13,14 +13,17 @@ MIXR is an AI-powered cocktail recipe platform that helps you discover, create, 
 - **Ingredient-Based Search**: Find recipes based on what you have on hand.
 
 ## Key Pages
-- `/` - Homepage with featured recipes
-- `/recipes` - Browse cocktail recipes
-- `/login` - User login
-- `/register` - Create account
+- `/` - Homepage with featured recipes and how-it-works guide
+- `/recipes` - Browse, search, and generate cocktail recipes
+- `/recipes/:id` - Individual recipe with ingredients, instructions, and ratings
+- `/login` - User sign in
+- `/register` - Create a free account
+- `/onboarding` - Set up bar equipment and ingredient preferences (requires account)
 
 ## Technical Details
-- React + TypeScript frontend
-- AI-powered recipe generation
+- React 19 + TypeScript frontend
+- AI-powered recipe generation via multi-step wizard
+- Community ratings and reviews system
 - Single language (English)
 
 ## Contact

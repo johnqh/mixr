@@ -1,0 +1,16 @@
+{
+  "seo": {
+    "title": "404 - Página Não Encontrada | {{appName}}"
+  },
+  "heading": "404",
+  "subheading": "Página não encontrada",
+  "description": "Oops! O coquetel que você está procurando parece ter sido misturado incorretamente. Esta página não existe.",
+  "goBack": "Voltar",
+  "browseRecipes": "Navegar por receitas",
+  "tryTheseLabel": "Ou tente uma destas:",
+  "links": {
+    "home": "Início",
+    "recipes": "Navegar por receitas",
+    "signIn": "Entrar"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "seo": {
+    "title": "404 - 页面未找到 | {{appName}}"
+  },
+  "heading": "404",
+  "subheading": "页面未找到",
+  "description": "Oops! 你正在寻找的鸡尾酒似乎被调混了。此页面不存在。",
+  "goBack": "返回",
+  "browseRecipes": "浏览食谱",
+  "tryTheseLabel": "或者尝试其中一个：",
+  "links": {
+    "home": "首页",
+    "recipes": "浏览食谱",
+    "signIn": "登录"
+  }
+}

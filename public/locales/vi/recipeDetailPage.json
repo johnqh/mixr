@@ -1,0 +1,24 @@
+{
+  "seo": {
+    "descriptionFallback": "Học cách làm {{name}}",
+    "keywords": "công thức cocktail, cách làm, mixology, công thức đồ uống"
+  },
+  "notFound": {
+    "title": "Không tìm thấy công thức",
+    "description": "Công thức bạn đang tìm kiếm không tồn tại hoặc đã bị xóa.",
+    "browseButton": "Duyệt các công thức"
+  },
+  "recipe": {
+    "ingredients": "Thành phần",
+    "instructions": "Hướng dẫn",
+    "mood": "Thái độ",
+    "equipment": "Thiết bị cần thiết",
+    "backToRecipes": "Quay trở lại Công thức"
+  },
+  "ratings": {
+    "title": "Xếp hạng và đánh giá",
+    "noRatings": "Chưa có đánh giá nào. Hãy là người đầu tiên đánh giá công thức này!",
+    "loginToRate": "Đăng nhập để đánh giá công thức này",
+    "submitReview": "Gửi đánh giá"
+  }
+}

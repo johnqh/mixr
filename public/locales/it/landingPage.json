@@ -1,0 +1,51 @@
+{
+  "seo": {
+    "title": "{{appName}} - Generatore di Ricette di Cocktail con IA | Bevande in base all'umore",
+    "description": "Scopri e crea ricette di cocktail con la mixologia alimentata dall'IA. Ottieni raccomandazioni personalizzate di bevande in base al tuo umore, agli ingredienti e all'attrezzatura.",
+    "keywords": [
+      "generatore di cocktail di intelligenza artificiale",
+      "app per ricette di cocktail",
+      "bevande basate sull'umore",
+      "app di mixologia",
+      "cocktail personalizzati"
+    ]
+  },
+  "hero": {
+    "tagline": "Scopri il cocktail perfetto per il tuo umore",
+    "cta": "Inizia"
+  },
+  "features": {
+    "mood": {
+      "title": "Ricette basate sull'umore",
+      "description": "Scegli il tuo umore e ricevi raccomandazioni personalizzate di cocktail"
+    },
+    "inventory": {
+      "title": "Il tuo inventario",
+      "description": "Segui il tuo equipaggiamento e gli ingredienti per ottenere abbinamenti perfetti"
+    },
+    "ratings": {
+      "title": "Votazioni della comunità",
+      "description": "Valuta le ricette e vedi cosa piace agli altri"
+    }
+  },
+  "howItWorks": {
+    "title": "Come funziona",
+    "step1": {
+      "title": "Imposta la tua barra",
+      "description": "Dimmi quali attrezzature e ingredienti hai"
+    },
+    "step2": {
+      "title": "Scegli il tuo umore",
+      "description": "Scegli come ti senti oggi"
+    },
+    "step3": {
+      "title": "Mischia!",
+      "description": "Segui la ricetta e goditi il tuo cocktail perfetto"
+    }
+  },
+  "cta": {
+    "title": "Pronto per iniziare a miscelare?",
+    "description": "Unisciti alla nostra comunità di appassionati di cocktail oggi",
+    "button": "Iscriviti gratis"
+  }
+}

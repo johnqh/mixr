@@ -1,0 +1,75 @@
+{
+  "app": {
+    "name": "MIXR",
+    "tagline": "Відкрийте ідеальний коктейль для свого настрою"
+  },
+  "navigation": {
+    "browse": "Переглянути",
+    "generate": "Створити",
+    "settings": "Налаштування",
+    "myRecipes": "Мої рецепти"
+  },
+  "auth": {
+    "login": "Увійти",
+    "logout": "Вийти",
+    "signIn": "Увійти",
+    "signUp": "Зареєструватися",
+    "signInTitle": "Увійти",
+    "signInWithEmail": "Увійти з електронною поштою",
+    "createAccount": "Створити обліковий запис",
+    "resetPassword": "Скинути пароль",
+    "continueWithGoogle": "Продовжити з Google",
+    "continueWithEmail": "Продовжити з електронною поштою",
+    "continueWithApple": "Продовжити з Apple",
+    "or": "або",
+    "email": "Електронна пошта",
+    "emailPlaceholder": "Введіть свою електронну пошту",
+    "password": "Пароль",
+    "passwordPlaceholder": "Введіть свій пароль",
+    "confirmPassword": "Підтвердити пароль",
+    "confirmPasswordPlaceholder": "Підтвердіть пароль",
+    "displayName": "Ім'я для відображення",
+    "displayNamePlaceholder": "Введіть своє ім'я (не обов'язково)",
+    "forgotPassword": "Забули пароль?",
+    "sendResetLink": "Надіслати посилання на скидання",
+    "resetEmailSent": "Перевірте свою електронну пошту",
+    "resetEmailSentDesc": "Ми надіслали посилання для скидання пароля на вашу електронну пошту.",
+    "backToSignIn": "Назад до входу",
+    "noAccount": "Ще не маєте акаунту?",
+    "haveAccount": "Вже маєте акаунт?",
+    "passwordMismatch": "Паролі не співпадають",
+    "passwordTooShort": "Пароль має містити не менше 6 символів",
+    "loading": "Завантаження...",
+    "close": "Закрити"
+  },
+  "footer": {
+    "copyright": "{{year}} {{company}}. Усі права захищені.",
+    "privacyPolicy": "Політика конфіденційності",
+    "termsOfService": "Умови використання",
+    "contact": "Контакт"
+  },
+  "common": {
+    "loading": "Завантаження...",
+    "error": "Виникла помилка",
+    "retry": "Спробувати ще",
+    "cancel": "Скасувати",
+    "save": "Зберегти",
+    "delete": "Видалити",
+    "edit": "Редагувати",
+    "close": "Закрити",
+    "back": "Назад",
+    "next": "Наступний",
+    "submit": "Надіслати",
+    "search": "Пошук",
+    "noResults": "Результати не знайдені"
+  },
+  "talkToFounder": "Поговоріть із засновником",
+  "breadcrumbs": {
+    "home": "Головна",
+    "recipes": "Рецепти",
+    "settings": "Налаштування",
+    "login": "Увійти",
+    "register": "Зареєструватися",
+    "onboarding": "Налаштування"
+  }
+}

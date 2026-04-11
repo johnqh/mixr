@@ -21,19 +21,26 @@
       content="cocktail recipes, AI bartender, drink maker, recipe generator, mixology"
     />
     <meta name="author" content="{{VITE_COMPANY_NAME}}" />
-    <meta name="robots" content="index, follow" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#e11d48" />
+
+    <!-- Application Meta -->
+    <meta name="application-name" content="{{VITE_APP_NAME}}" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="{{VITE_APP_NAME}}" />
+    <meta name="copyright" content="{{VITE_COMPANY_NAME}}. All rights reserved." />
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
 
     <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="{{VITE_APP_NAME}} - AI Cocktail Recipe Generator"
-    />
+    <meta property="og:title" content="{{VITE_APP_NAME}} - AI Cocktail Recipe Generator" />
     <meta
       property="og:description"
       content="Discover and create cocktail recipes with AI-powered mixology. Generate unique drink recipes, browse community cocktails, and master the art of mixing."
@@ -45,10 +52,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="{{VITE_APP_NAME}} - AI Cocktail Recipe Generator"
-    />
+    <meta name="twitter:title" content="{{VITE_APP_NAME}} - AI Cocktail Recipe Generator" />
     <meta
       name="twitter:description"
       content="Discover and create cocktail recipes with AI-powered mixology. Generate unique drink recipes, browse community cocktails, and master the art of mixing."
@@ -66,11 +70,21 @@
         "applicationSubCategory": "Recipe Generator",
         "operatingSystem": "Web",
         "inLanguage": ["en"],
+        "datePublished": "2025-01-01",
+        "dateModified": "{{TODAY}}",
+        "isAccessibleForFree": true,
         "offers": {
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD"
-        }
+        },
+        "featureList": [
+          "AI-powered cocktail recipe generation",
+          "Mood-based drink recommendations",
+          "Bar inventory tracking",
+          "Community ratings and reviews",
+          "Ingredient-based recipe search"
+        ]
       }
     </script>
 

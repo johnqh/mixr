@@ -1,0 +1,24 @@
+{
+  "seo": {
+    "descriptionFallback": "Aprenda cómo hacer {{name}}",
+    "keywords": "receta de cóctel, cómo hacerla, mezclología, receta de bebida"
+  },
+  "notFound": {
+    "title": "Receta no encontrada",
+    "description": "La receta que está buscando no existe o ha sido eliminada.",
+    "browseButton": "Explorar recetas"
+  },
+  "recipe": {
+    "ingredients": "Ingredientes",
+    "instructions": "Instrucciones",
+    "mood": "Estado de ánimo",
+    "equipment": "Equipo necesario",
+    "backToRecipes": "Volver a Recetas"
+  },
+  "ratings": {
+    "title": "Calificaciones y reseñas",
+    "noRatings": "Aún no hay valoraciones. Sé el primero en calificar esta receta.",
+    "loginToRate": "Inicie sesión para calificar esta receta",
+    "submitReview": "Enviar revisión"
+  }
+}

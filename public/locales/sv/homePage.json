@@ -1,0 +1,31 @@
+{
+  "seo": {
+    "title": "Bläddra bland Cocktailytor och generera drycker | {{appName}}",
+    "description": "Bläddra bland samhällskoktailrecept eller generera din perfekta dryck med hjälp av AI. Sök efter humör, ingredienser eller stil.",
+    "keywords": [
+      "bläddra bland cocktarecept",
+      "generera cocktail",
+      "AI-dricksgenerator",
+      "cocktail sökning",
+      "dryckrecept"
+    ]
+  },
+  "tabs": {
+    "browse": "Bläddra",
+    "generate": "Generera",
+    "myRecipes": "Mina Recept"
+  },
+  "browse": {
+    "searchPlaceholder": "Sök kakteen efter namn, beskrivning eller stämning...",
+    "noResults": "Inga cocktaler hittades som matchar din sökning.",
+    "error": "Kunde inte ladda recept. Försök igen.",
+    "loading": "Läser in recept..."
+  },
+  "myRecipes": {
+    "loginPrompt": "Logga in för att se dina genererade recept",
+    "loginButton": "Logga in",
+    "empty": "Du har inte genererat några recept ännu.",
+    "generateButton": "Skapa ditt första recept",
+    "error": "Kunde inte ladda dina recept."
+  }
+}

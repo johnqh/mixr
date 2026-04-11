@@ -1,0 +1,25 @@
+{
+  "seo": {
+    "title": "浏览鸡尾酒食谱并生成饮品 | {{appName}}",
+    "description": "浏览社区鸡尾酒配方，或使用人工智能生成您完美的饮品。按心情、配料或风格搜索。",
+    "keywords": ["浏览鸡尾酒食谱", "生成鸡尾酒", "AI饮品生成器", "鸡尾酒搜索", "饮料配方"]
+  },
+  "tabs": {
+    "browse": "浏览",
+    "generate": "生成",
+    "myRecipes": "我的食谱"
+  },
+  "browse": {
+    "searchPlaceholder": "按名称、描述或情绪搜索鸡尾酒...",
+    "noResults": "未找到与您的搜索匹配的鸡尾酒。",
+    "error": "加载食谱失败。请重试。",
+    "loading": "正在加载食谱..."
+  },
+  "myRecipes": {
+    "loginPrompt": "登录以查看您生成的食谱",
+    "loginButton": "登录",
+    "empty": "您还没有生成任何食谱。",
+    "generateButton": "生成您的第一个食谱",
+    "error": "无法加载您的食谱。"
+  }
+}

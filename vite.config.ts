@@ -5,8 +5,7 @@ import { serviceWorkerPlugin } from '@sudobility/di_web/vite';
 import path from 'path';
 
 // Check if we should use local or npm version of libraries
-const useLocalLib =
-  process.env.USE_LOCAL_LIB === 'true' || process.env.NODE_ENV === 'development';
+const useLocalLib = process.env.USE_LOCAL_LIB === 'true' || process.env.NODE_ENV === 'development';
 
 export default defineConfig({
   resolve: {

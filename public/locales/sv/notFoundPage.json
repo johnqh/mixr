@@ -1,0 +1,16 @@
+{
+  "seo": {
+    "title": "404 - Sida hittades inte | {{appName}}"
+  },
+  "heading": "404",
+  "subheading": "Sidan hittades inte",
+  "description": "Oops! Cocktalen du letar efter verkar ha blivit förvirrad. Denna sida finns inte.",
+  "goBack": "Gå tillbaka",
+  "browseRecipes": "Bläddra bland recept",
+  "tryTheseLabel": "Eller prova en av dessa:",
+  "links": {
+    "home": "Hem",
+    "recipes": "Bläddra bland recept",
+    "signIn": "Logga in"
+  }
+}

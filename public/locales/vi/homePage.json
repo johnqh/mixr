@@ -1,0 +1,31 @@
+{
+  "seo": {
+    "title": "Duyệt qua công thức cocktail và tạo đồ uống | {{appName}}",
+    "description": "Duyệt qua các công thức cocktail cộng đồng hoặc tạo ra món đồ uống hoàn hảo của bạn bằng trí tuệ nhân tạo. Tìm kiếm theo tâm trạng, thành phần hoặc phong cách.",
+    "keywords": [
+      "lướt qua các công thức cocktail",
+      "tạo cocktail",
+      "Bộ tạo đồ uống trí tuệ nhân tạo",
+      "tìm kiếm cocktail",
+      "công thức đồ uống"
+    ]
+  },
+  "tabs": {
+    "browse": "Duyệt",
+    "generate": "Tạo",
+    "myRecipes": "Công thức của tôi"
+  },
+  "browse": {
+    "searchPlaceholder": "Tìm kiếm cocktail theo tên, mô tả hoặc tâm trạng...",
+    "noResults": "Không tìm thấy cocktail nào phù hợp với tìm kiếm của bạn.",
+    "error": "Không thể tải các công thức. Vui lòng thử lại.",
+    "loading": "Đang tải công thức..."
+  },
+  "myRecipes": {
+    "loginPrompt": "Đăng nhập để xem các công thức được tạo ra cho bạn",
+    "loginButton": "Đăng nhập",
+    "empty": "Bạn chưa tạo bất kỳ công thức nào cả.",
+    "generateButton": "Tạo công thức đầu tiên của bạn",
+    "error": "Không thể tải các công thức của bạn."
+  }
+}

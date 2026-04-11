@@ -105,15 +105,15 @@ bun run verify       # Run typecheck + lint + test (use before committing)
 
 ## Routing
 
-| Path | Page | Auth Required |
-|------|------|---------------|
-| `/` | Landing | No |
-| `/login` | Login | No |
-| `/register` | Register | No |
-| `/recipes` | Home (Browse/Generate/MyRecipes tabs) | No (Generate requires auth) |
-| `/recipes/:id` | Recipe Detail | No |
-| `/onboarding` | Preferences Setup | Yes |
-| `/settings` | Account Settings | Yes |
+| Path           | Page                                  | Auth Required               |
+| -------------- | ------------------------------------- | --------------------------- |
+| `/`            | Landing                               | No                          |
+| `/login`       | Login                                 | No                          |
+| `/register`    | Register                              | No                          |
+| `/recipes`     | Home (Browse/Generate/MyRecipes tabs) | No (Generate requires auth) |
+| `/recipes/:id` | Recipe Detail                         | No                          |
+| `/onboarding`  | Preferences Setup                     | Yes                         |
+| `/settings`    | Account Settings                      | Yes                         |
 
 ## Environment Variables
 
@@ -150,11 +150,20 @@ VITE_SUPPORT_EMAIL=
 ## Code Patterns
 
 ### Protected Routes
+
 ```tsx
-<Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
+<Route
+  path="/settings"
+  element={
+    <ProtectedRoute>
+      <SettingsPage />
+    </ProtectedRoute>
+  }
+/>
 ```
 
 ### Data Fetching (hooks wrap mixr_client)
+
 ```typescript
 // src/hooks/useEquipment.ts
 export function useEquipment(subcategory?: string) {
@@ -164,6 +173,7 @@ export function useEquipment(subcategory?: string) {
 ```
 
 ### Auth Context
+
 ```typescript
 const { user, signIn, signUp, signInWithGoogle, signOut } = useAuth();
 ```

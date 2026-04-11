@@ -1,0 +1,51 @@
+{
+  "seo": {
+    "title": "{{appName}} - Trình tạo công thức cocktail AI | Đồ uống theo tâm trạng",
+    "description": "Khám phá và tạo ra các công thức cocktail với thợ pha chế được hỗ trợ bởi trí tuệ nhân tạo. Nhận các gợi ý đồ uống cá nhân hóa dựa trên tâm trạng, nguyên liệu và thiết bị của bạn.",
+    "keywords": [
+      "máy tạo cocktail AI",
+      "ứng dụng công thức cocktail",
+      "đồ uống dựa trên tâm trạng",
+      "ứng dụng mixology",
+      "đồ uống pha chế cá nhân hóa"
+    ]
+  },
+  "hero": {
+    "tagline": "Khám phá món cocktail lý tưởng cho tâm trạng của bạn",
+    "cta": "Bắt đầu"
+  },
+  "features": {
+    "mood": {
+      "title": "Công thức theo tâm trạng",
+      "description": "Chọn tâm trạng của bạn và nhận các gợi ý cocktail cá nhân hóa"
+    },
+    "inventory": {
+      "title": "Kho hàng của bạn",
+      "description": "Theo dõi thiết bị và nguyên liệu của bạn để có được sự kết hợp hoàn hảo"
+    },
+    "ratings": {
+      "title": "Xếp hạng cộng đồng",
+      "description": "Đánh giá công thức và xem những gì mọi người yêu thích"
+    }
+  },
+  "howItWorks": {
+    "title": "Cách hoạt động",
+    "step1": {
+      "title": "Thiết lập thanh của bạn",
+      "description": "Hãy cho chúng tôi biết bạn có những thiết bị và nguyên liệu gì"
+    },
+    "step2": {
+      "title": "Chọn tâm trạng của bạn",
+      "description": "Chọn cách bạn cảm thấy hôm nay"
+    },
+    "step3": {
+      "title": "Trộn ngay!",
+      "description": "Thực hiện theo công thức và tận hưởng món cocktail hoàn hảo của bạn"
+    }
+  },
+  "cta": {
+    "title": "Sẵn sàng bắt đầu trộn chưa?",
+    "description": "Tham gia cộng đồng những người yêu thích cocktail của chúng tôi ngay hôm nay",
+    "button": "Đăng ký miễn phí"
+  }
+}

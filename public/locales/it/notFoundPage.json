@@ -1,0 +1,16 @@
+{
+  "seo": {
+    "title": "404 - Pagina non trovata | {{appName}}"
+  },
+  "heading": "404",
+  "subheading": "Pagina non trovata",
+  "description": "Oops! Il cocktail che stai cercando sembra essere stato mescolato in modo errato. Questa pagina non esiste.",
+  "goBack": "Torna indietro",
+  "browseRecipes": "Sfoglia le ricette",
+  "tryTheseLabel": "O prova una di queste:",
+  "links": {
+    "home": "Home",
+    "recipes": "Sfoglia le ricette",
+    "signIn": "Accedi"
+  }
+}

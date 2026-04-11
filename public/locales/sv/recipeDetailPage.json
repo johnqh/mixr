@@ -1,0 +1,24 @@
+{
+  "seo": {
+    "descriptionFallback": "Lär dig hur du gör {{name}}",
+    "keywords": "cocktailrecept, hur man gör, mixologi, dryckrecept"
+  },
+  "notFound": {
+    "title": "Recept hittades inte",
+    "description": "Receptet du letar efter finns inte eller har tagits bort.",
+    "browseButton": "Bläddra bland recept"
+  },
+  "recipe": {
+    "ingredients": "Ingredienser",
+    "instructions": "Instruktioner",
+    "mood": "Stämning",
+    "equipment": "Behöver utrustning",
+    "backToRecipes": "Tillbaka till recept"
+  },
+  "ratings": {
+    "title": "Betyg och recensioner",
+    "noRatings": "Inga betyg ännu. Vara första att betygsätta detta recept!",
+    "loginToRate": "Logga in för att betygsätta detta recept",
+    "submitReview": "Skicka recension"
+  }
+}

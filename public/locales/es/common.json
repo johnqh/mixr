@@ -1,0 +1,75 @@
+{
+  "app": {
+    "name": "MIXR",
+    "tagline": "Descubre el cóctel perfecto para tu estado de ánimo"
+  },
+  "navigation": {
+    "browse": "Examinar",
+    "generate": "Generar",
+    "settings": "Ajustes",
+    "myRecipes": "Mis Recetas"
+  },
+  "auth": {
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "signInTitle": "Iniciar sesión",
+    "signInWithEmail": "Iniciar sesión con correo electrónico",
+    "createAccount": "Crear cuenta",
+    "resetPassword": "Restablecer contraseña",
+    "continueWithGoogle": "Continuar con Google",
+    "continueWithEmail": "Continuar con el correo electrónico",
+    "continueWithApple": "Continuar con Apple",
+    "or": "o",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "Introduzca su correo electrónico",
+    "password": "Contraseña",
+    "passwordPlaceholder": "Ingrese su contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "confirmPasswordPlaceholder": "Confirme su contraseña",
+    "displayName": "Nombre para mostrar",
+    "displayNamePlaceholder": "Ingrese su nombre (opcional)",
+    "forgotPassword": "¿Olvidó su contraseña?",
+    "sendResetLink": "Enviar enlace de restablecimiento",
+    "resetEmailSent": "Verifica tu correo electrónico",
+    "resetEmailSentDesc": "Hemos enviado un enlace para restablecer la contraseña a su correo electrónico.",
+    "backToSignIn": "Volver a Iniciar sesión",
+    "noAccount": "¿No tienes una cuenta?",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "passwordMismatch": "Las contraseñas no coinciden",
+    "passwordTooShort": "La contraseña debe tener al menos 6 caracteres",
+    "loading": "Cargando...",
+    "close": "Cerrar"
+  },
+  "footer": {
+    "copyright": "{{year}} {{company}}. Todos los derechos reservados.",
+    "privacyPolicy": "Política de privacidad",
+    "termsOfService": "Términos de servicio",
+    "contact": "Contacto"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Se ha producido un error",
+    "retry": "Volver a intentar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "submit": "Enviar",
+    "search": "Buscar",
+    "noResults": "No se encontraron resultados"
+  },
+  "talkToFounder": "Habla con el fundador",
+  "breadcrumbs": {
+    "home": "Inicio",
+    "recipes": "Recetas",
+    "settings": "Ajustes",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "onboarding": "Configuración"
+  }
+}

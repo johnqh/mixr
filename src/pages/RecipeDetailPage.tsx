@@ -7,6 +7,7 @@ import { ReviewForm } from '../components/rating/ReviewForm';
 import { ReviewList } from '../components/rating/ReviewList';
 import { AggregateRating } from '../components/rating/AggregateRating';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import { Section } from '@sudobility/components';
 import { CONSTANTS } from '../config/constants';
 
@@ -16,6 +17,7 @@ export const RecipeDetailPage: FC = () => {
   const { user } = useAuth();
   const recipeId = Number(id);
 
+  const { t } = useTranslation('recipeDetailPage');
   const { data: recipeData, isLoading, error } = useRecipeById(recipeId);
   const { data: ratings = [], isLoading: loadingRatings } = useRecipeRatings(recipeId, {
     limit: 20,
@@ -68,11 +70,13 @@ export const RecipeDetailPage: FC = () => {
         <title>{`${recipe.name} - ${CONSTANTS.APP_NAME}`}</title>
         <meta
           name="description"
-          content={recipe.description || `Learn how to make ${recipe.name}`}
+          content={recipe.description || t('seo.descriptionFallback', { name: recipe.name })}
         />
         <meta
           name="keywords"
-          content={['cocktail', 'recipe', recipe.name, recipe.mood?.name || ''].join(', ')}
+          content={['cocktail recipe', 'how to make', recipe.name, recipe.mood?.name || '']
+            .filter(Boolean)
+            .join(', ')}
         />
       </Helmet>
       <div className="container mx-auto px-4 py-8 max-w-4xl">

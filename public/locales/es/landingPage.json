@@ -1,0 +1,51 @@
+{
+  "seo": {
+    "title": "{{appName}} - Generador de recetas de cócteles con IA | Bebidas basadas en el estado de ánimo",
+    "description": "Descubre y crea recetas de cócteles con mezclador impulsado por IA. Obtén recomendaciones personalizadas de bebidas según tu estado de ánimo, ingredientes y equipo.",
+    "keywords": [
+      "generador de cócteles de IA",
+      "aplicación de recetas de cóctel",
+      "bebidas basadas en el estado de ánimo",
+      "aplicación de mixología",
+      "cócteles personalizados"
+    ]
+  },
+  "hero": {
+    "tagline": "Descubre el cóctel perfecto para tu estado de ánimo",
+    "cta": "Comenzar"
+  },
+  "features": {
+    "mood": {
+      "title": "Recetas basadas en el estado de ánimo",
+      "description": "Elige tu estado de ánimo y obtén recomendaciones personalizadas de cócteles"
+    },
+    "inventory": {
+      "title": "Tu inventario",
+      "description": "Rastrea tu equipo y tus ingredientes para lograr coincidencias perfectas"
+    },
+    "ratings": {
+      "title": "Calificaciones de la comunidad",
+      "description": "Califica las recetas y mira lo que otros aman"
+    }
+  },
+  "howItWorks": {
+    "title": "Cómo funciona",
+    "step1": {
+      "title": "Configura tu barra",
+      "description": "Díganos qué equipo e ingredientes tienen"
+    },
+    "step2": {
+      "title": "Elige tu estado de ánimo",
+      "description": "Selecciona cómo te sientes hoy"
+    },
+    "step3": {
+      "title": "¡A mezclar!",
+      "description": "Sigue la receta y disfruta de tu cóctel perfecto"
+    }
+  },
+  "cta": {
+    "title": "¿Listo para empezar a mezclar?",
+    "description": "Únete a nuestra comunidad de entusiastas de los cócteles hoy",
+    "button": "Regístrate gratis"
+  }
+}

@@ -7,6 +7,7 @@ import { RecipeFilters } from '../components/recipe/RecipeFilters';
 import { RecipeGenerator } from '../components/recipe/RecipeGenerator';
 import { useAuth } from '../context/AuthContext';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import { CONSTANTS } from '../config/constants';
 
 type Tab = 'browse' | 'generate' | 'my-recipes';
@@ -14,6 +15,7 @@ type Tab = 'browse' | 'generate' | 'my-recipes';
 export const HomePage: FC = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { t } = useTranslation('homePage');
   const [activeTab, setActiveTab] = useState<Tab>('browse');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -135,12 +137,12 @@ export const HomePage: FC = () => {
   return (
     <>
       <Helmet>
-        <title>{`${CONSTANTS.APP_NAME} - Discover & Create Amazing Cocktails`}</title>
+        <title>{t('seo.title', { appName: CONSTANTS.APP_NAME })}</title>
+        <meta name="description" content={t('seo.description')} />
         <meta
-          name="description"
-          content="Browse thousands of cocktail recipes or generate your perfect drink based on your mood"
+          name="keywords"
+          content={(t('seo.keywords', { returnObjects: true }) as string[]).join(', ')}
         />
-        <meta name="keywords" content="cocktails, recipes, drinks, mixology, bartending" />
       </Helmet>
       {/* Tabs Section */}
       <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">

@@ -1,0 +1,24 @@
+{
+  "seo": {
+    "descriptionFallback": "Saiba como fazer {{name}}",
+    "keywords": "receita de coquetel, como fazer, mixologia, receita de bebida"
+  },
+  "notFound": {
+    "title": "Receita não encontrada",
+    "description": "A receita que você está procurando não existe ou foi removida.",
+    "browseButton": "Navegar por receitas"
+  },
+  "recipe": {
+    "ingredients": "Ingredientes",
+    "instructions": "Instruções",
+    "mood": "Humor",
+    "equipment": "Equipamento necessário",
+    "backToRecipes": "Voltar para Receitas"
+  },
+  "ratings": {
+    "title": "Avaliações e Comentários",
+    "noRatings": "Ainda não há avaliações. Seja o primeiro a avaliar esta receita!",
+    "loginToRate": "Faça login para avaliar esta receita",
+    "submitReview": "Enviar avaliação"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "seo": {
+    "descriptionFallback": "{{name}} を作成する方法を学びましょう",
+    "keywords": "カクテルレシピ、作り方、ミキシング、ドリンクレシピ"
+  },
+  "notFound": {
+    "title": "レシピが見つかりません",
+    "description": "探しているレシピは存在しないか、削除されました。",
+    "browseButton": "レシピを閲覧"
+  },
+  "recipe": {
+    "ingredients": "材料",
+    "instructions": "説明書",
+    "mood": "気分",
+    "equipment": "必要な機材",
+    "backToRecipes": "レシピへ戻る"
+  },
+  "ratings": {
+    "title": "評価とレビュー",
+    "noRatings": "まだ評価はありません。このレシピを最初に評価しましょう！",
+    "loginToRate": "このレシピを評価するにはログインしてください",
+    "submitReview": "レビューを送信"
+  }
+}

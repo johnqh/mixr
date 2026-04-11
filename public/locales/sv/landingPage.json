@@ -1,0 +1,51 @@
+{
+  "seo": {
+    "title": "{{appName}} - AI-baserad koktailreceptsgenerering | Drycker baserat på humör",
+    "description": "Upptäck och skapa koktailrecept med hjälp av AI-dränkning. Få personliga drinkrekommendationer baserat på din stämning, ingredienser och utrustning.",
+    "keywords": [
+      "AI-cocktailgenerator",
+      "cocktailreceptapp",
+      "humör-baserade drycker",
+      "mixologi-app",
+      "personliga cocktaijer"
+    ]
+  },
+  "hero": {
+    "tagline": "Upptäck den perfekta cocktailen för din stämning",
+    "cta": "Kom igång"
+  },
+  "features": {
+    "mood": {
+      "title": "Stämningsspecifika recept",
+      "description": "Välj din stämning och få personliga koktailrekommendationer"
+    },
+    "inventory": {
+      "title": "Ditt förråd",
+      "description": "Spåra ditt utrustning och ingredienser för perfekta matchningar"
+    },
+    "ratings": {
+      "title": "Communitybedömningar",
+      "description": "Betyg recept och se vad andra tycker om"
+    }
+  },
+  "howItWorks": {
+    "title": "Så här fungerar det",
+    "step1": {
+      "title": "Ställ in din meny",
+      "description": "Berätta för oss vilket utrustning och ingredienser du har"
+    },
+    "step2": {
+      "title": "Välj din humör",
+      "description": "Välj hur du känner dig idag"
+    },
+    "step3": {
+      "title": "Blanda!",
+      "description": "Följ receptet och njut av din perfekta cocktail"
+    }
+  },
+  "cta": {
+    "title": "Klar att börja blanda?",
+    "description": "Anslut dig till vårt community av cocktailentusiaster idag",
+    "button": "Registrera dig gratis"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "app": {
+    "name": "MIXR",
+    "tagline": "Khám phá món cocktail lý tưởng cho tâm trạng của bạn"
+  },
+  "navigation": {
+    "browse": "Duyệt",
+    "generate": "Tạo",
+    "settings": "Cài đặt",
+    "myRecipes": "Công thức của tôi"
+  },
+  "auth": {
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "signIn": "Đăng nhập",
+    "signUp": "Đăng ký",
+    "signInTitle": "Đăng nhập",
+    "signInWithEmail": "Đăng nhập bằng email",
+    "createAccount": "Tạo tài khoản",
+    "resetPassword": "Đặt lại mật khẩu",
+    "continueWithGoogle": "Tiếp tục với Google",
+    "continueWithEmail": "Tiếp tục với email",
+    "continueWithApple": "Tiếp tục với Apple",
+    "or": "hoặc",
+    "email": "Thư điện tử",
+    "emailPlaceholder": "Nhập địa chỉ email của bạn",
+    "password": "Mật khẩu",
+    "passwordPlaceholder": "Nhập mật khẩu của bạn",
+    "confirmPassword": "Xác nhận mật khẩu",
+    "confirmPasswordPlaceholder": "Xác nhận mật khẩu của bạn",
+    "displayName": "Tên hiển thị",
+    "displayNamePlaceholder": "Nhập tên của bạn (tùy chọn)",
+    "forgotPassword": "Quên mật khẩu?",
+    "sendResetLink": "Gửi liên kết đặt lại",
+    "resetEmailSent": "Kiểm tra email của bạn",
+    "resetEmailSentDesc": "Chúng tôi đã gửi liên kết đặt lại mật khẩu đến email của bạn.",
+    "backToSignIn": "Quay lại Đăng nhập",
+    "noAccount": "Chưa có tài khoản?",
+    "haveAccount": "Đã có tài khoản chưa?",
+    "passwordMismatch": "Mật khẩu không khớp",
+    "passwordTooShort": "Mật khẩu phải có ít nhất 6 ký tự",
+    "loading": "Đang tải...",
+    "close": "Đóng"
+  },
+  "footer": {
+    "copyright": "{{year}} {{company}}. Tất cả quyền được bảo vệ.",
+    "privacyPolicy": "Chính sách bảo mật",
+    "termsOfService": "Điều khoản dịch vụ",
+    "contact": "Liên hệ"
+  },
+  "common": {
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi",
+    "retry": "Thử lại",
+    "cancel": "Hủy",
+    "save": "Lưu",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa",
+    "close": "Đóng",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "submit": "Gửi",
+    "search": "Tìm kiếm",
+    "noResults": "Không tìm thấy kết quả"
+  },
+  "talkToFounder": "Nói chuyện với người sáng lập",
+  "breadcrumbs": {
+    "home": "Trang chủ",
+    "recipes": "Công thức",
+    "settings": "Cài đặt",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "onboarding": "Thiết lập"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "seo": {
+    "title": "{{appName}} - AI鸡尾酒配方生成器 | 情绪主题饮品",
+    "description": "使用人工智能驱动的调酒技术发现并创作鸡尾酒配方。根据您的心情、配料和设备获得个性化饮品推荐。",
+    "keywords": ["AI鸡尾酒生成器", "鸡尾酒食谱应用", "情绪饮品", "调酒应用", "个性化鸡尾酒"]
+  },
+  "hero": {
+    "tagline": "发现适合您心情的完美鸡尾酒",
+    "cta": "开始"
+  },
+  "features": {
+    "mood": {
+      "title": "情绪化食谱",
+      "description": "选择您的心情并获取个性化鸡尾酒推荐"
+    },
+    "inventory": {
+      "title": "您的库存",
+      "description": "跟踪您的设备和配料，以获得完美搭配"
+    },
+    "ratings": {
+      "title": "社区评分",
+      "description": "评分食谱并查看其他人喜欢的内容"
+    }
+  },
+  "howItWorks": {
+    "title": "工作原理",
+    "step1": {
+      "title": "设置您的酒吧",
+      "description": "告诉我们您有哪些设备和原料"
+    },
+    "step2": {
+      "title": "选择您的心情",
+      "description": "选择您今天的感觉"
+    },
+    "step3": {
+      "title": "开始混音！",
+      "description": "按照食谱制作，享受您的完美鸡尾酒"
+    }
+  },
+  "cta": {
+    "title": "准备开始混音了吗？",
+    "description": "今天加入我们的鸡尾酒爱好者社区",
+    "button": "免费注册"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "seo": {
+    "title": "{{appName}} - KI-Cocktailrezept-Generator | Getränke basierend auf der Stimmung",
+    "description": "Entdecken und erstellen Sie Cocktailrezepte mit künstlicher Intelligenz gestützter Mixologie. Holen Sie sich personalisierte Getränkeempfehlungen basierend auf Ihrer Stimmung, Ihren Zutaten und Ihrer Ausrüstung.",
+    "keywords": [
+      "KI-Cocktail-Generator",
+      "Cocktail-Rezept-App",
+      "stimmungsabhängige Getränke",
+      "Mixologie-App",
+      "personalisierte Cocktails"
+    ]
+  },
+  "hero": {
+    "tagline": "Entdecken Sie den perfekten Cocktail für Ihre Stimmung",
+    "cta": "Loslegen"
+  },
+  "features": {
+    "mood": {
+      "title": "Stimmungs-basierte Rezepte",
+      "description": "Wählen Sie Ihre Stimmung und erhalten Sie personalisierte Cocktail-Empfehlungen"
+    },
+    "inventory": {
+      "title": "Dein Inventar",
+      "description": "Verfolge deine Ausrüstung und Zutaten für perfekte Übereinstimmungen"
+    },
+    "ratings": {
+      "title": "Community-Bewertungen",
+      "description": "Bewerte Rezepte und sieh, was andere lieben"
+    }
+  },
+  "howItWorks": {
+    "title": "So funktioniert es",
+    "step1": {
+      "title": "Richten Sie Ihre Leiste ein",
+      "description": "Sagen Sie uns, welche Ausrüstung und Zutaten Sie haben"
+    },
+    "step2": {
+      "title": "Wähle deine Stimmung",
+      "description": "Wählen Sie aus, wie Sie sich heute fühlen"
+    },
+    "step3": {
+      "title": "Mixen los!",
+      "description": "Befolge das Rezept und genieße dein perfektes Getränk"
+    }
+  },
+  "cta": {
+    "title": "Bereit zum Mischen?",
+    "description": "Schließe dich heute unserer Community von Cocktail-Enthusiasten an",
+    "button": "Kostenlos anmelden"
+  }
+}

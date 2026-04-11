@@ -1,0 +1,31 @@
+{
+  "seo": {
+    "title": "Parcourez des recettes de cocktails et générez des boissons | {{appName}}",
+    "description": "Parcourez les recettes de cocktails de la communauté ou créez votre boisson parfaite avec l'IA. Recherchez par humeur, ingrédients ou style.",
+    "keywords": [
+      "parcourir les recettes de cocktails",
+      "générer un cocktail",
+      "Générateur de boissons d'IA",
+      "recherche de cocktail",
+      "recettes de boissons"
+    ]
+  },
+  "tabs": {
+    "browse": "Parcourir",
+    "generate": "Générer",
+    "myRecipes": "Mes Recettes"
+  },
+  "browse": {
+    "searchPlaceholder": "Recherchez des cocktails par nom, description ou humeur...",
+    "noResults": "Aucun cocktail trouvé correspondant à votre recherche.",
+    "error": "Échec du chargement des recettes. Veuillez réessayer.",
+    "loading": "Chargement des recettes..."
+  },
+  "myRecipes": {
+    "loginPrompt": "Connectez-vous pour voir vos recettes générées",
+    "loginButton": "Se connecter",
+    "empty": "Vous n'avez encore généré aucune recette.",
+    "generateButton": "Générez votre première recette",
+    "error": "Échec du chargement de vos recettes."
+  }
+}

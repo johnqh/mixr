@@ -1,0 +1,45 @@
+{
+  "seo": {
+    "title": "{{appName}} - AI雞尾酒配方生成器 | 情緒主題飲品",
+    "description": "使用AI驅動的調酒技術，探索並創造雞尾酒配方。根據您的心情、可用材料和設備，獲得個人化的飲品推薦。",
+    "keywords": ["AI雞尾酒生成器", "雞尾酒食譜應用", "情緒飲品", "調酒應用", "個人化雞尾酒"]
+  },
+  "hero": {
+    "tagline": "發現適合您心情的完美雞尾酒",
+    "cta": "開始"
+  },
+  "features": {
+    "mood": {
+      "title": "情緒化食譜",
+      "description": "選擇您的心情並獲取個人化雞尾酒推薦"
+    },
+    "inventory": {
+      "title": "您的庫存",
+      "description": "追蹤您的設備和配料，以獲得完美搭配"
+    },
+    "ratings": {
+      "title": "社區評分",
+      "description": "評分食譜並查看其他人喜歡的內容"
+    }
+  },
+  "howItWorks": {
+    "title": "工作原理",
+    "step1": {
+      "title": "設定您的酒吧",
+      "description": "告訴我們您有哪些設備和原料"
+    },
+    "step2": {
+      "title": "選擇您的心情",
+      "description": "選擇您今天的心情"
+    },
+    "step3": {
+      "title": "開始混音！",
+      "description": "按照食譜製作，享受您的完美雞尾酒"
+    }
+  },
+  "cta": {
+    "title": "準備開始混音了嗎？",
+    "description": "立即加入我們的雞尾酒愛好者社群",
+    "button": "免費註冊"
+  }
+}

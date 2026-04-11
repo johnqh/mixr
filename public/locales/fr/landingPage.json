@@ -1,0 +1,51 @@
+{
+  "seo": {
+    "title": "{{appName}} - Générateur de recettes de cocktails par IA | Boissons basées sur l'humeur",
+    "description": "Découvrez et créez des recettes de cocktails avec une mixologie alimentée par l'IA. Obtenez des recommandations personnalisées de boissons en fonction de votre humeur, de vos ingrédients et de votre équipement.",
+    "keywords": [
+      "générateur de cocktails d'IA",
+      "application de recettes de cocktail",
+      "boissons basées sur l'humeur",
+      "application de mixologie",
+      "cocktails personnalisés"
+    ]
+  },
+  "hero": {
+    "tagline": "Découvrez le cocktail idéal pour votre humeur",
+    "cta": "Commencer"
+  },
+  "features": {
+    "mood": {
+      "title": "Recettes basées sur l'humeur",
+      "description": "Sélectionnez votre humeur et obtenez des recommandations de cocktails personnalisées"
+    },
+    "inventory": {
+      "title": "Ton inventaire",
+      "description": "Suivez votre équipement et vos ingrédients pour des correspondances parfaites"
+    },
+    "ratings": {
+      "title": "Évaluations de la communauté",
+      "description": "Notez les recettes et voyez ce que les autres aiment"
+    }
+  },
+  "howItWorks": {
+    "title": "Comment ça marche",
+    "step1": {
+      "title": "Configurez votre barre",
+      "description": "Dites-nous quel équipement et quels ingrédients vous avez"
+    },
+    "step2": {
+      "title": "Choisis ton humeur",
+      "description": "Sélectionnez votre humeur actuelle"
+    },
+    "step3": {
+      "title": "Mélangez !",
+      "description": "Suivez la recette et profitez de votre cocktail parfait"
+    }
+  },
+  "cta": {
+    "title": "Prêt à commencer à mixer ?",
+    "description": "Rejoins notre communauté d'enthousiastes des cocktails dès aujourd'hui",
+    "button": "Inscrivez-vous gratuitement"
+  }
+}

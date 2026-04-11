@@ -1,0 +1,75 @@
+{
+  "app": {
+    "name": "MIXR",
+    "tagline": "Scopri il cocktail perfetto per il tuo umore"
+  },
+  "navigation": {
+    "browse": "Sfoglia",
+    "generate": "Generare",
+    "settings": "Impostazioni",
+    "myRecipes": "Le Mie Ricette"
+  },
+  "auth": {
+    "login": "Accedi",
+    "logout": "Esci",
+    "signIn": "Accedi",
+    "signUp": "Iscriviti",
+    "signInTitle": "Accedi",
+    "signInWithEmail": "Accedi con la mail",
+    "createAccount": "Crea un account",
+    "resetPassword": "Reimposta la password",
+    "continueWithGoogle": "Continua con Google",
+    "continueWithEmail": "Continua con la posta elettronica",
+    "continueWithApple": "Continua con Apple",
+    "or": "o",
+    "email": "Posta elettronica",
+    "emailPlaceholder": "Inserisci la tua email",
+    "password": "Password",
+    "passwordPlaceholder": "Inserisci la tua password",
+    "confirmPassword": "Conferma la password",
+    "confirmPasswordPlaceholder": "Conferma la tua password",
+    "displayName": "Nome visualizzato",
+    "displayNamePlaceholder": "Inserisci il tuo nome (opzionale)",
+    "forgotPassword": "Password dimenticata?",
+    "sendResetLink": "Invia collegamento di reimpostazione",
+    "resetEmailSent": "Verifica la tua email",
+    "resetEmailSentDesc": "Abbiamo inviato un collegamento per il ripristino della password all'indirizzo email.",
+    "backToSignIn": "Torna a Accedi",
+    "noAccount": "Non hai ancora un account?",
+    "haveAccount": "Hai già un account?",
+    "passwordMismatch": "Le password non corrispondono",
+    "passwordTooShort": "La password deve essere di almeno 6 caratteri",
+    "loading": "Caricamento...",
+    "close": "Chiudi"
+  },
+  "footer": {
+    "copyright": "{{year}} {{company}}. Tutti i diritti riservati.",
+    "privacyPolicy": "Informativa sulla privacy",
+    "termsOfService": "Termini di servizio",
+    "contact": "Contatto"
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "error": "Si è verificato un errore",
+    "retry": "Riprova",
+    "cancel": "Annulla",
+    "save": "Salva",
+    "delete": "Elimina",
+    "edit": "Modifica",
+    "close": "Chiudi",
+    "back": "Indietro",
+    "next": "Successivo",
+    "submit": "Invia",
+    "search": "Cerca",
+    "noResults": "Nessun risultato trovato"
+  },
+  "talkToFounder": "Parla con il fondatore",
+  "breadcrumbs": {
+    "home": "Home",
+    "recipes": "Ricette",
+    "settings": "Impostazioni",
+    "login": "Accedi",
+    "register": "Registrati",
+    "onboarding": "Impostazione"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "app": {
+    "name": "MIXR",
+    "tagline": "Entdecken Sie den perfekten Cocktail für Ihre Stimmung"
+  },
+  "navigation": {
+    "browse": "Durchsuchen",
+    "generate": "Generieren",
+    "settings": "Einstellungen",
+    "myRecipes": "Meine Rezepte"
+  },
+  "auth": {
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "signIn": "Anmelden",
+    "signUp": "Registrieren",
+    "signInTitle": "Anmelden",
+    "signInWithEmail": "Anmelden mit E-Mail",
+    "createAccount": "Konto erstellen",
+    "resetPassword": "Passwort zurücksetzen",
+    "continueWithGoogle": "Weiter mit Google",
+    "continueWithEmail": "Weiter mit E-Mail",
+    "continueWithApple": "Weiter mit Apple",
+    "or": "oder",
+    "email": "E-Mail",
+    "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+    "password": "Passwort",
+    "passwordPlaceholder": "Geben Sie Ihr Passwort ein",
+    "confirmPassword": "Passwort bestätigen",
+    "confirmPasswordPlaceholder": "Passwort bestätigen",
+    "displayName": "Anzeigename",
+    "displayNamePlaceholder": "Geben Sie Ihren Namen ein (optional)",
+    "forgotPassword": "Passwort vergessen?",
+    "sendResetLink": "Zurücksetzungslink senden",
+    "resetEmailSent": "Überprüfe deine E-Mail",
+    "resetEmailSentDesc": "Wir haben einen Link zum Zurücksetzen des Passworts an Ihre E-Mail-Adresse gesendet.",
+    "backToSignIn": "Zurück zur Anmeldung",
+    "noAccount": "Noch kein Konto?",
+    "haveAccount": "Bereits ein Konto vorhanden?",
+    "passwordMismatch": "Passwörter stimmen nicht überein",
+    "passwordTooShort": "Das Passwort muss mindestens 6 Zeichen lang sein",
+    "loading": "Lade... ",
+    "close": "Schließen"
+  },
+  "footer": {
+    "copyright": "{{year}} {{company}}. Alle Rechte vorbehalten.",
+    "privacyPolicy": "Datenschutzbestimmungen",
+    "termsOfService": "Allgemeine Geschäftsbedingungen",
+    "contact": "Kontakt"
+  },
+  "common": {
+    "loading": "Lade... ",
+    "error": "Ein Fehler ist aufgetreten",
+    "retry": "Wiederholen",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schließen",
+    "back": "Zurück",
+    "next": "Nächste",
+    "submit": "Einreichen",
+    "search": "Suchen",
+    "noResults": "Keine Ergebnisse gefunden"
+  },
+  "talkToFounder": "Sprich mit dem Gründer",
+  "breadcrumbs": {
+    "home": "Startseite",
+    "recipes": "Rezepte",
+    "settings": "Einstellungen",
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "onboarding": "Einrichtung"
+  }
+}

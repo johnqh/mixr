@@ -1,0 +1,31 @@
+{
+  "seo": {
+    "title": "Cocktailrezepte durchstöbern und Getränke generieren | {{appName}}",
+    "description": "Stöbere durch Cocktailrezepte der Community oder erstelle dein perfektes Getränk mit KI. Suche nach Stimmung, Zutaten oder Stil.",
+    "keywords": [
+      "Cocktailrezepte durchstöbern",
+      "Cocktail generieren",
+      "KI-Getränkegenerator",
+      "Cocktail-Suche",
+      "Getränke-Rezepte"
+    ]
+  },
+  "tabs": {
+    "browse": "Durchsuchen",
+    "generate": "Generieren",
+    "myRecipes": "Meine Rezepte"
+  },
+  "browse": {
+    "searchPlaceholder": "Suche nach Cocktails nach Name, Beschreibung oder Stimmung...",
+    "noResults": "Keine Cocktails gefunden, die Ihrer Suche entsprechen.",
+    "error": "Rezepte konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
+    "loading": "Rezepte werden geladen..."
+  },
+  "myRecipes": {
+    "loginPrompt": "Melden Sie sich an, um Ihre generierten Rezepte zu sehen",
+    "loginButton": "Anmelden",
+    "empty": "Sie haben noch keine Rezepte erstellt.",
+    "generateButton": "Erstellen Sie Ihr erstes Rezept",
+    "error": "Konnte Ihre Rezepte nicht laden."
+  }
+}

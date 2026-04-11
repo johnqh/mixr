@@ -1,0 +1,24 @@
+{
+  "seo": {
+    "descriptionFallback": "Scopri come creare {{name}}",
+    "keywords": "ricetta del cocktail, come prepararla, mixologia, ricetta di bevanda"
+  },
+  "notFound": {
+    "title": "Ricetta non trovata",
+    "description": "La ricetta che stai cercando non esiste o è stata rimossa.",
+    "browseButton": "Sfoglia le ricette"
+  },
+  "recipe": {
+    "ingredients": "Ingredienti",
+    "instructions": "Istruzioni",
+    "mood": "Umore",
+    "equipment": "Attrezzatura necessaria",
+    "backToRecipes": "Torna alle ricette"
+  },
+  "ratings": {
+    "title": "Voti e recensioni",
+    "noRatings": "Nessun voto ancora. Sii il primo a votare questa ricetta!",
+    "loginToRate": "Accedi per votare questa ricetta",
+    "submitReview": "Invia la recensione"
+  }
+}

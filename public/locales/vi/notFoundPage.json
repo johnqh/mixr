@@ -1,0 +1,16 @@
+{
+  "seo": {
+    "title": "404 - Trang Không Tìm Thấy | {{appName}}"
+  },
+  "heading": "404",
+  "subheading": "Trang không tìm thấy",
+  "description": "Oops! Cocktail bạn đang tìm dường như đã bị trộn lẫn. Trang này không tồn tại.",
+  "goBack": "Quay lại",
+  "browseRecipes": "Duyệt các công thức",
+  "tryTheseLabel": "Hoặc thử một trong những điều này:",
+  "links": {
+    "home": "Trang chủ",
+    "recipes": "Duyệt các công thức",
+    "signIn": "Đăng nhập"
+  }
+}

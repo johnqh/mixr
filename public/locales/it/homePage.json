@@ -1,0 +1,31 @@
+{
+  "seo": {
+    "title": "Sfoglia ricette di cocktail e genera bevande | {{appName}}",
+    "description": "Sfoglia le ricette di cocktail della community o crea il tuo drink perfetto con l'IA. Cerca per umore, ingredienti o stile.",
+    "keywords": [
+      "sfoglia le ricette dei cocktail",
+      "genera un cocktail",
+      "Generatore di bevande con IA",
+      "ricerca del cocktail",
+      "ricette di bevande"
+    ]
+  },
+  "tabs": {
+    "browse": "Sfoglia",
+    "generate": "Generare",
+    "myRecipes": "Le Mie Ricette"
+  },
+  "browse": {
+    "searchPlaceholder": "Cerca cocktail per nome, descrizione o umore...",
+    "noResults": "Nessun cocktail trovato che corrisponda alla tua ricerca.",
+    "error": "Impossibile caricare le ricette. Riprova.",
+    "loading": "Caricamento delle ricette..."
+  },
+  "myRecipes": {
+    "loginPrompt": "Accedi per vedere le tue ricette generate",
+    "loginButton": "Accedi",
+    "empty": "Non hai ancora generato nessuna ricetta.",
+    "generateButton": "Genera la tua prima ricetta",
+    "error": "Impossibile caricare le tue ricette."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "seo": {
+    "descriptionFallback": "學習如何製作 {{name}}",
+    "keywords": "雞尾酒食譜，如何製作，調酒，飲料食譜"
+  },
+  "notFound": {
+    "title": "食譜未找到",
+    "description": "您所尋找的食譜不存在或已被刪除。",
+    "browseButton": "瀏覽食譜"
+  },
+  "recipe": {
+    "ingredients": "配料",
+    "instructions": "說明",
+    "mood": "情緒",
+    "equipment": "所需設備",
+    "backToRecipes": "返回菜譜"
+  },
+  "ratings": {
+    "title": "評分與評論",
+    "noRatings": "暫無評分。快來成為第一個評價此食譜的人吧！",
+    "loginToRate": "登入以評分此食譜",
+    "submitReview": "提交評價"
+  }
+}

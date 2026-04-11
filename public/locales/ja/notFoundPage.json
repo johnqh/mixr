@@ -1,0 +1,16 @@
+{
+  "seo": {
+    "title": "404 - ページが見つかりません | {{appName}}"
+  },
+  "heading": "404",
+  "subheading": "ページが見つかりません",
+  "description": "おっと！探しているカクテルが間違ったように混ざってしまいました。このページは存在しません。",
+  "goBack": "戻る",
+  "browseRecipes": "レシピを閲覧",
+  "tryTheseLabel": "またはこれらの中から一つ試してみてください：",
+  "links": {
+    "home": "ホーム",
+    "recipes": "レシピを閲覧",
+    "signIn": "ログイン"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "seo": {
+    "title": "404 - 페이지를 찾을 수 없습니다 | {{appName}}"
+  },
+  "heading": "404",
+  "subheading": "페이지를 찾을 수 없습니다",
+  "description": "오류! 찾고 계신 칵테일이 잘못 섞인 것 같아요. 이 페이지는 존재하지 않습니다.",
+  "goBack": "뒤로 가기",
+  "browseRecipes": "레시피 둘러보기",
+  "tryTheseLabel": "또는 다음 중 하나를 시도해 보세요:",
+  "links": {
+    "home": "홈",
+    "recipes": "레시피 둘러보기",
+    "signIn": "로그인"
+  }
+}

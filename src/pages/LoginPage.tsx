@@ -1,11 +1,13 @@
 import { FC, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import { CONSTANTS } from '../config/constants';
 
 export const LoginPage: FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation('loginPage');
   const { signIn, signInWithGoogle } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -44,11 +46,8 @@ export const LoginPage: FC = () => {
   return (
     <>
       <Helmet>
-        <title>{`Sign In - ${CONSTANTS.APP_NAME}`}</title>
-        <meta
-          name="description"
-          content={`Sign in to ${CONSTANTS.APP_NAME} to generate and save cocktail recipes`}
-        />
+        <title>{t('seo.title', { appName: CONSTANTS.APP_NAME })}</title>
+        <meta name="description" content={t('seo.description', { appName: CONSTANTS.APP_NAME })} />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-pink-900/20 flex items-center justify-center p-4">

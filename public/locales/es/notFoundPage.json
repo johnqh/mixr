@@ -1,0 +1,16 @@
+{
+  "seo": {
+    "title": "404 - Página no encontrada | {{appName}}"
+  },
+  "heading": "404",
+  "subheading": "Página no encontrada",
+  "description": "¡Uy! El cóctel que estás buscando parece haberse mezclado mal. Esta página no existe.",
+  "goBack": "Volver",
+  "browseRecipes": "Explorar recetas",
+  "tryTheseLabel": "O prueba una de estas:",
+  "links": {
+    "home": "Inicio",
+    "recipes": "Explorar recetas",
+    "signIn": "Iniciar sesión"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "seo": {
+    "descriptionFallback": "Erfahren Sie, wie Sie {{name}} erstellen",
+    "keywords": "Cocktailrezept, wie man es macht, Mixologie, Getränkerezept"
+  },
+  "notFound": {
+    "title": "Rezept nicht gefunden",
+    "description": "Das Rezept, nach dem Sie suchen, existiert nicht oder wurde entfernt.",
+    "browseButton": "Rezepte durchstöbern"
+  },
+  "recipe": {
+    "ingredients": "Zutaten",
+    "instructions": "Anleitung",
+    "mood": "Stimmung",
+    "equipment": "Benötigtes Equipment",
+    "backToRecipes": "Zurück zu Rezepten"
+  },
+  "ratings": {
+    "title": "Bewertungen und Rezensionen",
+    "noRatings": "Noch keine Bewertungen. Sei der Erste, der dieses Rezept bewerten soll!",
+    "loginToRate": "Melden Sie sich an, um dieses Rezept zu bewerten",
+    "submitReview": "Bewertung einreichen"
+  }
+}
