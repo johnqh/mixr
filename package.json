@@ -1,7 +1,7 @@
 {
   "name": "mixr",
   "private": true,
-  "version": "0.1.79",
+  "version": "0.1.80",
   "license": "BUSL-1.1",
   "type": "module",
   "scripts": {
