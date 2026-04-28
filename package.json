@@ -1,7 +1,7 @@
 {
   "name": "mixr",
   "private": true,
-  "version": "0.1.80",
+  "version": "0.1.81",
   "license": "BUSL-1.1",
   "type": "module",
   "scripts": {
@@ -45,7 +45,7 @@
     "@sudobility/mixr_client": "^0.1.26",
     "@sudobility/mixr_lib": "^0.0.26",
     "@sudobility/subscription-components": "^1.0.31",
-    "@sudobility/subscription_lib": "^0.0.40",
+    "@sudobility/subscription_lib": "^0.0.41",
     "@sudobility/types": "^1.9.61",
     "@tanstack/react-query": "^5.90.5",
     "@types/react": "^19.2.2",
