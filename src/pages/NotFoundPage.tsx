@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import SEOHead from '../components/SEOHead';
 import { CONSTANTS } from '../config/constants';
 
 export const NotFoundPage: FC = () => {
@@ -10,10 +10,11 @@ export const NotFoundPage: FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t('seo.title', { appName: CONSTANTS.APP_NAME })}</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
+      <SEOHead
+        title={t('seo.title', { appName: CONSTANTS.APP_NAME })}
+        description={t('seo.title', { appName: CONSTANTS.APP_NAME })}
+        noIndex
+      />
 
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">
         <div className="text-center max-w-md">

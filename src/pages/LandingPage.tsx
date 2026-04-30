@@ -1,24 +1,34 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Section } from '@sudobility/components';
+import SEOHead from '../components/SEOHead';
+import { buildHowToSchema } from '../components/buildHowToSchema';
 import { CONSTANTS } from '../config/constants';
 
 const LandingPage: FC = () => {
   const navigate = useNavigate();
   const { t } = useTranslation('landingPage');
+  const { t: tHowTo } = useTranslation('howto');
+
+  const seoTitle = t('seo.title', { appName: CONSTANTS.APP_NAME });
+  const seoDescription = t('seo.description');
+  const seoKeywords = t('seo.keywords', { returnObjects: true }) as string[];
+
+  const howToSchema = buildHowToSchema(
+    tHowTo('home.name'),
+    tHowTo('home.description'),
+    tHowTo('home.steps', { returnObjects: true }) as { name: string; text: string }[]
+  );
 
   return (
     <>
-      <Helmet>
-        <title>{t('seo.title', { appName: CONSTANTS.APP_NAME })}</title>
-        <meta name="description" content={t('seo.description')} />
-        <meta
-          name="keywords"
-          content={(t('seo.keywords', { returnObjects: true }) as string[]).join(', ')}
-        />
-      </Helmet>
+      <SEOHead
+        title={seoTitle}
+        description={seoDescription}
+        keywords={seoKeywords}
+        structuredData={howToSchema}
+      />
 
       <Section spacing="5xl" variant="hero">
         <div className="text-center">

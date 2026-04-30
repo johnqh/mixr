@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useTheme, Theme } from '../context/ThemeContext';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import SEOHead from '../components/SEOHead';
 import { CONSTANTS } from '../config/constants';
 
 export const SettingsPage: FC = () => {
@@ -28,11 +28,11 @@ export const SettingsPage: FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t('seo.title', { appName: CONSTANTS.APP_NAME })}</title>
-        <meta name="description" content={t('seo.description', { appName: CONSTANTS.APP_NAME })} />
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
+      <SEOHead
+        title={t('seo.title', { appName: CONSTANTS.APP_NAME })}
+        description={t('seo.description', { appName: CONSTANTS.APP_NAME })}
+        noIndex
+      />
       <div className="container mx-auto px-4 py-8 max-w-2xl">
         <h1 className="text-3xl font-bold mb-8">Settings</h1>
 

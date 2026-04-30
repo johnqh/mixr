@@ -1,0 +1,34 @@
+{
+  "webApp": {
+    "description": "AI-powered cocktail recipe generator that creates personalized drink recommendations based on your mood, ingredients, and equipment.",
+    "features": [
+      "AI cocktail recipe generation",
+      "Mood-based drink recommendations",
+      "Equipment and ingredient tracking",
+      "Community ratings and reviews",
+      "Personalized recipe suggestions"
+    ]
+  },
+  "home": {
+    "name": "How to Create Cocktails with MIXR",
+    "description": "Get started generating personalized cocktail recipes with MIXR's AI-powered mixology platform.",
+    "steps": [
+      {
+        "name": "Set Up Your Bar",
+        "text": "Tell MIXR what equipment and ingredients you have at home so it can suggest recipes you can actually make."
+      },
+      {
+        "name": "Choose Your Mood",
+        "text": "Select how you're feeling today. MIXR will recommend cocktails that match your vibe."
+      },
+      {
+        "name": "Generate a Recipe",
+        "text": "Let the AI create a personalized cocktail recipe based on your mood, equipment, and available ingredients."
+      },
+      {
+        "name": "Mix and Enjoy",
+        "text": "Follow the step-by-step instructions to craft your perfect cocktail. Rate it and share with the community!"
+      }
+    ]
+  }
+}

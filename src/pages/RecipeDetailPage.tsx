@@ -6,9 +6,9 @@ import { useRecipeRatings, useRecipeRatingAggregate, useSubmitRating } from '../
 import { ReviewForm } from '../components/rating/ReviewForm';
 import { ReviewList } from '../components/rating/ReviewList';
 import { AggregateRating } from '../components/rating/AggregateRating';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Section } from '@sudobility/components';
+import SEOHead from '../components/SEOHead';
 import { CONSTANTS } from '../config/constants';
 
 export const RecipeDetailPage: FC = () => {
@@ -66,19 +66,12 @@ export const RecipeDetailPage: FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{`${recipe.name} - ${CONSTANTS.APP_NAME}`}</title>
-        <meta
-          name="description"
-          content={recipe.description || t('seo.descriptionFallback', { name: recipe.name })}
-        />
-        <meta
-          name="keywords"
-          content={['cocktail recipe', 'how to make', recipe.name, recipe.mood?.name || '']
-            .filter(Boolean)
-            .join(', ')}
-        />
-      </Helmet>
+      <SEOHead
+        title={`${recipe.name} - ${CONSTANTS.APP_NAME}`}
+        description={recipe.description || t('seo.descriptionFallback', { name: recipe.name })}
+        keywords={['cocktail recipe', 'how to make', recipe.name, recipe.mood?.name || ''].filter(Boolean)}
+        ogType="article"
+      />
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Hero Section */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden mb-8">

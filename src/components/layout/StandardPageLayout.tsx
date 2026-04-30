@@ -1,18 +1,17 @@
 import { FC, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { AppPageLayout } from '@sudobility/building_blocks';
 import { useTopBarConfig } from './TopBar';
 import { useFooterConfig } from './Footer';
 import { type BreadcrumbItem } from './Breadcrumb';
+import SEOHead from '../SEOHead';
 
 interface SEOProps {
   title: string;
   description: string;
   keywords?: string[];
-  canonical?: string;
-  image?: string;
-  type?: string;
+  noIndex?: boolean;
+  ogType?: 'website' | 'article';
 }
 
 interface StandardPageLayoutProps {
@@ -86,16 +85,13 @@ export const StandardPageLayout: FC<StandardPageLayoutProps> = ({
 
   return (
     <>
-      <Helmet>
-        <title>{seo.title}</title>
-        <meta name="description" content={seo.description} />
-        {seo.keywords && <meta name="keywords" content={seo.keywords.join(', ')} />}
-        {seo.canonical && <link rel="canonical" href={seo.canonical} />}
-        {seo.image && <meta property="og:image" content={seo.image} />}
-        {seo.type && <meta property="og:type" content={seo.type} />}
-        <meta property="og:title" content={seo.title} />
-        <meta property="og:description" content={seo.description} />
-      </Helmet>
+      <SEOHead
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        noIndex={seo.noIndex}
+        ogType={seo.ogType}
+      />
 
       <AppPageLayout
         topBar={topBarConfig}

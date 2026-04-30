@@ -1,7 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
 import { NotFoundPage } from './NotFoundPage';
 
 // Mock useNavigate
@@ -14,13 +13,16 @@ vi.mock('react-router-dom', async () => {
   };
 });
 
+// Mock SEOHead since it depends on seo_lib
+vi.mock('../components/SEOHead', () => ({
+  default: () => null,
+}));
+
 function renderWithProviders() {
   return render(
-    <HelmetProvider>
-      <MemoryRouter>
-        <NotFoundPage />
-      </MemoryRouter>
-    </HelmetProvider>
+    <MemoryRouter>
+      <NotFoundPage />
+    </MemoryRouter>
   );
 }
 

@@ -71,6 +71,7 @@ export function initializeI18n(): void {
       defaultNS: 'common',
       ns: [
         'common',
+        'howto',
         'landingPage',
         'homePage',
         'recipeDetailPage',
