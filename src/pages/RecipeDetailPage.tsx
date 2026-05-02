@@ -69,7 +69,9 @@ export const RecipeDetailPage: FC = () => {
       <SEOHead
         title={`${recipe.name} - ${CONSTANTS.APP_NAME}`}
         description={recipe.description || t('seo.descriptionFallback', { name: recipe.name })}
-        keywords={['cocktail recipe', 'how to make', recipe.name, recipe.mood?.name || ''].filter(Boolean)}
+        keywords={['cocktail recipe', 'how to make', recipe.name, recipe.mood?.name || ''].filter(
+          Boolean
+        )}
         ogType="article"
       />
       <div className="container mx-auto px-4 py-8 max-w-4xl">
