@@ -4,7 +4,7 @@ import { AppPageLayout } from '@sudobility/building_blocks';
 import { useTopBarConfig } from './TopBar';
 import { useFooterConfig } from './Footer';
 import { type BreadcrumbItem } from './Breadcrumb';
-import SEOHead from '../SEOHead';
+import { SEOHead } from '@sudobility/seo_lib';
 
 interface SEOProps {
   title: string;

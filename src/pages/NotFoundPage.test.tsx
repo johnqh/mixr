@@ -13,9 +13,9 @@ vi.mock('react-router-dom', async () => {
   };
 });
 
-// Mock SEOHead since it depends on seo_lib
-vi.mock('../components/SEOHead', () => ({
-  default: () => null,
+// Mock SEOHead from shared seo_lib
+vi.mock('@sudobility/seo_lib', () => ({
+  SEOHead: () => null,
 }));
 
 function renderWithProviders() {

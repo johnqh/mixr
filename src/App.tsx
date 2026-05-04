@@ -1,7 +1,9 @@
 import { type ReactNode, lazy, Suspense } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import { SudobilityAppWithFirebaseAuth } from '@sudobility/building_blocks/firebase';
+import { SEOHeadProvider } from '@sudobility/seo_lib';
 import i18n from './i18n';
+import { seoHeadConfig } from './config/seo';
 import { AuthProvider } from './context/AuthContext';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import { ErrorBoundary } from './components/ErrorBoundary';
@@ -104,7 +106,9 @@ function App() {
       storageKeyPrefix="mixr"
       AuthProviderWrapper={AuthProviderWrapper}
     >
-      <AppRoutes />
+      <SEOHeadProvider config={seoHeadConfig}>
+        <AppRoutes />
+      </SEOHeadProvider>
     </SudobilityAppWithFirebaseAuth>
   );
 }

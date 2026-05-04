@@ -7,7 +7,7 @@ import { RecipeFilters } from '../components/recipe/RecipeFilters';
 import { RecipeGenerator } from '../components/recipe/RecipeGenerator';
 import { useAuth } from '../context/AuthContext';
 import { useTranslation } from 'react-i18next';
-import SEOHead from '../components/SEOHead';
+import { SEOHead } from '@sudobility/seo_lib';
 import { CONSTANTS } from '../config/constants';
 
 type Tab = 'browse' | 'generate' | 'my-recipes';
@@ -139,7 +139,10 @@ export const HomePage: FC = () => {
       <SEOHead
         title={t('seo.title', { appName: CONSTANTS.APP_NAME })}
         description={t('seo.description')}
-        keywords={t('seo.keywords', { returnObjects: true }) as string[]}
+        keywords={(() => {
+          const raw = t('seo.keywords', { returnObjects: true });
+          return Array.isArray(raw) ? raw : undefined;
+        })()}
       />
       {/* Tabs Section */}
       <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">

@@ -8,7 +8,7 @@ import { ReviewList } from '../components/rating/ReviewList';
 import { AggregateRating } from '../components/rating/AggregateRating';
 import { useTranslation } from 'react-i18next';
 import { Section } from '@sudobility/components';
-import SEOHead from '../components/SEOHead';
+import { SEOHead } from '@sudobility/seo_lib';
 import { CONSTANTS } from '../config/constants';
 
 export const RecipeDetailPage: FC = () => {

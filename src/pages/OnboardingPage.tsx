@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PreferencesSelector } from '../components/onboarding/PreferencesSelector';
-import SEOHead from '../components/SEOHead';
+import { SEOHead } from '@sudobility/seo_lib';
 import { CONSTANTS } from '../config/constants';
 
 const OnboardingPage: FC = () => {
