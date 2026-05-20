@@ -93,7 +93,7 @@ public/
 ```bash
 bun run dev          # Start Vite dev server
 bun run dev:local    # Dev with local library aliases (USE_LOCAL_LIB=true)
-bun run build        # Build for production (tsc + vite)
+bun run build        # Build for production (process:static + seo:fetch + seo public + tsc + vite + seo dist)
 bun run preview      # Preview production build
 bun run test         # Run Vitest
 bun run lint         # Run ESLint
@@ -101,6 +101,7 @@ bun run lint:fix     # Fix ESLint issues
 bun run typecheck    # TypeScript type check
 bun run format       # Format with Prettier
 bun run verify       # Run typecheck + lint + test (use before committing)
+bun run seo:fetch    # Download generate-seo-assets.mjs from workflows repo
 ```
 
 ## Routing
@@ -114,6 +115,27 @@ bun run verify       # Run typecheck + lint + test (use before committing)
 | `/recipes/:id` | Recipe Detail                         | No                          |
 | `/onboarding`  | Preferences Setup                     | Yes                         |
 | `/settings`    | Account Settings                      | Yes                         |
+
+## SEO
+
+SEO assets (per-route `index.html` files, `sitemap.xml`, `robots.txt`) are generated at build time by `generate-seo-assets.mjs` (fetched from `@johnqh/workflows`). Configuration lives in `seo.config.mjs` at the project root.
+
+**Single-language app**: MIXR supports English only (`supportedLanguages: ['en']`). Routes are **not** language-prefixed (e.g., `/recipes`, not `/en/recipes`). The SEO engine generates files under `/en/` paths (e.g., `/en/recipes/index.html`).
+
+**Build pipeline**: The `build` script runs the SEO generator twice:
+1. `node /tmp/generate-seo-assets.mjs public` -- generates SEO assets into `public/` (pre-build, so Vite copies them)
+2. `node /tmp/generate-seo-assets.mjs dist` -- generates SEO assets into `dist/` (post-build, for the final output)
+
+**Indexable routes** (included in sitemap):
+- `/` (landing page)
+- `/recipes` (browse/generate)
+
+**Non-indexable routes** (noindex, excluded from sitemap):
+- `/login`, `/register`, `/settings`, `/onboarding`
+
+**SEO meta sources**: Each route's title/description/keywords come from locale JSON files (`public/locales/en/*.json`) under `seo` keys. The namespace mapping in `seo.config.mjs` specifies which locale file to use per route.
+
+**Structured data**: `index.html` contains `SoftwareApplication`, `Organization`, and `WebSite` schema.org JSON-LD blocks.
 
 ## Environment Variables
 
