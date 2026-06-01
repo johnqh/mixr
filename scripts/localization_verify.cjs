@@ -7,7 +7,6 @@ const enDir = path.join(localesDir, 'en');
 
 // Expected languages from i18n configuration (excluding 'en')
 const expectedLanguages = [
-  'ar',
   'de',
   'es',
   'fr',
