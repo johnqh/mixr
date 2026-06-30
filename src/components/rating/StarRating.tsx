@@ -86,6 +86,9 @@ export const StarRating: FC<StarRatingProps> = ({
               `}
               aria-label={`${starValue} star${starValue !== 1 ? 's' : ''}`}
             >
+              {/* Decorative rating-indicator colors: gold (text-yellow-400)
+                  filled star + neutral empty-star track are fixed rating-widget
+                  visuals, not semantic state — kept hardcoded by design. */}
               {isPartial ? (
                 <svg
                   className={`${sizeClasses[size]} text-yellow-400`}
@@ -125,10 +128,10 @@ export const StarRating: FC<StarRatingProps> = ({
       </div>
 
       {/* Rating Text */}
-      <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+      <div className="flex items-center gap-1 text-sm text-muted-foreground">
         <span className="font-semibold">{rating.toFixed(1)}</span>
         {showCount && count !== undefined && (
-          <span className="text-gray-500 dark:text-gray-500">({count.toLocaleString()})</span>
+          <span className="text-muted-foreground">({count.toLocaleString()})</span>
         )}
       </div>
     </div>

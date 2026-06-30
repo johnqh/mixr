@@ -50,7 +50,7 @@ export const IngredientSelector: FC<IngredientSelectorProps> = ({
                 className={`px-4 py-2 rounded-full font-medium transition-colors capitalize ${
                   selectedSubcategory === subcategory
                     ? 'bg-purple-600 text-white'
-                    : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'
+                    : 'bg-muted hover:bg-accent'
                 }`}
               >
                 {subcategory.replace('_', ' ')}
@@ -73,7 +73,7 @@ export const IngredientSelector: FC<IngredientSelectorProps> = ({
               className={`p-4 border-2 rounded-lg transition-all ${
                 selectedIds.includes(item.id)
                   ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/20'
-                  : 'border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-700'
+                  : 'border-border hover:border-purple-300 dark:hover:border-purple-700'
               }`}
             >
               <div className="text-3xl mb-2">{item.icon || '🥃'}</div>

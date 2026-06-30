@@ -47,7 +47,7 @@ export const RecipeDetailPage: FC = () => {
           <div className="text-center">
             <div className="text-6xl mb-4">😕</div>
             <h2 className="text-2xl font-bold mb-2">Recipe not found</h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-muted-foreground mb-4">
               The recipe you're looking for doesn't exist or has been removed.
             </p>
             <button
@@ -76,7 +76,7 @@ export const RecipeDetailPage: FC = () => {
       />
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Hero Section */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden mb-8">
+        <div className="bg-card rounded-lg shadow-lg overflow-hidden mb-8">
           {/* Hero Image */}
           <div className="h-64 md:h-96 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 flex items-center justify-center text-9xl">
             🍸
@@ -88,7 +88,7 @@ export const RecipeDetailPage: FC = () => {
               <div className="flex-1">
                 <h1 className="text-3xl md:text-4xl font-bold mb-2">{recipe.name}</h1>
                 {recipe.description && (
-                  <p className="text-gray-600 dark:text-gray-400 text-lg">{recipe.description}</p>
+                  <p className="text-muted-foreground text-lg">{recipe.description}</p>
                 )}
               </div>
               {recipe.mood && (
@@ -102,7 +102,7 @@ export const RecipeDetailPage: FC = () => {
             </div>
 
             {/* Quick Stats */}
-            <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
+            <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
@@ -143,7 +143,7 @@ export const RecipeDetailPage: FC = () => {
         </div>
 
         {/* Ingredients Section */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
+        <div className="bg-card rounded-lg shadow-lg p-6 mb-8">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
             <svg
               className="w-6 h-6 text-purple-600"
@@ -162,10 +162,7 @@ export const RecipeDetailPage: FC = () => {
           </h2>
           <ul className="space-y-3">
             {recipe.ingredients.map(ingredient => (
-              <li
-                key={ingredient.id}
-                className="flex items-start gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-700/50"
-              >
+              <li key={ingredient.id} className="flex items-start gap-3 p-3 rounded-lg bg-muted">
                 {ingredient.icon && (
                   <span className="text-2xl flex-shrink-0">{ingredient.icon}</span>
                 )}
@@ -184,7 +181,7 @@ export const RecipeDetailPage: FC = () => {
 
         {/* Equipment Section */}
         {recipe.equipment && recipe.equipment.length > 0 && (
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
+          <div className="bg-card rounded-lg shadow-lg p-6 mb-8">
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
               <svg
                 className="w-6 h-6 text-purple-600"
@@ -203,10 +200,7 @@ export const RecipeDetailPage: FC = () => {
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {recipe.equipment.map(item => (
-                <div
-                  key={item.id}
-                  className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-700/50"
-                >
+                <div key={item.id} className="flex items-center gap-3 p-3 rounded-lg bg-muted">
                   {item.icon && <span className="text-2xl flex-shrink-0">{item.icon}</span>}
                   <span className="text-sm font-medium">{item.name}</span>
                 </div>
@@ -216,7 +210,7 @@ export const RecipeDetailPage: FC = () => {
         )}
 
         {/* Instructions Section */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
+        <div className="bg-card rounded-lg shadow-lg p-6 mb-8">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
             <svg
               className="w-6 h-6 text-purple-600"
@@ -240,7 +234,7 @@ export const RecipeDetailPage: FC = () => {
                   {index + 1}
                 </div>
                 <div className="flex-1 pt-1">
-                  <p className="text-gray-700 dark:text-gray-300">{step}</p>
+                  <p className="text-muted-foreground">{step}</p>
                 </div>
               </li>
             ))}
@@ -279,8 +273,8 @@ export const RecipeDetailPage: FC = () => {
           )}
 
           {!user && (
-            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6 border border-gray-200 dark:border-gray-700 text-center">
-              <p className="text-gray-600 dark:text-gray-400">
+            <div className="bg-muted rounded-lg p-6 border border-border text-center">
+              <p className="text-muted-foreground">
                 <button
                   onClick={() => navigate('/login')}
                   className="text-purple-600 dark:text-purple-400 hover:underline font-medium"

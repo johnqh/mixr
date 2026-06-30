@@ -22,7 +22,7 @@ export function ProtectedRoute() {
             className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"
             aria-hidden="true"
           ></div>
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-muted-foreground">Loading...</p>
         </div>
       </div>
     );

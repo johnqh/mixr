@@ -20,7 +20,7 @@ export const SelectableItemCard: FC<SelectableItemCardProps> = ({
       className={`p-4 border-2 rounded-lg transition-all ${
         isSelected
           ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/20'
-          : 'border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-700'
+          : 'border-border hover:border-purple-300 dark:hover:border-purple-700'
       }`}
     >
       <div className="text-3xl mb-2">{icon}</div>

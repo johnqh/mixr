@@ -30,7 +30,7 @@ export const Breadcrumb: FC<BreadcrumbProps> = ({ items, className = '' }) => {
             <li key={`${item.label}-${index}`} className="flex items-center">
               {index > 0 && (
                 <svg
-                  className="h-5 w-5 text-gray-400 mx-2"
+                  className="h-5 w-5 text-muted-foreground mx-2"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   aria-hidden="true"
@@ -41,7 +41,7 @@ export const Breadcrumb: FC<BreadcrumbProps> = ({ items, className = '' }) => {
 
               {isCurrent || !item.href ? (
                 <span
-                  className="text-gray-900 dark:text-white font-medium"
+                  className="text-foreground font-medium"
                   aria-current={isCurrent ? 'page' : undefined}
                 >
                   {item.label}
@@ -49,7 +49,7 @@ export const Breadcrumb: FC<BreadcrumbProps> = ({ items, className = '' }) => {
               ) : (
                 <button
                   onClick={() => item.href && navigate(item.href)}
-                  className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                  className="text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
                 >
                   {item.label}
                 </button>

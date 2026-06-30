@@ -43,7 +43,7 @@ export const ReviewForm: FC<ReviewFormProps> = ({
   }
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+    <div className="bg-muted rounded-lg p-6 border border-border">
       <h3 className="text-lg font-semibold mb-4">Rate this recipe</h3>
 
       <form onSubmit={handleSubmit} className="space-y-4" aria-label="Rate this recipe">
@@ -54,9 +54,7 @@ export const ReviewForm: FC<ReviewFormProps> = ({
           </label>
           <StarRating rating={rating} interactive onChange={setRating} size="lg" />
           {rating === 0 && (
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-              Click to rate this recipe
-            </p>
+            <p className="text-sm text-muted-foreground mt-1">Click to rate this recipe</p>
           )}
         </div>
 
@@ -83,19 +81,17 @@ export const ReviewForm: FC<ReviewFormProps> = ({
               placeholder="Share your experience with this recipe..."
               rows={4}
               maxLength={500}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+              className="w-full px-4 py-2 border border-input rounded-lg bg-card focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
             />
             <div className="flex justify-between items-center mt-1">
-              <p className="text-xs text-gray-500 dark:text-gray-400">
-                {review.length}/500 characters
-              </p>
+              <p className="text-xs text-muted-foreground">{review.length}/500 characters</p>
               <button
                 type="button"
                 onClick={() => {
                   setShowReviewInput(false);
                   setReview('');
                 }}
-                className="text-xs text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
+                className="text-xs text-muted-foreground hover:text-foreground"
               >
                 Remove review
               </button>
@@ -112,7 +108,7 @@ export const ReviewForm: FC<ReviewFormProps> = ({
               flex-1 px-6 py-3 rounded-lg font-medium transition-colors
               ${
                 rating === 0 || isSubmitting
-                  ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed'
+                  ? 'bg-muted text-muted-foreground cursor-not-allowed'
                   : 'bg-purple-600 text-white hover:bg-purple-700'
               }
             `}
@@ -135,7 +131,7 @@ export const ReviewForm: FC<ReviewFormProps> = ({
                 setReview('');
                 setShowReviewInput(false);
               }}
-              className="px-6 py-3 rounded-lg font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
+              className="px-6 py-3 rounded-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Cancel
             </button>

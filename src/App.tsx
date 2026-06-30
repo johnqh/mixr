@@ -15,7 +15,7 @@ import { AuthProviderWrapper } from './components/providers/AuthProviderWrapper'
 function LoadingFallback() {
   return (
     <div
-      className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900"
+      className="min-h-screen flex items-center justify-center bg-background"
       role="status"
       aria-label="Loading page"
     >

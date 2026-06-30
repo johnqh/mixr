@@ -362,7 +362,7 @@ export const PreferencesSelector: FC<PreferencesSelectorProps> = ({
           <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
             Welcome to {CONSTANTS.APP_NAME}!
           </h1>
-          <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
+          <p className="text-xl text-muted-foreground mb-8">
             Start with an equipment preset, or set up everything manually.
           </p>
 
@@ -371,16 +371,12 @@ export const PreferencesSelector: FC<PreferencesSelectorProps> = ({
               <button
                 key={key}
                 onClick={() => handlePresetSelect(key as keyof typeof PRESET_KITS)}
-                className="p-6 border-2 border-gray-200 dark:border-gray-700 rounded-lg hover:border-purple-500 dark:hover:border-purple-500 transition-colors text-left"
+                className="p-6 border-2 border-border rounded-lg hover:border-purple-500 dark:hover:border-purple-500 transition-colors text-left"
               >
                 <div className="text-3xl mb-3">{preset.icon}</div>
                 <h3 className="font-semibold text-lg mb-1">{preset.name}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                  {preset.description}
-                </p>
-                <p className="text-xs text-gray-500 dark:text-gray-500">
-                  {preset.equipment.length} items
-                </p>
+                <p className="text-sm text-muted-foreground mb-3">{preset.description}</p>
+                <p className="text-xs text-muted-foreground">{preset.equipment.length} items</p>
               </button>
             ))}
           </div>
@@ -395,7 +391,7 @@ export const PreferencesSelector: FC<PreferencesSelectorProps> = ({
           <div className="mt-6">
             <button
               onClick={handleSkipAll}
-              className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm"
+              className="text-muted-foreground hover:text-foreground text-sm"
             >
               Skip for now
             </button>
@@ -457,7 +453,7 @@ export const PreferencesSelector: FC<PreferencesSelectorProps> = ({
       <div className="mt-6 text-center">
         <button
           onClick={handleSkipAll}
-          className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm font-medium"
+          className="text-muted-foreground hover:text-foreground text-sm font-medium"
         >
           Skip for now
         </button>

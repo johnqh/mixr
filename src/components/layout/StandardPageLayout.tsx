@@ -126,10 +126,8 @@ export const StandardPageLayoutSection: FC<{
   <section className={`space-y-6 ${className}`}>
     {(title || subtitle) && (
       <div className="space-y-2">
-        {title && (
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">{title}</h2>
-        )}
-        {subtitle && <p className="text-lg text-gray-600 dark:text-gray-400">{subtitle}</p>}
+        {title && <h2 className="text-2xl sm:text-3xl font-bold text-foreground">{title}</h2>}
+        {subtitle && <p className="text-lg text-muted-foreground">{subtitle}</p>}
       </div>
     )}
     {children}

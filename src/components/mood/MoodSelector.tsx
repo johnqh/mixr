@@ -31,7 +31,7 @@ export const MoodSelector: FC<MoodSelectorProps> = ({
                 ${
                   isSelected
                     ? 'bg-gradient-to-br from-purple-500 to-pink-500 text-white shadow-lg scale-105'
-                    : 'bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-md hover:shadow-lg'
+                    : 'bg-card hover:bg-accent shadow-md hover:shadow-lg'
                 }
                 ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
               `}
@@ -43,7 +43,7 @@ export const MoodSelector: FC<MoodSelectorProps> = ({
               <span
                 className={`
                 text-sm font-medium text-center
-                ${isSelected ? 'text-white' : 'text-gray-700 dark:text-gray-300'}
+                ${isSelected ? 'text-white' : 'text-muted-foreground'}
               `}
               >
                 {mood.name}

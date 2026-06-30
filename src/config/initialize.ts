@@ -4,8 +4,14 @@
  */
 
 import { initializeWebApp } from '@sudobility/di_web';
+import { configureTheme } from '@sudobility/design';
+import { defaultTheme } from '@sudobility/design/themes';
 import { initWebVitals } from '../utils/webVitals';
 import { initializeI18n } from '../i18n';
+
+// Activate the @sudobility/design theme so its variants.*/ui.* helpers return
+// semantic token classes (bg-primary, text-foreground, ...) instead of legacy.
+configureTheme(defaultTheme);
 
 /**
  * Initialize all app services and singletons.

@@ -27,7 +27,7 @@ export const RecipeFilters: FC<RecipeFiltersProps> = ({ searchQuery, onSearchCha
             placeholder="Search recipes..."
             value={searchQuery}
             onChange={e => onSearchChange(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-4 py-2 border border-input rounded-lg bg-card focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
       </div>

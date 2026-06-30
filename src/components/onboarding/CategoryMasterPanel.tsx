@@ -43,7 +43,7 @@ export const CategoryMasterPanel: FC<CategoryMasterPanelProps> = ({
     <div className="space-y-4">
       {/* Equipment Section */}
       <div>
-        <div className="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+        <div className="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           Equipment
         </div>
         <div className="space-y-1">
@@ -66,7 +66,7 @@ export const CategoryMasterPanel: FC<CategoryMasterPanelProps> = ({
 
       {/* Ingredients Section */}
       <div>
-        <div className="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+        <div className="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           Ingredients
         </div>
         <div className="space-y-1">

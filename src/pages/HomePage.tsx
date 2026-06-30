@@ -71,7 +71,7 @@ export const HomePage: FC = () => {
               <div className="text-center py-12">
                 <div className="text-6xl mb-4">😕</div>
                 <h3 className="text-xl font-semibold mb-2">Failed to load recipes</h3>
-                <p className="text-gray-600 dark:text-gray-400">Please try again later</p>
+                <p className="text-muted-foreground">Please try again later</p>
               </div>
             ) : (
               <RecipeGrid
@@ -93,7 +93,7 @@ export const HomePage: FC = () => {
             <div className="text-center py-16">
               <div className="text-8xl mb-6">🔒</div>
               <h2 className="text-3xl font-bold mb-4">Sign in to see your recipes</h2>
-              <p className="text-gray-600 dark:text-gray-400 mb-8">
+              <p className="text-muted-foreground mb-8">
                 Track your favorite recipes and the ones you've created
               </p>
               <button
@@ -116,7 +116,7 @@ export const HomePage: FC = () => {
               <div className="text-center py-12">
                 <div className="text-6xl mb-4">😕</div>
                 <h3 className="text-xl font-semibold mb-2">Failed to load your recipes</h3>
-                <p className="text-gray-600 dark:text-gray-400">Please try again later</p>
+                <p className="text-muted-foreground">Please try again later</p>
               </div>
             ) : (
               <RecipeGrid
@@ -145,7 +145,7 @@ export const HomePage: FC = () => {
         })()}
       />
       {/* Tabs Section */}
-      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <div className="bg-card border-b border-border">
         <div className="container mx-auto px-4">
           <div className="flex gap-1" role="tablist" aria-label="Recipe sections">
             <button
@@ -155,8 +155,8 @@ export const HomePage: FC = () => {
               onClick={() => setActiveTab('browse')}
               className={`px-6 py-3 font-medium rounded-t-lg transition-colors ${
                 activeTab === 'browse'
-                  ? 'bg-gray-50 dark:bg-gray-900 text-purple-600 dark:text-purple-400'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400'
+                  ? 'bg-muted text-purple-600 dark:text-purple-400'
+                  : 'text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -179,8 +179,8 @@ export const HomePage: FC = () => {
               onClick={() => setActiveTab('generate')}
               className={`px-6 py-3 font-medium rounded-t-lg transition-colors ${
                 activeTab === 'generate'
-                  ? 'bg-gray-50 dark:bg-gray-900 text-purple-600 dark:text-purple-400'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400'
+                  ? 'bg-muted text-purple-600 dark:text-purple-400'
+                  : 'text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -203,8 +203,8 @@ export const HomePage: FC = () => {
               onClick={() => setActiveTab('my-recipes')}
               className={`px-6 py-3 font-medium rounded-t-lg transition-colors ${
                 activeTab === 'my-recipes'
-                  ? 'bg-gray-50 dark:bg-gray-900 text-purple-600 dark:text-purple-400'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400'
+                  ? 'bg-muted text-purple-600 dark:text-purple-400'
+                  : 'text-muted-foreground hover:text-purple-600 dark:hover:text-purple-400'
               }`}
             >
               <div className="flex items-center gap-2">

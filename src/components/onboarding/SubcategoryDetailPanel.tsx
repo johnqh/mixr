@@ -93,8 +93,8 @@ export const SubcategoryDetailPanel: FC<SubcategoryDetailPanelProps> = ({
       </div>
 
       {/* Bottom bar */}
-      <div className="mt-8 pt-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between">
-        <span className="text-sm text-gray-600 dark:text-gray-400">
+      <div className="mt-8 pt-4 border-t border-border flex items-center justify-between">
+        <span className="text-sm text-muted-foreground">
           {isNoneSelected ? 'None selected' : `${currentCategorySelectedCount} selected`}
         </span>
         <button
@@ -102,7 +102,7 @@ export const SubcategoryDetailPanel: FC<SubcategoryDetailPanelProps> = ({
           disabled={isNextDisabled}
           className={`px-6 py-2 rounded-lg font-medium transition-all ${
             isNextDisabled
-              ? 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
+              ? 'bg-muted text-muted-foreground cursor-not-allowed'
               : 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:opacity-90'
           }`}
         >

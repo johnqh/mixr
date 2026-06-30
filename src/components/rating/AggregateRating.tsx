@@ -17,17 +17,15 @@ export const AggregateRating: FC<AggregateRatingProps> = ({ aggregate }) => {
   const { average_rating, total_ratings, rating_distribution } = aggregate;
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+    <div className="bg-card rounded-lg p-6 shadow-sm border border-border">
       <h3 className="text-lg font-semibold mb-4">Community Rating</h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Overall Rating */}
         <div className="flex flex-col items-center justify-center">
-          <div className="text-5xl font-bold text-gray-900 dark:text-white mb-2">
-            {average_rating.toFixed(1)}
-          </div>
+          <div className="text-5xl font-bold text-foreground mb-2">{average_rating.toFixed(1)}</div>
           <StarRating rating={average_rating} size="lg" />
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+          <p className="text-sm text-muted-foreground mt-2">
             Based on {total_ratings.toLocaleString()} {total_ratings === 1 ? 'rating' : 'ratings'}
           </p>
         </div>
@@ -40,18 +38,16 @@ export const AggregateRating: FC<AggregateRatingProps> = ({ aggregate }) => {
 
             return (
               <div key={stars} className="flex items-center gap-3">
-                <span className="text-sm font-medium w-8 text-gray-700 dark:text-gray-300">
-                  {stars} ★
-                </span>
-                <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                <span className="text-sm font-medium w-8 text-muted-foreground">{stars} ★</span>
+                <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+                  {/* Decorative gold rating-bar fill matching the star color
+                      (rating-data visual, not a semantic warning accent). */}
                   <div
                     className="h-full bg-yellow-400 rounded-full transition-all duration-300"
                     style={{ width: `${percentage}%` }}
                   />
                 </div>
-                <span className="text-sm text-gray-600 dark:text-gray-400 w-12 text-right">
-                  {count}
-                </span>
+                <span className="text-sm text-muted-foreground w-12 text-right">{count}</span>
               </div>
             );
           })}

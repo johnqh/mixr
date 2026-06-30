@@ -67,14 +67,12 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
             <div className="text-6xl mb-4" aria-hidden="true">
               &#x26A0;&#xFE0F;
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-              Something went wrong
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Something went wrong</h2>
+            <p className="text-muted-foreground mb-6">
               An unexpected error occurred. Please try again.
             </p>
             {this.state.error && (
-              <p className="text-sm text-red-600 dark:text-red-400 mb-6 font-mono bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
+              <p className="text-sm text-destructive mb-6 font-mono bg-destructive/10 p-3 rounded-lg">
                 {this.state.error.message}
               </p>
             )}

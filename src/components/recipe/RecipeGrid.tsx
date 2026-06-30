@@ -49,9 +49,7 @@ export const RecipeGrid: FC<RecipeGridProps> = ({
       <div className="text-center py-12">
         <div className="text-6xl mb-4">🍸</div>
         <h3 className="text-xl font-semibold mb-2">No recipes found</h3>
-        <p className="text-gray-600 dark:text-gray-400">
-          Try adjusting your filters or check back later
-        </p>
+        <p className="text-muted-foreground">Try adjusting your filters or check back later</p>
       </div>
     );
   }

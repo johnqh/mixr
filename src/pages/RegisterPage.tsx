@@ -74,20 +74,20 @@ export const RegisterPage: FC = () => {
                 {CONSTANTS.APP_NAME}
               </h1>
             </Link>
-            <p className="mt-2 text-gray-600 dark:text-gray-400">
+            <p className="mt-2 text-muted-foreground">
               Join {CONSTANTS.APP_NAME} to create amazing cocktails
             </p>
           </div>
 
           {/* Register Card */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+          <div className="bg-card rounded-2xl shadow-xl p-8">
             {/* Error Message */}
             {error && (
               <div
                 role="alert"
-                className="mb-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4"
+                className="mb-6 bg-destructive/10 border border-destructive/30 rounded-lg p-4"
               >
-                <p className="text-sm text-red-800 dark:text-red-400">{error}</p>
+                <p className="text-sm text-destructive">{error}</p>
               </div>
             )}
 
@@ -95,7 +95,7 @@ export const RegisterPage: FC = () => {
             <button
               onClick={handleGoogleSignUp}
               disabled={isLoading}
-              className="w-full flex items-center justify-center gap-3 px-6 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full flex items-center justify-center gap-3 px-6 py-3 border-2 border-border rounded-lg hover:bg-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24">
                 <path
@@ -121,12 +121,10 @@ export const RegisterPage: FC = () => {
             {/* Divider */}
             <div className="relative my-6">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
+                <div className="w-full border-t border-border"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">
-                  Or sign up with email
-                </span>
+                <span className="px-4 bg-card text-muted-foreground">Or sign up with email</span>
               </div>
             </div>
 
@@ -142,7 +140,7 @@ export const RegisterPage: FC = () => {
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 border border-input rounded-lg bg-card focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="you@example.com"
                 />
               </div>
@@ -158,7 +156,7 @@ export const RegisterPage: FC = () => {
                   onChange={e => setPassword(e.target.value)}
                   required
                   minLength={6}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 border border-input rounded-lg bg-card focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="At least 6 characters"
                 />
               </div>
@@ -174,7 +172,7 @@ export const RegisterPage: FC = () => {
                   onChange={e => setConfirmPassword(e.target.value)}
                   required
                   minLength={6}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 border border-input rounded-lg bg-card focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="Confirm your password"
                 />
               </div>
@@ -196,7 +194,7 @@ export const RegisterPage: FC = () => {
             </form>
 
             {/* Sign In Link */}
-            <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
+            <p className="mt-6 text-center text-sm text-muted-foreground">
               Already have an account?{' '}
               <Link
                 to="/login"
@@ -209,10 +207,7 @@ export const RegisterPage: FC = () => {
 
           {/* Back to Home */}
           <div className="mt-6 text-center">
-            <Link
-              to="/"
-              className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
-            >
+            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground">
               ← Back to home
             </Link>
           </div>

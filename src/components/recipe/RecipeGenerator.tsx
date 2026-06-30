@@ -98,7 +98,7 @@ export const RecipeGenerator: FC = () => {
       <div className="text-center py-16">
         <div className="text-8xl mb-6">🔒</div>
         <h2 className="text-3xl font-bold mb-4">Sign in to generate recipes</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-8">
+        <p className="text-muted-foreground mb-8">
           Create an account to generate personalized cocktail recipes based on your mood
         </p>
         <button
@@ -127,7 +127,7 @@ export const RecipeGenerator: FC = () => {
                 w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-colors
                 ${i < stepIndex ? 'bg-purple-600 text-white cursor-pointer hover:bg-purple-700' : ''}
                 ${i === stepIndex ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white' : ''}
-                ${i > stepIndex ? 'bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-default' : ''}
+                ${i > stepIndex ? 'bg-muted text-muted-foreground cursor-default' : ''}
               `}
             >
               {i < stepIndex ? '✓' : i + 1}
@@ -135,7 +135,7 @@ export const RecipeGenerator: FC = () => {
             {i < STEPS.length - 1 && (
               <div
                 className={`w-12 sm:w-20 h-1 rounded ${
-                  i < stepIndex ? 'bg-purple-600' : 'bg-gray-200 dark:bg-gray-700'
+                  i < stepIndex ? 'bg-purple-600' : 'bg-muted'
                 }`}
               />
             )}
@@ -147,11 +147,11 @@ export const RecipeGenerator: FC = () => {
       <div className="text-center">
         <div className="text-6xl mb-4">{config.icon}</div>
         <h2 className="text-3xl font-bold mb-3">{config.title}</h2>
-        <p className="text-gray-600 dark:text-gray-400 text-lg">{config.subtitle}</p>
+        <p className="text-muted-foreground text-lg">{config.subtitle}</p>
       </div>
 
       {/* Step Content */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+      <div className="bg-card rounded-lg shadow-lg p-6">
         {currentStep === 'mood' && (
           <MoodSelector
             moods={moods}
@@ -178,10 +178,10 @@ export const RecipeGenerator: FC = () => {
 
       {/* Error Message */}
       {error && (
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
+        <div className="bg-destructive/10 border border-destructive/30 rounded-lg p-4">
           <div className="flex items-start gap-3">
             <svg
-              className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5"
+              className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -192,10 +192,8 @@ export const RecipeGenerator: FC = () => {
               />
             </svg>
             <div className="flex-1">
-              <h3 className="text-sm font-medium text-red-800 dark:text-red-400">
-                Generation failed
-              </h3>
-              <p className="text-sm text-red-700 dark:text-red-300 mt-1">
+              <h3 className="text-sm font-medium text-destructive">Generation failed</h3>
+              <p className="text-sm text-destructive mt-1">
                 {error instanceof Error
                   ? error.message
                   : 'Failed to generate recipe. Please try again.'}
@@ -211,11 +209,7 @@ export const RecipeGenerator: FC = () => {
           onClick={handleBack}
           className={`
             px-6 py-3 rounded-lg font-medium transition-colors
-            ${
-              stepIndex === 0
-                ? 'invisible'
-                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
-            }
+            ${stepIndex === 0 ? 'invisible' : 'bg-muted text-muted-foreground hover:bg-accent'}
           `}
         >
           Back
@@ -228,7 +222,7 @@ export const RecipeGenerator: FC = () => {
             px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-200
             ${
               !canProceed() || isGenerating
-                ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed'
+                ? 'bg-muted text-muted-foreground cursor-not-allowed'
                 : 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 shadow-lg hover:shadow-xl'
             }
           `}

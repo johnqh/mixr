@@ -38,31 +38,29 @@ export const SettingsPage: FC = () => {
 
         <div className="space-y-6">
           {/* Account Section */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <div className="bg-card rounded-lg shadow-sm border border-border p-6">
             <h2 className="text-xl font-semibold mb-4">Account</h2>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-sm font-medium text-muted-foreground mb-1">
                   Email
                 </label>
-                <p className="text-gray-900 dark:text-white">{user.email}</p>
+                <p className="text-foreground">{user.email}</p>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-sm font-medium text-muted-foreground mb-1">
                   User ID
                 </label>
-                <p className="text-sm text-gray-600 dark:text-gray-400 font-mono">{user.uid}</p>
+                <p className="text-sm text-muted-foreground font-mono">{user.uid}</p>
               </div>
             </div>
           </div>
 
           {/* Appearance Section */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <div className="bg-card rounded-lg shadow-sm border border-border p-6">
             <h2 className="text-xl font-semibold mb-4">Appearance</h2>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-                Theme
-              </label>
+              <label className="block text-sm font-medium text-muted-foreground mb-3">Theme</label>
               <div className="grid grid-cols-3 gap-3">
                 <button
                   onClick={() => setTheme(Theme.LIGHT)}
@@ -71,7 +69,7 @@ export const SettingsPage: FC = () => {
                       ${
                         theme === Theme.LIGHT
                           ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/20'
-                          : 'border-gray-300 dark:border-gray-600 hover:border-purple-400'
+                          : 'border-border hover:border-purple-400'
                       }
                     `}
                 >
@@ -95,7 +93,7 @@ export const SettingsPage: FC = () => {
                       ${
                         theme === Theme.DARK
                           ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/20'
-                          : 'border-gray-300 dark:border-gray-600 hover:border-purple-400'
+                          : 'border-border hover:border-purple-400'
                       }
                     `}
                 >
@@ -119,7 +117,7 @@ export const SettingsPage: FC = () => {
                       ${
                         theme === Theme.SYSTEM
                           ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/20'
-                          : 'border-gray-300 dark:border-gray-600 hover:border-purple-400'
+                          : 'border-border hover:border-purple-400'
                       }
                     `}
                 >
@@ -140,12 +138,12 @@ export const SettingsPage: FC = () => {
           </div>
 
           {/* Preferences Section */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <div className="bg-card rounded-lg shadow-sm border border-border p-6">
             <h2 className="text-xl font-semibold mb-4">Preferences</h2>
             <div className="space-y-4">
               <button
                 onClick={() => navigate('/onboarding')}
-                className="w-full flex items-center justify-between px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                className="w-full flex items-center justify-between px-4 py-3 border border-border rounded-lg hover:bg-accent transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -164,13 +162,11 @@ export const SettingsPage: FC = () => {
                   </svg>
                   <div className="text-left">
                     <p className="font-medium">Update Equipment & Ingredients</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Manage your bar setup
-                    </p>
+                    <p className="text-sm text-muted-foreground">Manage your bar setup</p>
                   </div>
                 </div>
                 <svg
-                  className="w-5 h-5 text-gray-400"
+                  className="w-5 h-5 text-muted-foreground"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -187,13 +183,11 @@ export const SettingsPage: FC = () => {
           </div>
 
           {/* Danger Zone */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-red-200 dark:border-red-800 p-6">
-            <h2 className="text-xl font-semibold text-red-600 dark:text-red-400 mb-4">
-              Danger Zone
-            </h2>
+          <div className="bg-card rounded-lg shadow-sm border border-destructive/30 p-6">
+            <h2 className="text-xl font-semibold text-destructive mb-4">Danger Zone</h2>
             <button
               onClick={handleSignOut}
-              className="w-full px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium"
+              className="w-full px-6 py-3 bg-destructive text-destructive-foreground rounded-lg hover:bg-destructive/90 transition-colors font-medium"
             >
               Sign Out
             </button>

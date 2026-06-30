@@ -50,10 +50,10 @@ export const OnboardingWizard: FC<OnboardingWizardProps> = ({
           <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
             Welcome to {CONSTANTS.APP_NAME}! 🍹
           </h1>
-          <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
+          <p className="text-xl text-muted-foreground mb-8">
             Let's set up your home bar so we can recommend the perfect cocktails for you.
           </p>
-          <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-lg mb-8">
+          <div className="bg-card rounded-lg p-8 shadow-lg mb-8">
             <h2 className="text-2xl font-semibold mb-4">What we'll do:</h2>
             <div className="space-y-4 text-left">
               <div className="flex items-start">
@@ -62,9 +62,7 @@ export const OnboardingWizard: FC<OnboardingWizardProps> = ({
                 </div>
                 <div>
                   <h3 className="font-semibold">Set up your equipment</h3>
-                  <p className="text-gray-600 dark:text-gray-400">
-                    Tell us what bar tools you have available
-                  </p>
+                  <p className="text-muted-foreground">Tell us what bar tools you have available</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -73,7 +71,7 @@ export const OnboardingWizard: FC<OnboardingWizardProps> = ({
                 </div>
                 <div>
                   <h3 className="font-semibold">Choose your ingredients</h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-muted-foreground">
                     Select the spirits and mixers you have on hand
                   </p>
                 </div>
@@ -84,9 +82,7 @@ export const OnboardingWizard: FC<OnboardingWizardProps> = ({
                 </div>
                 <div>
                   <h3 className="font-semibold">Start mixing!</h3>
-                  <p className="text-gray-600 dark:text-gray-400">
-                    Get personalized cocktail recommendations
-                  </p>
+                  <p className="text-muted-foreground">Get personalized cocktail recommendations</p>
                 </div>
               </div>
             </div>
@@ -120,7 +116,7 @@ export const OnboardingWizard: FC<OnboardingWizardProps> = ({
       <div className="max-w-4xl mx-auto mt-8 flex justify-between items-center">
         <button
           onClick={handleSkip}
-          className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 font-medium"
+          className="text-muted-foreground hover:text-foreground font-medium"
         >
           Skip for now
         </button>
@@ -128,7 +124,7 @@ export const OnboardingWizard: FC<OnboardingWizardProps> = ({
           {currentStep > 1 && (
             <button
               onClick={handleBack}
-              className="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 font-medium"
+              className="px-6 py-2 border border-border rounded-lg hover:bg-accent font-medium"
             >
               Back
             </button>

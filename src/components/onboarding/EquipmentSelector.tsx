@@ -91,10 +91,10 @@ export const EquipmentSelector: FC<EquipmentSelectorProps> = ({
             <button
               key={key}
               onClick={() => selectPreset(key as keyof typeof PRESET_KITS)}
-              className="p-4 border-2 border-gray-200 dark:border-gray-700 rounded-lg hover:border-purple-500 dark:hover:border-purple-500 transition-colors text-left"
+              className="p-4 border-2 border-border rounded-lg hover:border-purple-500 dark:hover:border-purple-500 transition-colors text-left"
             >
               <h4 className="font-semibold mb-1">{preset.name}</h4>
-              <p className="text-sm text-gray-600 dark:text-gray-400">{preset.description}</p>
+              <p className="text-sm text-muted-foreground">{preset.description}</p>
             </button>
           ))}
         </div>
@@ -110,7 +110,7 @@ export const EquipmentSelector: FC<EquipmentSelectorProps> = ({
               className={`px-4 py-2 rounded-full font-medium transition-colors ${
                 selectedSubcategory === undefined
                   ? 'bg-purple-600 text-white'
-                  : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'
+                  : 'bg-muted hover:bg-accent'
               }`}
             >
               All
@@ -122,7 +122,7 @@ export const EquipmentSelector: FC<EquipmentSelectorProps> = ({
                 className={`px-4 py-2 rounded-full font-medium transition-colors capitalize ${
                   selectedSubcategory === subcategory
                     ? 'bg-purple-600 text-white'
-                    : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'
+                    : 'bg-muted hover:bg-accent'
                 }`}
               >
                 {subcategory}
@@ -145,7 +145,7 @@ export const EquipmentSelector: FC<EquipmentSelectorProps> = ({
               className={`p-4 border-2 rounded-lg transition-all ${
                 selectedIds.includes(item.id)
                   ? 'border-purple-600 bg-purple-50 dark:bg-purple-900/20'
-                  : 'border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-700'
+                  : 'border-border hover:border-purple-300 dark:hover:border-purple-700'
               }`}
             >
               <div className="text-3xl mb-2">{item.icon || '🍸'}</div>

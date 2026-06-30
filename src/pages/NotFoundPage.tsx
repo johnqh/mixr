@@ -16,24 +16,20 @@ export const NotFoundPage: FC = () => {
         noIndex
       />
 
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
         <div className="text-center max-w-md">
           <div className="mb-8">
             <div className="text-9xl mb-4">🍸</div>
-            <h1 className="text-6xl font-bold text-gray-900 dark:text-white mb-2">
-              {t('heading')}
-            </h1>
-            <p className="text-2xl font-semibold text-gray-700 dark:text-gray-300">
-              {t('subheading')}
-            </p>
+            <h1 className="text-6xl font-bold text-foreground mb-2">{t('heading')}</h1>
+            <p className="text-2xl font-semibold text-muted-foreground">{t('subheading')}</p>
           </div>
 
-          <p className="text-gray-600 dark:text-gray-400 mb-8">{t('description')}</p>
+          <p className="text-muted-foreground mb-8">{t('description')}</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => navigate(-1)}
-              className="px-6 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium"
+              className="px-6 py-3 border-2 border-border text-muted-foreground rounded-lg hover:bg-accent transition-colors font-medium"
             >
               {t('goBack')}
             </button>
@@ -45,8 +41,8 @@ export const NotFoundPage: FC = () => {
             </Link>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{t('tryTheseLabel')}</p>
+          <div className="mt-12 pt-8 border-t border-border">
+            <p className="text-sm text-muted-foreground mb-4">{t('tryTheseLabel')}</p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <Link to="/" className="text-purple-600 dark:text-purple-400 hover:underline">
                 {t('links.home')}
