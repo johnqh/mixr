@@ -1,11 +1,11 @@
 import { FC, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocalizedNavigate } from '@sudobility/components';
 import { PreferencesSelector } from '../components/onboarding/PreferencesSelector';
 import { SEOHead } from '@sudobility/seo_lib';
 import { CONSTANTS } from '../config/constants';
 
 const OnboardingPage: FC = () => {
-  const navigate = useNavigate();
+  const { navigate } = useLocalizedNavigate();
   const [equipmentIds, setEquipmentIds] = useState<number[]>([]);
   const [ingredientIds, setIngredientIds] = useState<number[]>([]);
 

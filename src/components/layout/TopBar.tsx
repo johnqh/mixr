@@ -1,5 +1,5 @@
 import { useMemo, type ComponentType } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useLocalizedNavigate, LocalizedLink } from '@sudobility/components';
 import {
   type MenuItemConfig,
   type AuthMenuItem,
@@ -81,16 +81,16 @@ const linkWrapper = ({
   children: React.ReactNode;
   className?: string;
 }) => (
-  <Link to={href} className={className}>
+  <LocalizedLink to={href} className={className}>
     {children}
-  </Link>
+  </LocalizedLink>
 );
 
 /**
  * Hook returning TopBar configuration for AppPageLayout.
  */
 export function useTopBarConfig(): TopBarConfig {
-  const navigate = useNavigate();
+  const { navigate } = useLocalizedNavigate();
   const { user } = useAuthStatus();
 
   const isAuthenticated = !!user;

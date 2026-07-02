@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocalizedNavigate } from '@sudobility/components';
 import { useMoods } from '../../hooks/useMoods';
 import { useGenerateRecipe } from '../../hooks/useGenerateRecipe';
 import { useAuth } from '../../context/AuthContext';
@@ -30,7 +30,7 @@ const STEP_CONFIG: Record<Step, { title: string; subtitle: string; icon: string 
 };
 
 export const RecipeGenerator: FC = () => {
-  const navigate = useNavigate();
+  const { navigate } = useLocalizedNavigate();
   const { user } = useAuth();
   const [currentStep, setCurrentStep] = useState<Step>('mood');
   const [selectedMoodId, setSelectedMoodId] = useState<number | null>(null);

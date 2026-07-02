@@ -1,12 +1,11 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Section } from '@sudobility/components';
+import { Section, useLocalizedNavigate } from '@sudobility/components';
 import { SEOHead, buildHowToSchema } from '@sudobility/seo_lib';
 import { CONSTANTS } from '../config/constants';
 
 const LandingPage: FC = () => {
-  const navigate = useNavigate();
+  const { navigate } = useLocalizedNavigate();
   const { t } = useTranslation('landingPage');
   const { t: tHowTo } = useTranslation('howto');
 

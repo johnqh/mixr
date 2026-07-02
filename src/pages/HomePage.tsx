@@ -1,5 +1,5 @@
 import { FC, useState, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocalizedNavigate } from '@sudobility/components';
 import { useInfiniteRecipes } from '../hooks/useRecipes';
 import { useInfiniteUserRecipes } from '../hooks/useUserRecipes';
 import { RecipeGrid } from '../components/recipe/RecipeGrid';
@@ -13,7 +13,7 @@ import { CONSTANTS } from '../config/constants';
 type Tab = 'browse' | 'generate' | 'my-recipes';
 
 export const HomePage: FC = () => {
-  const navigate = useNavigate();
+  const { navigate } = useLocalizedNavigate();
   const { user } = useAuth();
   const { t } = useTranslation('homePage');
   const [activeTab, setActiveTab] = useState<Tab>('browse');

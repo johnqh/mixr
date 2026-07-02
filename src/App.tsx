@@ -1,9 +1,11 @@
 import { type ReactNode, lazy, Suspense } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import { SudobilityAppWithFirebaseAuth } from '@sudobility/building_blocks/firebase';
+import { LanguageValidator, LanguageRedirect } from '@sudobility/components';
 import { SEOHeadProvider } from '@sudobility/seo_lib';
 import i18n from './i18n';
 import { seoHeadConfig } from './config/seo';
+import { isLanguageSupported } from './config/languages';
 import { AuthProvider } from './context/AuthContext';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import { ErrorBoundary } from './components/ErrorBoundary';
@@ -68,25 +70,61 @@ function AppRoutes() {
     <ErrorBoundary>
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
-          <Route element={<ScreenContainerLayout />}>
-            {/* Public routes */}
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/recipes" element={<HomePage />} />
-            <Route path="/recipes/:id" element={<RecipeDetailPage />} />
-            {/* Protected routes */}
-            <Route element={<ProtectedRoute />}>
-              <Route path="/settings" element={<SettingsPage />} />
+          {/* Language-prefixed routes. The app is English-only, but routes stay
+              under /:lang so the client URLs match the sitemap (/en, /en/recipes),
+              the seo_lib canonical/hreflang, and the request-time prerender. */}
+          <Route
+            path="/:lang"
+            element={
+              <LanguageValidator
+                isLanguageSupported={isLanguageSupported}
+                defaultLanguage="en"
+                storageKey="language"
+              />
+            }
+          >
+            <Route element={<ScreenContainerLayout />}>
+              {/* Public routes */}
+              <Route index element={<LandingPage />} />
+              <Route path="recipes" element={<HomePage />} />
+              <Route path="recipes/:id" element={<RecipeDetailPage />} />
+              {/* Protected routes */}
+              <Route element={<ProtectedRoute />}>
+                <Route path="settings" element={<SettingsPage />} />
+              </Route>
+              {/* 404 within a language */}
+              <Route path="*" element={<NotFoundPage />} />
             </Route>
-            {/* 404 */}
-            <Route path="*" element={<NotFoundPage />} />
+
+            {/* Full-screen pages outside layout */}
+            <Route path="login" element={<LoginPage />} />
+            <Route path="register" element={<RegisterPage />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="onboarding" element={<OnboardingPage />} />
+            </Route>
           </Route>
 
-          {/* Full-screen pages outside layout */}
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route element={<ProtectedRoute />}>
-            <Route path="/onboarding" element={<OnboardingPage />} />
-          </Route>
+          {/* Root and any non-prefixed path: detect language and redirect to /:lang. */}
+          <Route
+            path="/"
+            element={
+              <LanguageRedirect
+                isLanguageSupported={isLanguageSupported}
+                defaultLanguage="en"
+                storageKey="language"
+              />
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <LanguageRedirect
+                isLanguageSupported={isLanguageSupported}
+                defaultLanguage="en"
+                storageKey="language"
+              />
+            }
+          />
         </Routes>
       </Suspense>
     </ErrorBoundary>

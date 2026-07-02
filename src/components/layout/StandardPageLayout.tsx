@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import { LocalizedLink } from '@sudobility/components';
 import { AppPageLayout } from '@sudobility/building_blocks';
 import { useTopBarConfig } from './TopBar';
 import { useFooterConfig } from './Footer';
@@ -50,9 +50,9 @@ const linkWrapper = ({
   children: React.ReactNode;
   className?: string;
 }) => (
-  <Link to={href} className={className}>
+  <LocalizedLink to={href} className={className}>
     {children}
-  </Link>
+  </LocalizedLink>
 );
 
 export const StandardPageLayout: FC<StandardPageLayoutProps> = ({

@@ -1,5 +1,5 @@
 import { FC, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocalizedNavigate } from '@sudobility/components';
 import { Recipe } from '@sudobility/mixr_client';
 import { RecipeCard } from './RecipeCard';
 
@@ -16,7 +16,7 @@ export const RecipeGrid: FC<RecipeGridProps> = ({
   isFetchingNextPage,
   fetchNextPage,
 }) => {
-  const navigate = useNavigate();
+  const { navigate } = useLocalizedNavigate();
   const observerTarget = useRef<HTMLDivElement>(null);
 
   // Infinite scroll observer

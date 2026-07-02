@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useLocalizedNavigate, LocalizedLink } from '@sudobility/components';
 import { useTranslation } from 'react-i18next';
 import { SEOHead } from '@sudobility/seo_lib';
 import { CONSTANTS } from '../config/constants';
 
 export const NotFoundPage: FC = () => {
-  const navigate = useNavigate();
+  const { navigate } = useLocalizedNavigate();
   const { t } = useTranslation('notFoundPage');
 
   return (
@@ -33,26 +33,35 @@ export const NotFoundPage: FC = () => {
             >
               {t('goBack')}
             </button>
-            <Link
+            <LocalizedLink
               to="/recipes"
               className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-colors font-medium"
             >
               {t('browseRecipes')}
-            </Link>
+            </LocalizedLink>
           </div>
 
           <div className="mt-12 pt-8 border-t border-border">
             <p className="text-sm text-muted-foreground mb-4">{t('tryTheseLabel')}</p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <Link to="/" className="text-purple-600 dark:text-purple-400 hover:underline">
+              <LocalizedLink
+                to="/"
+                className="text-purple-600 dark:text-purple-400 hover:underline"
+              >
                 {t('links.home')}
-              </Link>
-              <Link to="/recipes" className="text-purple-600 dark:text-purple-400 hover:underline">
+              </LocalizedLink>
+              <LocalizedLink
+                to="/recipes"
+                className="text-purple-600 dark:text-purple-400 hover:underline"
+              >
                 {t('links.recipes')}
-              </Link>
-              <Link to="/login" className="text-purple-600 dark:text-purple-400 hover:underline">
+              </LocalizedLink>
+              <LocalizedLink
+                to="/login"
+                className="text-purple-600 dark:text-purple-400 hover:underline"
+              >
                 {t('links.signIn')}
-              </Link>
+              </LocalizedLink>
             </div>
           </div>
         </div>

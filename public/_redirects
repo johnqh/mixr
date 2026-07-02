@@ -1,5 +1,20 @@
-# Serve pre-rendered HTML for SEO routes (takes priority over SPA fallback)
-/:lang/recipes /:lang/recipes/index.html 200
+# MIXR uses language-prefixed client routes (/en, /en/recipes, …), matching the
+# sitemap <loc>s, the seo_lib canonical/hreflang, and the request-time prerender.
+#
+# Canonical language entry point (no trailing slash — source of truth). The app
+# is English-only, so the root always resolves to /en.
+/ /en 308
 
-# SPA fallback for all other routes
+# Legacy non-prefixed paths -> /en/* so old links/bookmarks don't 404.
+/recipes /en/recipes 301
+/login /en/login 301
+/register /en/register 301
+/settings /en/settings 301
+/onboarding /en/onboarding 301
+
+# SPA fallback for all other routes.
+# Document routes with a committed snapshot in /html are handled earlier by
+# functions/_middleware.js (it injects the snapshot into the live index.html);
+# build-time generated /en/* SEO files and everything else fall through to the
+# per-route static file or the SPA below.
 /* /index.html 200

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocalizedNavigate } from '@sudobility/components';
 import { useAuth } from '../context/AuthContext';
 import { useTheme, Theme } from '../context/ThemeContext';
 import { useTranslation } from 'react-i18next';
@@ -7,7 +7,7 @@ import { SEOHead } from '@sudobility/seo_lib';
 import { CONSTANTS } from '../config/constants';
 
 export const SettingsPage: FC = () => {
-  const navigate = useNavigate();
+  const { navigate } = useLocalizedNavigate();
   const { t } = useTranslation('settingsPage');
   const { user, signOut } = useAuth();
   const { theme, setTheme } = useTheme();

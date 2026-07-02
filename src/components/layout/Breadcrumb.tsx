@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocalizedNavigate } from '@sudobility/components';
 
 export interface BreadcrumbItem {
   label: string;
@@ -13,7 +13,7 @@ interface BreadcrumbProps {
 }
 
 export const Breadcrumb: FC<BreadcrumbProps> = ({ items, className = '' }) => {
-  const navigate = useNavigate();
+  const { navigate } = useLocalizedNavigate();
 
   if (!items || items.length === 0) {
     return null;

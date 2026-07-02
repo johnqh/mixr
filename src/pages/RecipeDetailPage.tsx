@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useRecipeById } from '../hooks/useRecipes';
 import { useAuth } from '../context/AuthContext';
 import { useRecipeRatings, useRecipeRatingAggregate, useSubmitRating } from '../hooks/useRatings';
@@ -7,13 +7,13 @@ import { ReviewForm } from '../components/rating/ReviewForm';
 import { ReviewList } from '../components/rating/ReviewList';
 import { AggregateRating } from '../components/rating/AggregateRating';
 import { useTranslation } from 'react-i18next';
-import { Section } from '@sudobility/components';
+import { Section, useLocalizedNavigate } from '@sudobility/components';
 import { SEOHead } from '@sudobility/seo_lib';
 import { CONSTANTS } from '../config/constants';
 
 export const RecipeDetailPage: FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
+  const { navigate } = useLocalizedNavigate();
   const { user } = useAuth();
   const recipeId = Number(id);
 

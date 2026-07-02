@@ -9,13 +9,15 @@ vi.mock('../../context/AuthContext', () => ({
   useAuth: () => mockUseAuth(),
 }));
 
-function renderWithRouter(initialPath = '/protected') {
+// Routes are language-prefixed (/:lang); ProtectedRoute redirects to
+// /<lang>/login when unauthenticated (via addLanguageToPath).
+function renderWithRouter(initialPath = '/en/protected') {
   return render(
     <MemoryRouter initialEntries={[initialPath]}>
       <Routes>
-        <Route path="/login" element={<div>Login Page</div>} />
+        <Route path="/:lang/login" element={<div>Login Page</div>} />
         <Route element={<ProtectedRoute />}>
-          <Route path="/protected" element={<div>Protected Content</div>} />
+          <Route path="/:lang/protected" element={<div>Protected Content</div>} />
         </Route>
       </Routes>
     </MemoryRouter>

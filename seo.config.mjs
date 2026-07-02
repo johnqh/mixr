@@ -21,6 +21,9 @@ export default {
   primaryDomain: 'mixr.app',
   appName: APP_NAME,
   appDomain: process.env.VITE_APP_DOMAIN || 'mixr.app',
+  // Canonical URLs have NO trailing slash (source of truth). v2 defaults to
+  // true; pin false to match seo_lib runtime canonical and the middleware 301.
+  trailingSlashUrls: false,
   robotsDisallowPaths: ['/login', '/register', '/settings', '/onboarding'],
 
   stripPatterns: [

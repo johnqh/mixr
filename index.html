@@ -46,7 +46,8 @@
       content="Discover and create cocktail recipes with AI-powered mixology. Generate unique drink recipes, browse community cocktails, and master the art of mixing."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://{{VITE_APP_DOMAIN}}/" />
+    <!-- No canonical / og:url / hreflang here: PAGE-SPECIFIC, supplied per-route
+         at build time by seo:generate and at request time by the middleware. -->
     <meta property="og:site_name" content="MIXR" />
     <meta property="og:locale" content="en_US" />
 
@@ -71,7 +72,7 @@
         "operatingSystem": "Web",
         "inLanguage": ["en"],
         "datePublished": "2025-01-01",
-        "dateModified": "2026-07-01",
+        "dateModified": "2026-07-02",
         "isAccessibleForFree": true,
         "offers": {
           "@type": "Offer",

@@ -106,21 +106,29 @@ bun run seo:fetch    # Download generate-seo-assets.mjs from workflows repo
 
 ## Routing
 
-| Path           | Page                                  | Auth Required               |
-| -------------- | ------------------------------------- | --------------------------- |
-| `/`            | Landing                               | No                          |
-| `/login`       | Login                                 | No                          |
-| `/register`    | Register                              | No                          |
-| `/recipes`     | Home (Browse/Generate/MyRecipes tabs) | No (Generate requires auth) |
-| `/recipes/:id` | Recipe Detail                         | No                          |
-| `/onboarding`  | Preferences Setup                     | Yes                         |
-| `/settings`    | Account Settings                      | Yes                         |
+Routes are **language-prefixed** under `/:lang` (English-only today, but the
+prefix is always present so client URLs match the sitemap `<loc>`s, the seo_lib
+canonical/hreflang, and the request-time prerender). `/` redirects to `/en` (via
+`LanguageRedirect` client-side and `/ /en 308` in `public/_redirects`).
+`@sudobility/components` provides `LanguageValidator` (wraps `/:lang`),
+`LanguageRedirect`, `LocalizedLink`, and `useLocalizedNavigate` — always use the
+latter two for internal navigation so the language prefix is added automatically.
+
+| Path               | Page                                  | Auth Required               |
+| ------------------ | ------------------------------------- | --------------------------- |
+| `/:lang`           | Landing                               | No                          |
+| `/:lang/login`     | Login                                 | No                          |
+| `/:lang/register`  | Register                              | No                          |
+| `/:lang/recipes`   | Home (Browse/Generate/MyRecipes tabs) | No (Generate requires auth) |
+| `/:lang/recipes/:id` | Recipe Detail                       | No                          |
+| `/:lang/onboarding`| Preferences Setup                     | Yes                         |
+| `/:lang/settings`  | Account Settings                      | Yes                         |
 
 ## SEO
 
 SEO assets (per-route `index.html` files, `sitemap.xml`, `robots.txt`) are generated at build time by `generate-seo-assets.mjs` (fetched from `@johnqh/workflows`). Configuration lives in `seo.config.mjs` at the project root.
 
-**Single-language app**: MIXR supports English only (`supportedLanguages: ['en']`). Routes are **not** language-prefixed (e.g., `/recipes`, not `/en/recipes`). The SEO engine generates files under `/en/` paths (e.g., `/en/recipes/index.html`).
+**Single-language app**: MIXR supports English only (`supportedLanguages: ['en']`), but routes **are** language-prefixed (`/en/recipes`, not `/recipes`) so the client routes, sitemap `<loc>`s, seo_lib canonical/hreflang, and the prerender all agree. The SEO engine generates files under `/en/` paths (e.g., `/en/recipes/index.html`).
 
 **Build pipeline**: The `build` script runs the SEO generator twice:
 1. `node /tmp/generate-seo-assets.mjs public` -- generates SEO assets into `public/` (pre-build, so Vite copies them)

@@ -1,12 +1,12 @@
 import { FC, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useLocalizedNavigate, LocalizedLink } from '@sudobility/components';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import { SEOHead } from '@sudobility/seo_lib';
 import { CONSTANTS } from '../config/constants';
 
 export const LoginPage: FC = () => {
-  const navigate = useNavigate();
+  const { navigate } = useLocalizedNavigate();
   const { t } = useTranslation('loginPage');
   const { signIn, signInWithGoogle } = useAuth();
   const [email, setEmail] = useState('');
@@ -55,12 +55,12 @@ export const LoginPage: FC = () => {
         <div className="w-full max-w-md">
           {/* Logo */}
           <div className="text-center mb-8">
-            <Link to="/" className="inline-flex items-center gap-3">
+            <LocalizedLink to="/" className="inline-flex items-center gap-3">
               <span className="text-5xl">🍸</span>
               <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                 {CONSTANTS.APP_NAME}
               </h1>
-            </Link>
+            </LocalizedLink>
             <p className="mt-2 text-muted-foreground">Sign in to create amazing cocktails</p>
           </div>
 
@@ -164,20 +164,20 @@ export const LoginPage: FC = () => {
             {/* Sign Up Link */}
             <p className="mt-6 text-center text-sm text-muted-foreground">
               Don't have an account?{' '}
-              <Link
+              <LocalizedLink
                 to="/register"
                 className="text-purple-600 dark:text-purple-400 hover:underline font-medium"
               >
                 Sign up
-              </Link>
+              </LocalizedLink>
             </p>
           </div>
 
           {/* Back to Home */}
           <div className="mt-6 text-center">
-            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground">
+            <LocalizedLink to="/" className="text-sm text-muted-foreground hover:text-foreground">
               ← Back to home
-            </Link>
+            </LocalizedLink>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { LocalizedLink } from '@sudobility/components';
 import { AppPageLayout } from '@sudobility/building_blocks';
 import { useTopBarConfig } from './TopBar';
 import { useFooterConfig } from './Footer';
@@ -30,9 +31,9 @@ const linkWrapper = ({
   children: React.ReactNode;
   className?: string;
 }) => (
-  <Link to={href} className={className}>
+  <LocalizedLink to={href} className={className}>
     {children}
-  </Link>
+  </LocalizedLink>
 );
 
 interface ScreenContainerProps {
@@ -57,7 +58,8 @@ function ScreenContainerInner({ children }: { children: ReactNode }) {
   const { items: breadcrumbItems } = useBreadcrumbs();
   const { pageConfig } = usePageConfig();
 
-  const isHomePage = location.pathname === '/';
+  // Home is the language root (e.g. "/en"), i.e. at most the language segment.
+  const isHomePage = location.pathname.split('/').filter(Boolean).length <= 1;
 
   const topBarConfig = useTopBarConfig();
   const footerConfig = useFooterConfig(isHomePage ? 'full' : 'compact');

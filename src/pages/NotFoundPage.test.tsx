@@ -1,3 +1,4 @@
+import { createElement } from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
@@ -16,6 +17,14 @@ vi.mock('react-router-dom', async () => {
 // Mock SEOHead from shared seo_lib
 vi.mock('@sudobility/seo_lib', () => ({
   SEOHead: () => null,
+}));
+
+// NotFoundPage navigates via useLocalizedNavigate and renders LocalizedLink,
+// both from @sudobility/components (not react-router's useNavigate directly).
+vi.mock('@sudobility/components', () => ({
+  useLocalizedNavigate: () => ({ navigate: mockNavigate }),
+  LocalizedLink: ({ children, to }: { children: unknown; to?: string }) =>
+    createElement('a', { href: typeof to === 'string' ? to : '#' }, children as never),
 }));
 
 function renderWithProviders() {

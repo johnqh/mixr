@@ -1,4 +1,5 @@
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useParams } from 'react-router-dom';
+import { addLanguageToPath } from '@sudobility/components';
 import { useAuth } from '../../context/AuthContext';
 
 /**
@@ -9,6 +10,7 @@ import { useAuth } from '../../context/AuthContext';
  */
 export function ProtectedRoute() {
   const { user, loading } = useAuth();
+  const { lang } = useParams<{ lang: string }>();
 
   if (loading) {
     return (
@@ -29,7 +31,7 @@ export function ProtectedRoute() {
   }
 
   if (!user) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to={addLanguageToPath('/login', lang || 'en')} replace />;
   }
 
   return <Outlet />;
