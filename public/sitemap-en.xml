@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://mixr.app/en</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mixr.app/en" />
@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://mixr.app/en/recipes</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mixr.app/en/recipes" />
