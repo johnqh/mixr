@@ -1,7 +1,7 @@
 {
   "name": "mixr",
   "private": true,
-  "version": "0.1.110",
+  "version": "0.1.111",
   "license": "BUSL-1.1",
   "type": "module",
   "scripts": {
@@ -49,7 +49,7 @@
     "@sudobility/entity_client": "^0.0.36",
     "@sudobility/mixr_client": "^0.1.31",
     "@sudobility/mixr_lib": "^0.0.31",
-    "@sudobility/seo_lib": "^0.0.32",
+    "@sudobility/seo_lib": "^0.0.33",
     "@sudobility/subscription-components": "^1.0.31",
     "@sudobility/subscription_lib": "^0.0.44",
     "@sudobility/types": "^1.9.62",
